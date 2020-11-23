@@ -1,0 +1,61 @@
+* jdk 1.7  ( Java development kit )
+* jdk 1.8
+
+https://developer.oracle.com/kr/
+download - all java downloads
+Java (JDK) for Developers
+Java Archive
+(Java SE 7 :  Java SE 8 : Database class)
+Java SE Development Kit 7u80
+Java SE Development Kit 8u121
+
+시스템 - 고급시스템 설정 - 환경변수 - 시스템변수 - 새로만들기
+변수 이름 : JAVA_HOME
+변수 값 : D:\B_Util\2.Java\JDK1.7
+Path - 편집 - 새로만들기 - %JAVA_HOME%\bin
+<cmd> java -version, javac -version 
+
+
+* eclipse
+
+http://eclipse.org/
+Download - Download Packages - MORE DOWNLOADS - older Versions - Kepler- SR2 Packages - Eclipse IDE for Java EE Developers (Enterprise Edition) - Windows x86_64
+D:\B_Util\3.Eclipse\eclipse_kepler
+eclipse.ini 
+-Xms40m
+-Xmx512m
+이클립스를 실행할때 메모리를 얼마나 할당할지 설정 ( Default Min 40Mb Max 512Mb -> 1024Mb)
+-Xms1024m
+-Xmx1024m
+
+Workspace : D:\A_TeachingMaterial\1.BasicJava\workspace  
+Use this as default and do not ask again 에 체크
+우측 JAVA EE 왼쪽 + 버튼 누르고 JAVA 누르고 OK 눌러서 JAVA 로 바꿔준다.
+Tasklist, Outline 잘 사용하지 않음 - 닫아준다.
+Window - Preferences - 왼쪽 검색창에 encoding 검색 ( encoding : 컴퓨터가 문자를 표현하는 방식 ) 
+@Content Types - Java Archive - Default Encoding : UTF-8 - Update
+Java Class file, Text, Word Document 모두 UTF-8 로 Update 해준다. Text 왼쪽 화살표 누르고 안바뀐 얘들을 모두 UTF-8 로 바꿔준다.
+@Workspace - text file encoding - UTF-8
+@CSS Files - Encoding - UTF-8 , @HTML Files @JSP Files 모두 UTF-8로 변경해준다. (@XML Filess 는 이미 되어있음)
+Encoding 검색어 지우고 - General - Apperance - Colors and Fonts - Basic - Text Font - Edit - 글짜크기 12로 변경
+
+* oracle server
+https://developer.oracle.com/databases/
+Oracle Database - Oracle Database 11g Release 2 Express Edition for Windows 64 - Oracle Database 11gR2 Express Edition for Windows x64 Downlaod
+
+* oracle client
+설치 유형 : Instant Client
+설치 장소 : D:\B_Util\4.Oracle\appClient
+
+* sql developer
+https://developer.oracle.com/databases/
+Oracle SLQ Developer - Overview - SQL Developer
+JDK 가 이미 있으므로 , JDK 포함되지 않은 버전으로 다운받는다. 최신버전으로 받아도 된다.
+
+Java JDK home : D:\B_Util\2.Java\JDK1.8
+접속 + -> 접속이름&사용자이름 : system , 비밀번호 : java
+호스트이름 : localhost   그대로 둔다(로컬 컴퓨터는 보통 127.0.0.1)
+테스트 (상태:성공) - 저장- 접속
+
+
+과제 : 금요일까지 PPT 로 설치하는 방법 정리해서 제출.

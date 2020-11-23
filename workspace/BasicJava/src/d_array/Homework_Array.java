@@ -36,7 +36,6 @@ public class Homework_Array {
 //			sum += array_count[i];                 		//		맞는지 확인용	//
 //		System.out.println("\n sum of array_count"+sum);//		테스팅 코드		//
 	
-	
 	}
 
 }
