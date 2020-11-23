@@ -1,0 +1,12 @@
+package C_statement;
+
+import java.util.Scanner;
+
+public class SelfTest {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+	}
+
+}

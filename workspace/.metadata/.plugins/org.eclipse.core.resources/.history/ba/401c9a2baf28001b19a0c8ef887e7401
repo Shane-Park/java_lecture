@@ -1,0 +1,40 @@
+package homeWork;
+
+import java.util.Scanner;
+
+public class Homework {
+	public static void main(String[] args){
+		
+		Scanner sc = new Scanner(System.in);
+		
+		String id, name;
+		String bar = "=========="
+		int password, age;
+		double height;
+		
+		System.out.print("==========회원가입==============\n아이디 >");
+		
+		id = sc.nextLine();
+
+		System.out.print("비밀번호(4자리 숫자) >");
+		password = Integer.parseInt(sc.nextLine());
+		
+		System.out.print("이름 >");
+		name = sc.nextLine();
+		
+		System.out.print("나이 >");
+		age = Integer.parseInt(sc.nextLine());
+		
+		System.out.print("키 >");
+		height = Double.parseDouble(sc.nextLine());
+		
+		System.out.println("==============================");
+		System.out.println("아이디 : "+id);
+		System.out.println("비밀번호 : "+password);
+		System.out.println("이름 : "+name);
+		System.out.println("나이 : "+age);
+		System.out.println("키 : "+height+"cm");
+		System.out.println("==============================");
+		
+	}
+}

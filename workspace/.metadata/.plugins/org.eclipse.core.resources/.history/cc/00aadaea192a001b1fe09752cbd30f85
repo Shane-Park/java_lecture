@@ -1,0 +1,15 @@
+package C_statement;
+
+import java.util.Scanner;
+
+public class SelfTest {
+
+	public static void main(String[] args) {
+		//탄수화물 중독 자가 진단 테스트 프로그램을 만들어주세요.
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("아침을 배불리 먹은 후 점심시간 전에 배가 고프다?");
+	}
+
+}

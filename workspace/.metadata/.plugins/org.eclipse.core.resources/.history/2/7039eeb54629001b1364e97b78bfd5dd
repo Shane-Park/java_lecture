@@ -1,0 +1,21 @@
+package b_operator;
+
+public class LogicalOperator {
+
+	public static void main(String[] args) {
+		/*
+		 * 논리 연산자
+		 * -&&(AND), ||(OR), !(NOT)
+		 * -피 연산자로 boolean만 허용한다.
+		 */
+		
+		int x = 10;
+		int y = 20;
+		boolean b = 0 < x && x <10 || x < y;
+		// || 보다 &&의 우선 순위가 높다.
+		
+		b = !(x <y); // 조건식의 결과를 반대로 저장한다.
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package C_statement;
+
+import java.util.Scanner;
+
+public class SelfTest {
+
+	public static void main(String[] args) {
+		//탄수화물 중독 자가 진단 테스트 프로그램을 만들어주세요.
+		
+		Scanner sc = new Scanner(System.in);
+		String answer=null;
+		int sum=0;
+		System.out.println("==== 탄수화물 자가 진단 테스트를 시작합니다 ====");
+		System.out.print("아침을 배불리 먹은 후 점심시간 전에 배가 고프다(y/n) : ");
+		answer = sc.nextLine();
+		if(answer=="y"){
+			sum++;
+		}else if(!(answer=="n"))
+			System.out.println("y나 n을 입력하지 않았습니다.");
+				
+		
+	}
+
+}

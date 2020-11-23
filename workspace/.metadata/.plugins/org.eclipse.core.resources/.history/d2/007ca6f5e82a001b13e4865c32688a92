@@ -1,0 +1,29 @@
+
+public class test {
+
+	public static void main(String[] args) {
+		//num, 429 input 918 , 2ball x 1 ball o
+		int i1=9; int i2=1; int i3=8;
+		int n1=4; int n2=2; int n3=9;
+		int strike=0; int ball=0; int out=0;
+		
+		if(i1==n1) strike++;            
+		if(i2==n2) strike++;		   
+		if(i3==n3) strike++;			
+		if(i1==n2 || i1==n3){
+			ball++;
+			}
+		if(i2==n1 || i1==n3){
+			ball++;
+			}
+		if(i3==n1 || i1==n2){
+			ball++;
+			}
+		out = 3 - strike - ball;
+		System.out.println("i1 i2 i3 n1 n2 n3 strike ball out");
+		System.out.printf("%d  %d  %d  %d  %d  %d  %d     %d     %d",i1,i2,i3,n1,n2,n3,strike,ball,out);
+		
+
+	}
+
+}

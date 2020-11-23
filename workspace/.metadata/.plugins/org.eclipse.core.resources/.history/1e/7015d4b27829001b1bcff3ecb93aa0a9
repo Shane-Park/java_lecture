@@ -1,0 +1,35 @@
+package b_operator;
+
+import java.util.Scanner;
+
+public class SimpleCaculator {
+
+	public static void main(String[] args) {
+		//두 개의 숫자와 연산자를 입력	 받아 연산 결과를 알려주는 프로그램을 만들어 주세요.
+		Scanner sc = new Scanner(System.in);
+		double a,b,c=0;
+		String Operator;
+		
+		System.out.print("첫번째 숫자를 입력해주세요 : ");
+		a = Double.parseDouble(sc.nextLine());
+		System.out.print("사용하고자 하는 연산자(+,-,*,/,%)를 입력해주세요 : ");
+		Operator = sc.nextLine();
+		System.out.print("두번째 숫자를 입력해주세요 : ");
+		b = Double.parseDouble(sc.nextLine());
+
+		System.out.println(a+" "+Operator+" "+b+" = "+
+		(Operator.equals("+") ? a+b :(
+				Operator.equals("-") ? a-b :(
+						Operator.equals("*") ? a*b :(
+								Operator.equals("/") ? a/b :(
+										Operator.equals("%") ? a%b : "사용할 수 없는 연산자 사용으로 계산 불가능"
+										)
+								)
+						)
+				)
+		)
+		+" 입니다.");
+		
+	}
+
+}

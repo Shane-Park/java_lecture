@@ -1,0 +1,10 @@
+package C_statement;
+
+public class SelfTest {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

@@ -1,0 +1,18 @@
+package java_basic;
+
+public class Study_test_01 {
+	public static void main(String[] args) {
+		
+		long l1 = 100L;
+		long l2 = 100; // L 이 생략되어도 int 값으로 저장이 가능
+		long l3 = 10_000_000_000L;
+//		long l3 = 10_000_000_000; // 숫자가 커서 L 안붙이면 에러
+		System.out.println(l1);
+		System.out.println(l2);
+		System.out.println(l3);
+		System.out.println(1e3);
+		
+		
+	}
+
+}
