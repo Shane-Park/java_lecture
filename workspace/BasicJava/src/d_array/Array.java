@@ -90,7 +90,9 @@ public class Array {
 			shuffle[random] = shuffle[random2];
 			shuffle[random2] = temp;
 		}
+		
 		System.out.println(Arrays.toString(shuffle));
+		
 		
 
 	}
