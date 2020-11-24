@@ -23,18 +23,22 @@ public class Homework_Array {
 		int[] array_count = new int[max-min+1];		// 랜덤값들의 총 case는 max-min+1 개 (x-y+1)
 		
 		for(int i=0; i<array.length; i++){
-			array[i] = (int)((Math.random())*(max-min+1))+min; // most difficult part to code
+			array[i] = (int)((Math.random())*(max-min+1))+min; // it was most difficult part to code
 			array_count[array[i]-min]++;	// 배열 번호는 0 ~ (max-min) 이지만 생성된 값은 min ~ max 이므로. 
 		}
 		
 		System.out.println(Arrays.toString(array));								/////////////
-		for(int i=min; i<=max; i++ )											// Out put //
-			System.out.print("["+i+"]"+" 발생 횟수 : "+array_count[i-min]+"회, ");	/////////////
-		
-//		int sum=0;                                 		//	array_count		//
-//		for(int i=0; i<array_count.length; i++)    		//		총합 	갯수		//
-//			sum += array_count[i];                 		//		맞는지 확인용	//
-//		System.out.println("\n sum of array_count"+sum);//		테스팅 코드		//
+		for(int i=min, j=1; i<=max; i++,j++ ){											// Out put //
+			System.out.printf(" [%3d] 총 발생 횟수 : %3d회",i,array_count[i-min]);	/////////////
+			if(j==5){
+				System.out.print("\n");
+				j=0;
+			}else System.out.print(",");
+		}
+		int sum=0;                                 		//	array_count		//
+		for(int i=0; i<array_count.length; i++)    		//		총합 	갯수		//
+			sum += array_count[i];                 		//		맞는지 확인용	//
+		System.out.printf("\n총 발생 횟수의 합 [%d]",sum);		//		테스팅 코드		//
 	
 	}
 
