@@ -1,0 +1,37 @@
+package d_array;
+import java.util.Arrays;
+
+public class Homework_Sort {
+
+	public static void main(String[] args) {
+//		버블정렬 : 바로 뒤의 숫자와 비교해서 큰 수를 뒤로 보내는 방식
+//		삽입정렬 : 두번째 숫자부터 앞의 숫자들과 비교해서 큰 수는 뒤로 밀고 중간에 삽입하는 방식
+		                                                         		  
+		int[] arr = new int[10];                  //                  		// 
+		for(int i=0; i<arr.length; i++)           // 배열 선언 고정 한채로 	    	// 
+			arr[i] = (int)(Math.random()*100)+1;  //  석차/선택/버블/삽입 만들어보자	//
+		System.out.println(Arrays.toString(arr));
+		
+//		석차 구하기 : 점수를 비교해 작은 점수의 등수를 증가시키는 방식
+		int[] rank = new int[arr.length];
+		for(int i=0; i<rank.length; i++)
+			rank[i] = 1;
+		for(int i=0; i<rank.length; i++){
+			for(int j=i+1; j<rank.length; j++){ // half the comparison to make it efficient
+				if(arr[i]<arr[j])
+					rank[i]++;
+				else if(arr[i]!=arr[j]) // if their numbers are same, let them have the better same rank
+					rank[j]++;
+				
+			}
+		}
+		System.out.println(Arrays.toString(rank));
+		
+//		선택정렬 : 가장 작은 숫자를 찾아서 앞으로 보내는 방식		
+
+		
+		
+		
+	}
+
+}

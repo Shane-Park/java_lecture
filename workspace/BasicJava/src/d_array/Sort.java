@@ -20,21 +20,17 @@ public class Sort {
 			arr[i] = (int)(Math.random()*100)+1;
 		System.out.println(Arrays.toString(arr));
 		
-//		// 석차 구하기
-//		int[] rank = new int[arr.length];
-//		for(int i=0; i<rank.length; i++)
-//			rank[i] = 1;
-//		for(int i=0; i<arr.length; i++){
-//			for(int j=i+1; j<arr.length; j++){ // half the comparison to make it efficient
-//				if(arr[i]<arr[j])
-//					rank[i]++;
-//				else{ 
-//					if(arr[i]!=arr[j]) // if their numbers are same, let them have the better same rank
-//						rank[j]++;
-//				}
-//			}
-//		}
-//		System.out.println(Arrays.toString(rank));
+		// 석차 구하기
+		int[] rank = new int[arr.length];
+		for(int i=0; i<rank.length; i++)
+			rank[i] = 1;
+		for(int i=0; i<arr.length; i++){
+			for(int j=1; j<arr.length; j++){ 
+				if(arr[i]<arr[j])
+					rank[i]++;
+				}
+		}
+		System.out.println(Arrays.toString(rank));
 	
 //		// 선택정렬 : 가장 작은 숫자를 찾아서 앞으로 보내는 방식
 //		for(int i=0; i<arr.length-1; i++){
@@ -80,7 +76,6 @@ public class Sort {
 			}
 			arr[j+1] = temp;	
 		}
-		
 		
 		
 		
