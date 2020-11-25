@@ -29,11 +29,11 @@ public class Homework_Sort {
 		
 //		선택정렬 : 가장 작은 숫자를 찾아서 앞으로 보내는 방식		
 		
-		for(int i=0; i<rank.length-1; i++){
+		for(int i=0; i<rank.length; i++){
 			int min_index=i;
 			for(int j=i+1; j<rank.length; j++){
-				if(arr[min_index]>arr[j])
-					min_index=j;
+				if(arr[i+1]<arr[i])
+					min_index=i+1;
 				}
 			int temp = arr[i];
 			arr[i] = arr[min_index];
