@@ -1,9 +1,0 @@
-package b_operator;
-
-public class SimpleCaculator {
-
-	public static void main(String[] args) {
-		//두 개의 숫자와 연산자를 입력	 받아 연산 결과를 알려주는 프로그램을 만들어 주세요.
-	}
-
-}

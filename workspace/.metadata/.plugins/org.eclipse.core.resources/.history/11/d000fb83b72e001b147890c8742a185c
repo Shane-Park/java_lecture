@@ -1,0 +1,15 @@
+package d_array;
+
+public class Quiz2 {
+
+	public static void main(String[] args) {
+		//그래프 그리기
+		
+		int[] arr = new int[20];
+		for(int i=0; i<arr.length; i++)
+			arr[i] = (int)(Math.random() * 5) + 1;
+		System.out.println(Arrays.toString(arr));
+
+	}
+
+}

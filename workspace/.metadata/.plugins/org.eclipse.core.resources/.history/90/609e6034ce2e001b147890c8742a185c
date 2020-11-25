@@ -1,0 +1,32 @@
+package d_array;
+import java.util.Arrays;
+
+public class Quiz3_hateSameNumber {
+
+	public static void main(String[] args) {
+
+		int[] arr = new int[10];
+		for(int i=0; i<arr.length; i++)
+			arr[i] = (int)(Math.random() * 5) + 1;
+
+		
+		int new_len = 1;
+		int[] temp = new int[arr.length];
+		for(int i=0; i<arr.length-1; i++){
+			if(arr[i] != arr[i+1]){
+				temp[new_len-1] = arr[i];
+				new_len++;
+			}
+		}
+		temp[new_len-1] = arr[arr.length];
+		
+		int[] answer = new int[new_len];
+		for(int i=0; i<new_len; i++)
+			answer[i]=temp[i];
+
+		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(temp));
+		System.out.println(Arrays.toString(answer));
+
+	}
+}

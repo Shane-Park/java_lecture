@@ -1,0 +1,73 @@
+package d_array;
+
+import java.util.Arrays;
+
+public class Homework3 {
+	public static void main(String[] args) {
+		//나누어 떨어지는 숫자 배열
+		int[] arr = new int[100];
+		for(int i=0; i<arr.length; i++)
+			arr[i] = (int)(Math.random()*100)+1;
+		/*
+		 * 2~5 사이의 랜덤한 수로 나누어 떨어지는 숫자로만 이루어진 배열을
+		 * '정렬'해서 출력해주세요.
+		 * 5
+		 * [5,10,15,20,25...]
+		 */
+		int random = (int)(Math.random()*4)+2;           /////////////////////////
+		System.out.printf("2~5 사이의 랜덤한 수 : %d\n",random);//	   Generate random  //
+		int size=0;                                      // and temp array   	//
+		int[] temp = new int[100];                       /////////////////////////
+		                                                 
+		for(int i=0; i<arr.length; i++){                 /////////////////////////
+			if(arr[i]%random ==0)                        // put value on temp	//
+				temp[size++]=arr[i];			         /////////////////////////
+		}
+		
+		int[] result = new int[size];                    /////////////////////////
+		for ( int i=0; i<result.length; i++)             // put value on result	//
+			result[i] = temp[i];                         /////////////////////////
+		
+		///////// will ll try to quick sort from here
+		int pivot=size;
+		int right_p=0;
+		int left_p=0;
+		boolean flag=false;
+		do{
+			if(result[left_p]>=result[pivot]){
+				left_p++; right_p++;
+			}
+			else{
+				while(result[right_p]>result[pivot])
+					right_p++;
+			}
+
+			int temp2 = result[left_p];
+			result[left_p] = result[right_p];
+			result[right_p] = temp2;
+			left_p++;
+			right_p++;
+
+			if(right_p == pivot){
+				int temp2 = result[left_p];
+				result[left_p] = result[pivot];
+				result[pivot] = temp2;
+				pivot = left_p;
+				right_p=0;
+				left_p=0;
+				flag = true
+			}while(flag)
+				
+			
+		}
+		
+		
+		
+		
+		System.out.println(Arrays.toString(arr));
+		System.out.println(Arrays.toString(temp));
+		System.out.println(Arrays.toString(result));
+		
+
+	}
+}
