@@ -11,14 +11,14 @@ public class Homework4_Scores {
 		int num_students = array.length-1;
 		int num_subjects = names.length-1;
 		
-		for(int i=0; i<num_students; i++){					//// Random //////////////////
-			for(int j=0; j<array[i].length-2; j++){         // 	array[i][7]는  			//	
+		for(int i=0; i<num_students; i++){				//// Random //////////
+			for(int j=0; j<array[i].length-2; j++){         // 	array[i][7]는  	//
 				array[i][j] = (int)(Math.random() * 101);   //  		 학생별 총점
 				array[i][7] += array[i][j];		            // array[num_subjects][j]는 
-				array[num_subjects][j] += array[i][j];	    //		과목 합계				//
-			}												//////////////////////////////
+				array[num_subjects][j] += array[i][j];	            //		과목 합계		//
+			}												//////////////////////
 		}
-		for(int i=0; i<num_students;i++){          	    ////// Ranking ///////////
+		for(int i=0; i<num_students;i++){             ////// Ranking ///////////
 			for(int j=i+1; j<array.length; j++){        //						//
 				if(array[i][7] < array[j][7])           //	array[i][7]에 비교된
 					array[i][8]++;                      // 	학생별 총점을 기준으로 비교
@@ -36,7 +36,7 @@ public class Homework4_Scores {
 			array[1] = temp;                         // 
 		}                                            //
 		                                             //
-		for(int i=1; i<(num_students); i++){         //
+		for(int i=1; i<(num_students); i++){       //
 			int temp[] = array[i];                   //		배열을 정렬할때
 			String temp_name = names[i];             //		저장된 이름들도
 			int j;                                   // 	함께 정렬해줍니다
