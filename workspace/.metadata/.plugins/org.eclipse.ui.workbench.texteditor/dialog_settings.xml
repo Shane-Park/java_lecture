@@ -2,19 +2,22 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="261" key="DIALOG_WIDTH"/>
-		<item value="293" key="DIALOG_Y_ORIGIN"/>
+		<item value="372" key="DIALOG_Y_ORIGIN"/>
+		<item value="781" key="DIALOG_X_ORIGIN"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="660" key="DIALOG_X_ORIGIN"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="answer" key="selection"/>
+		<item value="(float)(names.length-1.0)" key="selection"/>
 		<list key="findhistory">
+			<item value="names.length-1.0"/>
+			<item value="names.length-1"/>
+			<item value="24"/>
 			<item value="sorted_arr"/>
 			<item value="random"/>
 			<item value="equal"/>
@@ -22,6 +25,10 @@
 			<item value="equals"/>
 		</list>
 		<list key="replacehistory">
+			<item value="(float)(names.length-1.0)"/>
+			<item value="(float)names.length-1"/>
+			<item value="names.length-1"/>
+			<item value="length-1"/>
 			<item value="answer"/>
 		</list>
 	</section>
