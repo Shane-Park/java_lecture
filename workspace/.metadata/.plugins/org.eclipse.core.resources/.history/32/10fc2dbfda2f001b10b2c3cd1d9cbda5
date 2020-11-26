@@ -1,24 +1,23 @@
 
 public class Testing {
 	public static void main(String[] args) {
-		int n = 3;
-		int m = 12;
+		int n = 14;
+		int m = 21;
 		int[] answer = new int[2];
-		answer[0] = 1;
         if(n>m){
             int temp = n;
             n = m;
             m = temp;
         }
         
-        for(int i=2; i<=n; i++){
-            if(n%i==0 && m%i==0)
+        for(int i=1; i<=n; i++){
+            if(n%answer[0]==0 && m%answer[0]==0)
                 answer[0] = i;
         }
                 
-        answer[1] = n * m / answer[0];
+        answer[1] = answer[0] *n * m;
        
-        System.out.println(n+" "+m+" "+answer[0]+" "+answer[1]);
+        System.out.println(n+" "+m);
         
     }
 	}

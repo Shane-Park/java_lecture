@@ -16,7 +16,7 @@ public class Testing {
                 answer[0] = i;
         }
                 
-        answer[1] = n * m / answer[0];
+        answer[1] = answer[0] *n * m;
        
         System.out.println(n+" "+m+" "+answer[0]+" "+answer[1]);
         

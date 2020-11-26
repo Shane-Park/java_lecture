@@ -7,7 +7,7 @@ public class Homework4_Scores {
 		
 		String[] names = {"정지수", "김혜정", "송수미", "이현기", "진예은", "윤지혜", "양지수", "정이삭", "김도윤", "박세현", "김보현", "오세일", "원정훈",
 				"장병길", "문선준", "배수진","진유리", "김지훈", "김동익", "임태준", "이진수", "최희수", "박초원", "전형섭", "김보미","과목합계"};
-		int[][] array= new int[names.length][9]; 	//과목수 7개 + 합계 + 석차 . 학생별로 총 9 크기의 배열
+		int[][] array= new int[names.length][9];
 		int num_students = array.length-1;
 		int num_subjects = names.length-1;
 		

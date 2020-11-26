@@ -1,10 +1,10 @@
 
 public class Testing {
 	public static void main(String[] args) {
-		int n = 3;
-		int m = 12;
-		int[] answer = new int[2];
+		int n = 14;
+		int m = 21;
 		answer[0] = 1;
+		int[] answer = new int[2];
         if(n>m){
             int temp = n;
             n = m;
@@ -12,13 +12,13 @@ public class Testing {
         }
         
         for(int i=2; i<=n; i++){
-            if(n%i==0 && m%i==0)
+            if(n%answer[0]==0 && m%answer[0]==0)
                 answer[0] = i;
         }
                 
-        answer[1] = n * m / answer[0];
+        answer[1] = answer[0] *n * m;
        
-        System.out.println(n+" "+m+" "+answer[0]+" "+answer[1]);
+        System.out.println(n+" "+m);
         
     }
 	}
