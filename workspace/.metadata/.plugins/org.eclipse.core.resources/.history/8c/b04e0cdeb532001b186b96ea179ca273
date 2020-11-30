@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+
+public class Testing {
+	public static void main(String[] args) {
+		int a=1, b=1;
+		//==================================
+		
+        String answer = "";
+        String[] days ={"FRI","SAT","SUN","MON","TUE","WED","THU"};
+        switch(a){
+        case 1: answer = days[(a-1)+(b-1)%7];
+        
+        }
+        		
+        		
+        		
+        		//return answer;
+        System.out.println(answer);
+	
+	} 
+
+
+
+	
+		
+	}
+	
+	
+
+
+
+
+

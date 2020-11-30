@@ -1,0 +1,12 @@
+package e_oop;
+
+public class UserDefineDataType {
+
+	public static void main(String[] args) {
+		/*
+		 * 
+		 */
+
+	}
+
+}

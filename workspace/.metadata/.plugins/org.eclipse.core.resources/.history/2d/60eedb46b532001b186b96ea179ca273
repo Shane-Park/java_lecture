@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+
+public class Testing {
+	public static void main(String[] args) {
+		int a=5, b=24;
+		//==================================
+		
+        String answer = "";
+        String[] days ={"SUN","MON","TUE","WED","THU","FRI","SAT"};
+        switch(a){
+        
+        }
+        		
+        		
+        		
+        		//return answer;
+	
+	} 
+
+
+
+	
+		
+	}
+	
+	
+
+
+
+
+
