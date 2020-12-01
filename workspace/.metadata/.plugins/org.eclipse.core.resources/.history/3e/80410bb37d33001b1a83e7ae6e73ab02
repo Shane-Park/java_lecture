@@ -1,0 +1,26 @@
+package e_oop;
+
+public class Calculator {
+	// 두개의 파라미터를 받아서 연산을 함. 그래서 그 결과를 리턴. 그런 메서드가 5개 ( +,-,*,/,%)
+	
+	int add(int a, int b){
+		return a+b;
+	}
+	
+	int subtract(int a,int b){
+		return a-b;
+	}
+	
+	long multiply(int a,int b){
+		return a*b;
+	}
+	
+	double divide(int a,int b){
+		return a/b;
+	}
+	
+	int remain(int a, int b){
+		return a%b;
+	}
+
+}

@@ -1,0 +1,45 @@
+package e_oop;
+
+import java.util.Scanner;
+
+public class Homework_Class_Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Homework_Class mine = new Homework_Class();
+		String str ="";
+		program : while(true){
+			System.out.print("기능을 선택해주세요 : (1:숙제추가, 2:숙제완료, 3:남은숙제 확인, 0:프로그램 종료) : ");
+
+			switch( Integer.parseInt( sc.nextLine() ) ){
+			case 1 :
+				System.out.print("추가할 숙제를 입력해주세요: ");
+				str = sc.nextLine();
+				mine.addHomework(str);
+				break;
+			case 2 :
+				System.out.print("완료한 숙제를 입력해주세요: ");
+				str = sc.nextLine();
+				if(mine.homeworks.contains(str))
+					mine.doHomework(str);
+				else System.out.println("해당 숙제는 숙제 목록에 없습니다. 다시 한번 확인해주세요");
+				break;
+			case 3 :
+				mine.printHomework();
+				break;
+			case 0 : 
+				System.out.println("프로그램을 종료합니다.");
+				break program;
+			default : 
+				System.out.println("올바르지 않은 명령입니다. 1,2,3,0 중 하나를 다시 입력해주세요.");
+				break;
+
+			}
+
+
+
+
+		}
+	}
+
+}

@@ -13,18 +13,19 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="num_students" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="this"/>
+			<item value="str"/>
+			<item value="int"/>
 			<item value="num_subjects"/>
 			<item value="-2"/>
 			<item value="-"/>
 			<item value="names.length-1"/>
 			<item value="names.length-1.0"/>
-			<item value="array.length-1"/>
-			<item value="24"/>
-			<item value="sorted_arr"/>
 		</list>
 		<list key="replacehistory">
+			<item value="double"/>
 			<item value="num_students"/>
 			<item value="num_subjects"/>
 			<item value="(float)(names.length-1.0)"/>

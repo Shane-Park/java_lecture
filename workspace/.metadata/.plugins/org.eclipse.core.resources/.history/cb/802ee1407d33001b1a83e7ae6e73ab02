@@ -1,0 +1,6 @@
+package e_oop;
+
+public class Calculator {
+	// 두개의 파라미터를 받아서 연산을 함. 그래서 그 결과를 리턴.
+
+}

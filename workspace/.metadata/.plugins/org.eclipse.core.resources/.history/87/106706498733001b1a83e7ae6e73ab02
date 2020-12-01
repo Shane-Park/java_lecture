@@ -1,0 +1,28 @@
+package e_oop;
+
+import java.util.Arrays;
+
+/*
+ * 어떤 대상을 잡아 클래스를 만들어주세요.
+ * 메서드의 내용은 구체적이지 않아도 괜찮습니다.
+ * 파라미터와 리턴 타입 위주로 만들어주세요.
+ * 클래스에 메서드를 만들어보면서 파라미터와 리턴 타입을 생각해보는 것이 중요합니다.
+ * 만들어진 클래스를 main 매서드에서 사용해주세요.
+ */
+public class Homework_Class {
+	String homeworks = "";
+	int homeworkCount = 0;
+	void addHomework(String str){
+		homeworks += " "+str;
+		homeworkCount ++;
+	}
+	void doHomework(String str){
+		homeworks = 
+		homeworkCount--;
+		homeworks.sort();
+	}
+	int checkHomework(){
+		return homeworkCount;
+	}
+
+}

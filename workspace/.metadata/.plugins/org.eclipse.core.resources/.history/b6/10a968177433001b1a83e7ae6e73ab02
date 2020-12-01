@@ -1,0 +1,14 @@
+package e_oop;
+
+public class ClassMaker {
+	int v= 0;
+	// 전역 변수 하나를 선언 빛 초기화 해주세요.
+	
+	// 리턴 타입과 파라미터가 없는 메서드 하나를 만들어주세요.
+	// 메서드 안에서 전역변수를 출력해주세요.
+	void Method1(){
+		
+	}
+	
+
+}
