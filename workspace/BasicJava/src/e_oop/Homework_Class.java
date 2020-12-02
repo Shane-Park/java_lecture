@@ -1,8 +1,5 @@
 package e_oop;
-
 import java.util.Scanner;
-
-
 /*
  * 어떤 대상을 잡아 클래스를 만들어주세요.
  * 메서드의 내용은 구체적이지 않아도 괜찮습니다.
@@ -33,7 +30,7 @@ public class Homework_Class {
 	}
 
 	void printHomework(){
-		System.out.println("남은숙제는 ["+homeworks+" ]입니다. 총"+checkHomework()+"개의 숙제가 남았습니다.");
+		System.out.println("남은숙제는 ["+homeworks+" ]입니다. 총 "+checkHomework()+"개의 숙제가 남았습니다.");
 	}
 
 	void menu(String input){
