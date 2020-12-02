@@ -1,4 +1,4 @@
-package Selfstudy_test;
+package selfstudy_test;
 
 public class Study_test_01 {
 	public static void main(String[] args) {

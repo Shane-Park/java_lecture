@@ -1,4 +1,4 @@
-package Programmers;//FINISHED!!
+package programmers;//FINISHED!!
 import java.util.Arrays;
 
 public class HateSameNumber {

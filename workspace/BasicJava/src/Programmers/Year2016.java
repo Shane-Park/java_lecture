@@ -1,4 +1,4 @@
-package Programmers; //FINISHED!!
+package programmers; //FINISHED!!
 
 public class Year2016 {
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/BasicJava/src/Selfstudy_test/Study_test_09.java"/>
+<listEntry value="/BasicJava/src/selfstudy_test/Study_test_09.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="Selfstudy_test.Study_test_09"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="selfstudy_test.Study_test_09"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="BasicJava"/>
 </launchConfiguration>
