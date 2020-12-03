@@ -1,0 +1,9 @@
+package player_Monster;
+
+public class GameSystem {
+	void menu(){
+		System.out.println(  "[MENU] 1.STATUS 2.COMBAT 3.RECOVER 4. EXIT");
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+
+}

@@ -1,0 +1,9 @@
+package player_Monster;
+
+public class GameSystem {
+	void menu(){
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	
+	}
+
+}
