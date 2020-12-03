@@ -1,0 +1,9 @@
+package player_Monster;
+
+public class BattleField {
+	void field(int i, Player player){
+		
+	}
+
+
+}

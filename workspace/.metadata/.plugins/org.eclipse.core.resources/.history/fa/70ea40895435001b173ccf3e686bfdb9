@@ -1,0 +1,50 @@
+package player_Monster;
+
+import java.util.Scanner;
+
+public class main {
+
+	public static void main(String[] args) {
+		Player player1 = new Player();
+		GameSystem game = new GameSystem();
+		game.welcomeMessage(player1);
+
+		Monster rabbit = new Monster("rabbit",1);
+		Monster rat = new Monster("rat",2);
+		Monster snake = new Monster("snake",3);
+		Monster wolf = new Monster("wolf",4);
+
+		Scanner sc = new Scanner(System.in);
+		game : while(true){
+			GameSystem.menu();
+			String input = sc.nextLine();
+			
+			switch(input){
+			case "1": game.status(player1);
+				break;
+			case "2":
+				break;
+			case "3": player1.recover();
+				break;
+			case "4":
+				System.out.println("Thank you for enjoying ["+player1.name+"]. There's no save file for you. Bye");
+				break game;
+
+			}
+
+		}
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+}

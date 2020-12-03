@@ -1,0 +1,73 @@
+package player_Monster;
+
+import java.util.Scanner;
+
+public class GameSystem {
+	BattleField field = new BattleField();
+	
+	static void menu(){
+		System.out.print(  "[MENU]1.STATUS 2.COMBAT 3.RECOVER 4. EXIT\n>");
+      //System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	
+	void wait(int i){
+		long end = System.currentTimeMillis();
+		long start = System.currentTimeMillis();
+		while((end-start)<i)
+			end=System.currentTimeMillis();
+	}
+	
+	void status(Player player){
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println(  "[Lv "+player.lv+" "+player.name+"] EXP "+player.exp+"/"+player.exp_max+" HP "+player.hp+"/"+player.hp_max+" "+player.money+" gold");
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	
+	void welcomeMessage(Player player){
+		System.out.println("Welcome to game world ["+player.name+"]. Please wait ");
+		for(int i=0; i<42; i++){
+			this.wait(50);
+			System.out.print("■");
+		}
+		System.out.println("\n■■■■■■■■■■■■ LOADING COMPLETE ■■■■■■■■■■■■");
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	
+	void battle(Player player){
+		field : while(true){
+			fieldlist();
+			System.out.print(">");
+			Scanner sc = new Scanner(System.in);
+			String input = sc.nextLine();
+			
+			switch(input){
+			case "1" : field(1,player);
+				break;
+			case "2" :
+				break;
+			case "3" :
+				break;
+			case "4" :
+				break field;
+			default : 
+				System.out.println("You put the wrong command! Try again.");
+				break;
+			}
+
+		}
+		
+		
+	}
+	void fieldlist(){
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println(  "■■CHOOSE A BATTLE FIELD YOU WANT TO JOIN■■");
+		System.out.println(  "■■1.EASY 1[■■■  ONLY LV1 MONSTERS HERE ■■■");
+		System.out.println(  "■■2.EASY 2[■■■■■  MONSTER LEVEL 1~2  ■■■■■");
+		System.out.println(  "■■3.EASY 3[■■■■■  MONSTER LEVEL 2~3  ■■■■■");
+		System.out.println(  "■■4.BACK TO MENU ■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	
+
+
+}
