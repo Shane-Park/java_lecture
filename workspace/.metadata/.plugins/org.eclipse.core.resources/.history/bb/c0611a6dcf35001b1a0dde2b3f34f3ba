@@ -1,0 +1,13 @@
+package f_game;
+
+public class MyGame {
+	
+	Character c;
+	Item[] items;
+
+	public static void main(String[] args) {
+
+
+	}
+
+}

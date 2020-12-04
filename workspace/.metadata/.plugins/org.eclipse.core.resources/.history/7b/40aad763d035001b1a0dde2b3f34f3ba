@@ -1,0 +1,44 @@
+package f_game;
+
+import e_oop.ScanUtil;
+
+public class MyGame {
+	
+	Character c;
+	Item[] items;
+	
+	MyGame(){
+		c = new Character("가렌", 100, 50, 20, 10);
+		
+		items = new Item[10];
+		items[0] = new Item("무한의대검",0,0,10,0);
+		items[1] = new Item("가시갑옷",0,0,0,10);
+	}
+
+	public static void main(String[] args) {
+		new MyGame().start();
+
+	}
+	
+	void start(){
+		int input = 0;
+		while(true){
+			System.out.println("1.내정보\t2.사냥\t3.종료");
+			input = ScanUtil.nextInt();
+			
+			switch(input){
+			case 1:
+				c.showInfo();
+				break;
+			case 2:
+				hunt();
+				break;
+			case 3:
+				System.out.println("종료되었습니다.");
+				break;
+			}
+		}
+		
+	}
+
+}

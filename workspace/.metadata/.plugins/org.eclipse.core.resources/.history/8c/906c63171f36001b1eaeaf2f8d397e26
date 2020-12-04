@@ -1,0 +1,31 @@
+package player_Monster;
+
+public class Monster{
+	int lv;
+	int hp_max;
+	int hp;
+	String name;
+	int attack;
+	int armor;
+	int exp;
+	int money;
+	Monster(String name, int lv){
+		this.lv = lv;
+		this.hp = lv * 80;
+		this.hp_max = this.hp;
+		this.name = name;
+		this.attack = lv*2;
+		this.armor = lv;
+		this.exp = lv*5;
+		this.money = lv;
+	}
+	
+	void attack(Player p){
+		int damage = attack - p.armor;
+		damage = damage <= 0 ? 1: damage;
+		p.hp = p.hp < damage ? p.hp - p.hp : p.hp - damage;
+		AllText.damage(name,p.name,damage,p.hp);
+	}
+
+
+}

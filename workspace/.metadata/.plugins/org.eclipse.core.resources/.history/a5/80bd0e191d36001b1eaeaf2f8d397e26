@@ -1,0 +1,24 @@
+package player_Monster;
+
+public class BattleField {
+	void field1(Player player){
+		Monster m0 = new Monster(AllText.monsterNames[0],AllText.monsterLevels[0]);
+		battle(player,m0);
+
+	}
+	
+	void battle(Player player,Monster m0){
+		battle : while(true){
+			player.attack(m0);
+			if(m0.hp <= 0){
+				AllText.killed(m0.name);
+				player.getExp(m0.exp);
+				player.getGold(m0.money);
+				AllText.pressAny();
+				break battle;
+			}
+			m0.attack(player);
+		}
+	}
+
+}

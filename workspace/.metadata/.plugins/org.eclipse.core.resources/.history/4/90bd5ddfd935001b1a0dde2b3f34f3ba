@@ -1,0 +1,37 @@
+package player_Monster;
+
+public class AllText_ENG {
+	
+	static void menu(){
+		System.out.print(  "[MENU]  1.STATUS 2.COMBAT 3.RECOVER 4. EXIT\n>");
+	}
+	static void welcome(){
+		System.out.print("type your name > ");
+	}
+	static void bye(String name){
+		System.out.printf("Thank you for enjoying [%s]. There's NO save file for you. BYE :P",name);
+	}
+	static void wrong(){
+		System.out.println("You put the wrong command! Try again.");
+	}
+	static void status(Player player){
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println(  "■ [Lv "+player.lv+" "+player.name+"] EXP "+player.exp+"/"+player.exp_max+" HP "+player.hp+"/"+player.hp_max+" "+player.gold+" gold"+"   ■");
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	static void welcomePlayer(Player player){
+		System.out.println("Welcome to game world ["+player.name+"]. Please wait ");
+	}
+	static void loadingComplete(){
+		System.out.println("\n■■■■■■■■■■■■■ LOADING COMPLETE ■■■■■■■■■■■■■■");
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	static void alreadyFull(){
+		System.out.println("[FREE] Your HP is already full.");
+	}
+	static void recover(int price){
+		System.out.printf("You spent [%d] gold to recover.",price);
+		System.out.println("Your hp is now fully recovered!");
+	}
+
+}

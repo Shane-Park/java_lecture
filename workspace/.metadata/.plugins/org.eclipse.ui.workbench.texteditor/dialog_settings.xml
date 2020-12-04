@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="this.hp" key="selection"/>
+		<item value="Monster" key="selection"/>
 		<list key="findhistory">
+			<item value="heart(expPercent);"/>
+			<item value="monster"/>
 			<item value="this.hp"/>
 			<item value="money"/>
 			<item value="_now"/>
 			<item value="GameSystem"/>
 			<item value="this"/>
 			<item value="str"/>
-			<item value="int"/>
-			<item value="num_subjects"/>
 		</list>
 		<list key="replacehistory">
 			<item value="gold"/>

@@ -8,54 +8,79 @@ public class Player{
 	int exp;
 	int hp_max;
 	int hp;
-	int power=100;
 	int gold;
+	int attack;
+	int armor;
 	String name;
-	int[] exp_table = {0, 60, 100, 150, 260, 330};
+	int[] exp_table = {0, 10, 30, 80, 220, 300, 500, 800};
 
 	Player(){
-		this(1,0,80,100);
-		System.out.print("type your name > ");
+		this(1,80,100);
+		AllText.welcome();
 		Scanner sc = new Scanner(System.in);
 		this.name = sc.nextLine();
 	}
-	Player(int lv, int exp, int hp, int gold){
+	Player(int lv, int hp, int gold){
 		this.lv = lv;
-		this.exp = exp;
+		this.exp = 0;
 		this.exp_max = exp_table[lv];
 		this.hp_max = hp;
 		this.hp = hp;
 		this.gold = gold;
+		this.attack = 30;
+		this.armor = 1;
 	}
+	
+	void getExp(int exp){
+		this.exp += exp;
+		AllText.expGet(exp,this.exp_max,this.exp);
+		while( exp_max <= this.exp){
+			this.exp -= exp_max;
+			lvup();
+		}
+	}
+	
 	void lvup(){
-
+		lv++;
+		hp_max += 10;
+		attack += 3;
+		armor += 1;
+		hp = hp_max;
+		AllText.levelup(lv);
+	}
+	
+	void getGold(int gold){
+		this.gold+=gold;
+		AllText.getGold(gold,this.gold);
 	}
 	void recover(){
 		int recoverPrice = 1;
 		if(this.hp == this.hp_max){
-			System.out.println("[FREE] Your HP is already full.");
+			AllText.alreadyFull();
 			return;
 		}
 		if(gold >= recoverPrice){
 			this.gold -= recoverPrice;
 			this.hp = this.hp_max;
-			System.out.println("[-"+recoverPrice+" gold] You spent gold to recover.");
-			System.out.println("Your hp is now fully recovered!");
+			AllText.recover(recoverPrice);
 		}
+		AllText.pressAny();
 	}
 	
-	void battle(Monster monster){
-		int damage = monster.lv;
-		int bonusGold = monster.lv;
-		
-		this.hp -= damage;
-		this.gold += bonusGold;
-		this.exp += monster.lv;
-		System.out.printf("You defeated [%s]. got [%d]gold.",monster.name,bonusGold);
-		System.out.printf("\nNow your HP is [%d/%d]. Your gold is [%d gold]\n",this.hp,this.hp_max,this.gold);
+	void attack(Monster m){
+		int damage = attack - m.armor;
+		damage = damage <= 0 ? 1: damage;
+		m.hp = m.hp < damage ? m.hp - m.hp : m.hp - damage;
+		AllText.damage(name,m.name,damage,m.hp);
 	}
 	
-	
+	void die(){
+		int goldMinus = lv;
+		AllText.PlayerDie(name,goldMinus,hp_max/10,hp_max,gold-goldMinus);
+		gold -= goldMinus;
+		hp = hp_max/10;
+		AllText.pressAny();
+	}
 	
 }
 
