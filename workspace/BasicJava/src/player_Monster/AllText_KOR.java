@@ -28,7 +28,7 @@ public class AllText_KOR {
 			if(hpPercent>i) System.out.print("●");
 			else System.out.print("○");
 		}
-		
+
 		System.out.printf(" ■\n■■■■■■■■■■■■■■■■■■■■ attack %3d\tarmor%3d    ■\n■  ",player.attack,player.armor);
 		System.out.printf("[Lv %2d %-10s] %4d gold\n",player.lv,player.name,player.gold);
 		System.out.print(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
@@ -60,17 +60,17 @@ public class AllText_KOR {
 	static void levelup(int level){
 		System.out.printf(" 레벨업!! 축하합니다 레벨 [%d] 이(가) 되었습니다.\n",level);
 	}
-	
+
 	static void expGet(int exp,int expMax,int playerExp){
 		System.out.printf("[%d] 의 경험치를 획득하였습니다.(%3d/%3d)\n",exp,playerExp,expMax);
 	}
-	
+
 	static String[] monsterNames = {"토끼","늑대","고블린"};
-	
+
 	static void killed(String str){
 		System.out.println(str + "을 처치하였습니다.");
 	}
-	
+
 	static void menu(){
 		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 		System.out.println(  "■■ 1.캐릭터   | 2.사냥터   |  3.회복     | 4.게임      ■■■■■■");
@@ -78,11 +78,11 @@ public class AllText_KOR {
 		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 		System.out.print(  "> ");
 	}
-	
+
 	static void getGold(int gold,int playerGold){
 		System.out.printf("[%d] 의 골드를 획득하였습니다. (%d gold 소지중)\n",gold,playerGold);
 	}
-	
+
 	static void pressAny(){
 		System.out.print("계속 하려면 엔터키를 눌러주세요 ..");
 		sc.nextLine();
@@ -91,10 +91,14 @@ public class AllText_KOR {
 		System.out.printf("[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",attaker,enemy,damage);
 		System.out.printf("%s의 남은 HP : %d\n",enemy,enemyHp);
 	}
-	
+
 	static void PlayerDie(String player,int gold, int hp, int hpMax,int goldRemain){
 		System.out.printf("[%s]이(가) 사망했습니다.\n",player);
 		System.out.printf("%d 의 골드를 잃고 부활했습니다. 현재체력 %d/%d 잔여골드 %d.\n",gold,hp,hpMax,goldRemain);
-	};
+	}
+
+	static void notEnoughMoney(int recoverPrice,int gold){
+		System.out.printf("회복 비용 [%d gold] 이 부족합니다. [잔액 %d gold] \n",recoverPrice,gold);
+	}
 
 }

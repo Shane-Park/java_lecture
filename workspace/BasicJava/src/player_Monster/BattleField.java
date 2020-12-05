@@ -20,8 +20,10 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 	}
 	
 	void battle(Player player,Monster m0){
+		final int fight_delay = 1000;
 		battle : while(true){
 			player.attack(m0);
+			wait(fight_delay);
 			if(m0.hp <= 0){
 				AllText.killed(m0.name);
 				m0.hp=m0.hp_max;
@@ -31,11 +33,19 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 				break battle;
 			}
 			m0.attack(player);
+			wait(fight_delay);
 			if(player.hp <=0){
 				player.die();
 				break;
 			}
 		}
+	}
+	
+	void wait(int i){
+		long end = System.currentTimeMillis();
+		long start = System.currentTimeMillis();
+		while((end-start)<i)
+			end=System.currentTimeMillis();
 	}
 
 }

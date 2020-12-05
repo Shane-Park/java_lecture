@@ -12,10 +12,10 @@ public class Player{
 	int attack;
 	int armor;
 	String name;
-	int[] exp_table = {0, 10, 30, 80, 220, 300, 500, 800};
+	int[] exp_table = {0, 10, 30, 80, 220, 300, 500, 800, 2500};
 
 	Player(){
-		this(1,80,100);
+		this(1,80,0);
 		AllText.welcome();
 		Scanner sc = new Scanner(System.in);
 		this.name = sc.nextLine();
@@ -42,6 +42,7 @@ public class Player{
 	
 	void lvup(){
 		lv++;
+		exp_max = exp_table[lv];
 		hp_max += 10;
 		attack += 3;
 		armor += 1;
@@ -57,13 +58,13 @@ public class Player{
 		int recoverPrice = 1;
 		if(this.hp == this.hp_max){
 			AllText.alreadyFull();
-			return;
-		}
-		if(gold >= recoverPrice){
+		}else if(gold >= recoverPrice){
 			this.gold -= recoverPrice;
 			this.hp = this.hp_max;
 			AllText.recover(recoverPrice);
 		}
+		else
+			AllText.notEnoughMoney(recoverPrice,gold);
 		AllText.pressAny();
 	}
 	
@@ -76,8 +77,9 @@ public class Player{
 	
 	void die(){
 		int goldMinus = lv;
-		AllText.PlayerDie(name,goldMinus,hp_max/10,hp_max,gold-goldMinus);
-		gold -= goldMinus;
+		if(gold> goldMinus) gold -= goldMinus;
+		else gold = 0;
+		AllText.PlayerDie(name,goldMinus,hp_max/10,hp_max,gold);
 		hp = hp_max/10;
 		AllText.pressAny();
 	}
