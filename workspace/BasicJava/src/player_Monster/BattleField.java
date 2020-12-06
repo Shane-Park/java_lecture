@@ -3,7 +3,7 @@ package player_Monster;
 
 public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 	Monster m0 = new Monster(AllText.monsterNames[0],   1,   40,     5,    2,   5,   1);
-	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   10,    3,   8,  2);
+	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   10,    3,   8,   2);
 	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   20,   10,   20,  5);
 	Monster monster;
 	void field1(Player player){	
@@ -27,8 +27,8 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 			if(m0.hp <= 0){
 				AllText.killed(m0.name);
 				m0.hp=m0.hp_max;
-				player.getExp(m0.exp);
 				player.getGold(m0.money);
+				player.getExp(m0.exp);
 				AllText.pressAny();
 				break battle;
 			}

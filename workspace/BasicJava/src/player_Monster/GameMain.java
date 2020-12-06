@@ -1,5 +1,4 @@
 package player_Monster;
-import java.util.Scanner;
 
 public class GameMain {
 
@@ -8,12 +7,9 @@ public class GameMain {
 		GameSystem game = new GameSystem();
 		
 		game.welcomeMessage(player1);
-		Scanner sc = new Scanner(System.in);
 		while(true){
 			GameSystem.menu();
-			String input = sc.nextLine();
-			
-			switch(input){
+			switch(GameSystem.nextLine()){
 			case "1": 
 				game.status(player1);
 				break;

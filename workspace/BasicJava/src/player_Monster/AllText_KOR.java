@@ -1,11 +1,15 @@
 package player_Monster;
 
-import java.util.Scanner;
 
 public class AllText_KOR {
-	static Scanner sc = new Scanner(System.in);
 
 	static void welcome(){
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("■■□□□■■■□□□■■■□■■□□□■■■■□□□■■■□□□□■■□□□■■■■■■\n");
+		System.out.print("■■□■■□■■□■■□■■□■■■□■■■■■□■■□■■□■■□■□■■■■■■■■■\n");
+		System.out.print("■■□■■□■■□■■□■■□■■■□■■■■■□□□■■■□■■■■□■■□□■■■■■\n");
+		System.out.print("■■□□□■■■□□□■■■□■■■□■■■■■□■■□■■□■■■■■□□■□■■■■■\n");
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.print("이름을 입력하세요 > ");
 	}
 	static void bye(String name){
@@ -61,15 +65,10 @@ public class AllText_KOR {
 		System.out.printf(" 레벨업!! 축하합니다 레벨 [%d] 이(가) 되었습니다.\n",level);
 	}
 
-	static void expGet(int exp,int expMax,int playerExp){
-		System.out.printf("[%d] 의 경험치를 획득하였습니다.(%3d/%3d)\n",exp,playerExp,expMax);
-	}
 
 	static String[] monsterNames = {"토끼","늑대","고블린"};
 
-	static void killed(String str){
-		System.out.println(str + "을 처치하였습니다.");
-	}
+
 
 	static void menu(){
 		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
@@ -79,18 +78,68 @@ public class AllText_KOR {
 		System.out.print(  "> ");
 	}
 
-	static void getGold(int gold,int playerGold){
-		System.out.printf("[%d] 의 골드를 획득하였습니다. (%d gold 소지중)\n",gold,playerGold);
-	}
 
 	static void pressAny(){
 		System.out.print("계속 하려면 엔터키를 눌러주세요 ..");
-		sc.nextLine();
+		GameSystem.nextLine();
 	}
-	static void damage(String attaker,String enemy,int damage,int enemyHp){
-		System.out.printf("[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",attaker,enemy,damage);
-		System.out.printf("%s의 남은 HP : %d\n",enemy,enemyHp);
+	
+	static void playerAttack(Player player, Monster monster,int damage){
+		int hpPercent = (int)((float)player.hp/player.hp_max*10);
+		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("■    ■■     ■■        ■    ■■■   ■■■       \n");
+		System.out.print("■   ■  ■   ■  ■       ■       ■ ■          \n");
+		System.out.print("■        ■            ■     □□■□■□□        \n");
+		System.out.print("■       ■■■■          ■     □□■□□■□        \n");
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.printf("   HP %3d",player.hp);
+		for(int i=0; i<10; i++){
+			if(hpPercent>i) System.out.print("●");
+			else System.out.print("○");
+		}
+		System.out.printf("   HP %3d",monster.hp);
+		for(int i=0; i<10; i++){
+			if(monsterHpPercent>i) System.out.print("●");
+			else System.out.print("○");
+		}
+		System.out.printf("\n[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",player.name,monster.name,damage);
+		System.out.printf("%s의 남은 HP : %d\n",monster.name,monster.hp);
 	}
+	static void monsterAttack(Monster monster,Player player,int damage){
+		int hpPercent = (int)((float)player.hp/player.hp_max*10);
+		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("■    ■■     ■■        ■    ■■■   ■■■       \n");
+		System.out.print("■   ■  ■   ■  ■       ■       ■ ■          \n");
+		System.out.print("■        ■            ■     □□■□■□□        \n");
+		System.out.print("■       ■■■■          ■     □□■□□■□        \n");
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.printf("   HP %3d",player.hp);
+		for(int i=0; i<10; i++){
+			if(hpPercent>i) System.out.print("●");
+			else System.out.print("○");
+		}
+		System.out.printf("   HP %3d",monster.hp);
+		for(int i=0; i<10; i++){
+			if(monsterHpPercent>i) System.out.print("●");
+			else System.out.print("○");
+		}
+		System.out.printf("\n[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",monster.name,player.name,damage);
+		System.out.printf("%s의 남은 HP : %d\n",player.name,player.hp);
+	}
+	
+	static void killed(String str){
+		System.out.println(str + "을 처치하였습니다.");
+	}
+	
+	static void getGold(int gold,int playerGold){
+		System.out.printf("[%d] 의 골드를 획득하였습니다. (%d gold 소지중)\n",gold,playerGold);
+	}
+	static void expGet(int exp,int expMax,int playerExp){
+		System.out.printf("[%d] 의 경험치를 획득하였습니다.(%3d/%3d)\n",exp,playerExp,expMax);
+	}
+
 
 	static void PlayerDie(String player,int gold, int hp, int hpMax,int goldRemain){
 		System.out.printf("[%s]이(가) 사망했습니다.\n",player);

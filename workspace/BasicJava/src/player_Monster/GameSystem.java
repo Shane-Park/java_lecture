@@ -1,10 +1,8 @@
 package player_Monster;
-
 import java.util.Scanner;
 
 public class GameSystem {
-	Scanner sc = new Scanner(System.in);
-	String input;
+	static private Scanner sc = new Scanner(System.in);
 
 	static void menu(){
 		AllText.menu();
@@ -36,9 +34,7 @@ public class GameSystem {
 		field : while(true){
 			fieldlist();
 			System.out.print(">");
-			input = sc.nextLine();
-
-			switch(input){
+			switch(GameSystem.nextLine()){
 			case "1" : 
 				field.field1(player);
 				break;
@@ -63,5 +59,13 @@ public class GameSystem {
 	}
 
 
+	public static String nextLine(){
+		return sc.nextLine();
+	}
+	public static int nextInt(){
+		return Integer.parseInt(sc.nextLine());
+	}
+
 
 }
+

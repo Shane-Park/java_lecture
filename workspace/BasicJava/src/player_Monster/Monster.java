@@ -24,7 +24,7 @@ public class Monster{
 		int damage = attack - p.armor;
 		damage = damage <= 0 ? 1: damage;
 		p.hp = p.hp < damage ? p.hp - p.hp : p.hp - damage;
-		AllText.damage(name,p.name,damage,p.hp);
+		AllText.monsterAttack(this,p,damage);
 	}
 
 

@@ -1,7 +1,5 @@
 package player_Monster;
 
-import java.util.Scanner;
-
 public class Player{
 	int lv;
 	int exp_max;
@@ -17,8 +15,7 @@ public class Player{
 	Player(){
 		this(1,80,0);
 		AllText.welcome();
-		Scanner sc = new Scanner(System.in);
-		this.name = sc.nextLine();
+		this.name = GameSystem.nextLine();
 	}
 	Player(int lv, int hp, int gold){
 		this.lv = lv;
@@ -30,7 +27,7 @@ public class Player{
 		this.attack = 30;
 		this.armor = 1;
 	}
-	
+
 	void getExp(int exp){
 		this.exp += exp;
 		AllText.expGet(exp,this.exp_max,this.exp);
@@ -39,7 +36,7 @@ public class Player{
 			lvup();
 		}
 	}
-	
+
 	void lvup(){
 		lv++;
 		exp_max = exp_table[lv];
@@ -49,7 +46,7 @@ public class Player{
 		hp = hp_max;
 		AllText.levelup(lv);
 	}
-	
+
 	void getGold(int gold){
 		this.gold+=gold;
 		AllText.getGold(gold,this.gold);
@@ -67,14 +64,14 @@ public class Player{
 			AllText.notEnoughMoney(recoverPrice,gold);
 		AllText.pressAny();
 	}
-	
+
 	void attack(Monster m){
 		int damage = attack - m.armor;
 		damage = damage <= 0 ? 1: damage;
 		m.hp = m.hp < damage ? m.hp - m.hp : m.hp - damage;
-		AllText.damage(name,m.name,damage,m.hp);
+		AllText.playerAttack(this,m,damage);
 	}
-	
+
 	void die(){
 		int goldMinus = lv;
 		if(gold> goldMinus) gold -= goldMinus;
@@ -83,7 +80,7 @@ public class Player{
 		hp = hp_max/10;
 		AllText.pressAny();
 	}
-	
+
 }
 
 
