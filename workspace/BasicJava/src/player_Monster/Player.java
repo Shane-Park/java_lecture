@@ -31,7 +31,10 @@ public class Player{
 		this.atk = 30;
 		this.def = 1;
 		this.bonusStats = 3;
-		equips[1] = 11; // basic sword
+		
+		final int startItem = 11; 						// Getting free start item
+		inventory[0] = new Item(startItem,5,0,0);		// start item is a basic sword Item(int itemcode,int att, int hp, int def)		
+		inventoryCount++;								// It's not equipped yet
 	}
 
 	void getExp(int exp){
@@ -98,18 +101,18 @@ public class Player{
 	}
 	void atkup(){
 		if(bonusStats>0){
-		atk += 3;
-		bonusStats --;
+			atk += 3;
+			bonusStats --;
 		}
-		
+
 	}
 	void defup(){
 		if(bonusStats>0){
-		def += 1;
-		bonusStats --;
+			def += 1;
+			bonusStats --;
 		}
 	}
-	
+
 	void buyItem(int itemcode, int price){
 		AllText.buyItem();
 		switch(GameSystem.nextLine()){
@@ -148,36 +151,96 @@ public class Player{
 				}
 			}
 
-			inventory[i] = new Item(AllText.itemNames[itemcode],itemcode,AllText.itemLevels[itemcode]);
+			inventory[i] = new Item(itemcode,0,0,0); //(int itemcode,int att, int hp, int def)
 			inventoryCount++;
 			inventory[i].amount++;
 		}
 	}
-	
+
 	void itemList(){
 		AllText.itemList(this);
 		AllText.pressAny();
 	}
 
 	void sellItem(){
-		
+
 	}
-	
+
 	void equiplist(){
-		AllText.helmet(equips[0]);
-		AllText.weapon(equips[1]);
-		AllText.armor(equips[2]);
-		AllText.sheild(equips[3]);
-		AllText.boots(equips[4]);
-		AllText.equipMenu(); // (1) back (2) change equipment
-//		while(true){
-//			switch()
-//		}
-		
+		int equipSelect = 0;
+		equipSelect : while(true){
+			AllText.printBar();
+			if(equipSelect ==0) System.out.print("■"); else System.out.print("□");
+			AllText.helmet(equips[0]);
+			if(equipSelect ==1) System.out.print("■"); else System.out.print("□");
+			AllText.weapon(equips[1]);
+			if(equipSelect ==2) System.out.print("■"); else System.out.print("□");
+			AllText.armor(equips[2]);
+			if(equipSelect ==3) System.out.print("■"); else System.out.print("□");
+			AllText.sheild(equips[3]);
+			if(equipSelect ==4) System.out.print("■"); else System.out.print("□");
+			AllText.boots(equips[4]);	
+			AllText.printBar();
+			AllText.selectEquip();
+			String input = GameSystem.nextLine();
+			switch(input){
+			case "0" : 
+				break equipSelect;
+			case "1" :
+				if(0<= equipSelect && equipSelect <=3)
+					equipSelect++;
+				else equipSelect = 0;
+				break;
+			case "2" :
+				if(1<= equipSelect && equipSelect <=4)
+					equipSelect--;
+				else equipSelect = 4;
+				break;
+			case "3" :
+				changeEquip(equipSelect);
+				break;
+			default :
+				AllText.wrong();
+			}
+		}
 	}
 	
-	
-	
+	void changeEquip(int equipSelect){
+		int showlists = 5;
+		Item[] equipList = new Item[showlists];
+		int count=0;
+		int[] rememberInventory = new int[showlists];
+		for(int i=0; i<inventoryCount; i++){
+			if((inventory[i].itemcode-1)/10==equipSelect){
+				equipList[count] = inventory[i];
+				rememberInventory[count] = i;
+				count++;
+			}		
+		}
+		Item blank = new Item(0,0,0,0);
+		for(int i=count; i<showlists; i++)
+			equipList[i] = blank;	
+		AllText.equipList(equipSelect, equipList);
+		System.out.print("착용하고 싶은 장비를 선택해주세요. (0) 돌아가기 (1~5) 아이템 선택 \n>");
+		
+		String input = GameSystem.nextLine();
+		switch(input){
+		case "0": break;
+		case "1":
+		case "2":
+		case "3":
+		case "4":
+		case "5":
+			int n = Integer.parseInt(input); // use n to find equipment
+			// wear(equipSelect,inventory[rememberInventory[]] // (Type of Equipment,Equipment)
+			break;
+		default :
+			AllText.wrong();
+		}
+	}
+
+
+
 }
 
 

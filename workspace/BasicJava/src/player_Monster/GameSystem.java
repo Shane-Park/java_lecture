@@ -20,15 +20,15 @@ public class GameSystem {
 			AllText.status(player);
 			AllText.statusMenu(player);
 			switch(GameSystem.nextLine()){
-			case "1" :
+			case "0" :
 				break status;
-			case "2" :
+			case "1" :
 				player.equiplist();
 				break;
-			case "3" :
+			case "2" :
 				player.itemList();
 				break;
-			case "4" : 
+			case "3" : 
 				if(player.bonusStats==0){
 					AllText.wrong();
 				}else bonusSystem(player);
@@ -86,7 +86,7 @@ public class GameSystem {
 			case "3" : 
 				field.field3(player); 
 				break;
-			case "4" : 
+			case "0" : 
 				break field;
 			default : 
 				AllText.wrong();

@@ -82,7 +82,7 @@ public class AllText_KOR {
 		System.out.println(  "■■■1.초급자 1 [ 레벨 1 몬스터만 출몰합니다.] ");
 		System.out.println(  "■■■2.초급자 2 [ 레벨 1 ~ 2 몬스터가 출몰합니다.]");
 		System.out.println(  "■■■3.초급자 3 [ 레벨 2 ~ 3 몬스터가 출몰합니다.]");
-		System.out.println(  "■■■4.메뉴로 돌아가기  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		System.out.println(  "■■■0.메뉴로 돌아가기  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n>");
 	}
 	static void levelup(int level){
@@ -111,7 +111,7 @@ public class AllText_KOR {
 		System.out.print("■    ■■     ■■          ■    ■■■   ■■■       \n");
 		System.out.print("■   ■  ■   ■  ■         ■       ■ ■          \n");
 		System.out.print("■        ■              ■     □□■□■□□        \n");
-		System.out.print("■       ■■■■            ■     □□■□□■□        \n");
+		System.out.print("■       ■■■■    (^-^)   ■     □□■□□■□  (💀)  \n");
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.printf("[ %s ] HP%3d",player.name,player.hp);
 		for(int i=0; i<10; i++){
@@ -133,7 +133,7 @@ public class AllText_KOR {
 		System.out.print("■    ■■     ■■          ■    ■■■   ■■■       \n");
 		System.out.print("■   ■  ■   ■  ■         ■       ■ ■          \n");
 		System.out.print("■        ■              ■     □□■□■□□        \n");
-		System.out.print("■       ■■■■            ■     □□■□□■□        \n");
+		System.out.print("■       ■■■■    (^-^)   ■     □□■□□■□  (💀)  \n");
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.printf("[ %s ] HP%3d",player.name,player.hp);
 		for(int i=0; i<10; i++){
@@ -171,11 +171,11 @@ public class AllText_KOR {
 	}
 
 	static void statusMenu(Player player){
-		System.out.print("(1)메뉴로 돌아가기 ");
-		System.out.print("(2)착용중 장비 확인 ");
-		System.out.print("(3)보유 아이템 확인 ");
+		System.out.print("(0)메뉴로 돌아가기 ");
+		System.out.print("(1)착용중 장비 확인 ");
+		System.out.print("(2)보유 아이템 확인 ");
 		if(player.bonusStats>0)
-			System.out.printf(" (4)잔여 보너스 스탯 사용");
+			System.out.printf(" (3)잔여 보너스 스탯 사용");
 		System.out.print("\n>");
 
 	}
@@ -185,12 +185,12 @@ public class AllText_KOR {
 	}
 
 	static void bonusText(Player player){
-		System.out.printf("남은 보너스 스탯의 수 : %d 입니다. 올리고 싶은 스탯을 고르세요 HP(1) ATK(2) DEF(3) 종료(0)\n>",player.bonusStats);
+		System.out.printf("남은 보너스 스탯의 수 : [%d] 입니다. 올리고 싶은 스탯을 고르세요 HP(1) ATK(2) DEF(3) 이전화면으로(0)\n>",player.bonusStats);
 	}
 
 	static void shopMenu(){
 		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-		System.out.println(  "■■■   ⛽ 떠돌이 상인의 상점에 오신 것을 환영합니다.      ■■■■");
+		System.out.println(  "■■■   ⛽  떠돌이 상인의 상점에 오신 것을 환영합니다 ⛽              ■■■■");
 		System.out.println(  "■■■   구매     |   판매     |  장비 강화   |   뒤로가기    ■■■■");
 		System.out.println(  "■■■   (1)  |   (2)  |   (3)   |    (0)   ■■■■");
 		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
@@ -241,9 +241,38 @@ public class AllText_KOR {
 
 	}
 	
-	static void equipMenu(){
-		System.out.print("(1)이전 화면으로 ");
-		System.out.print("(2)장비 교체 \n");
+	static void printBar(){
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	
+	
+	static void selectEquip(){
+	System.out.println("(0)이전 화면으로 (1) ↓  (2) ↑ (3) 선택");
+	}
+
+	static void equipList(int equipSelect, Item[] list){
+		printBar();
+		switch(equipSelect){
+		case 0:
+			System.out.println("⛑HELMET LIST⛑");
+			break;
+		case 1:
+			System.out.println("⚔SWORD LIST⚔");
+			break;
+		case 2:
+			System.out.println("🧥ARMOR LIST🧥");
+			break;
+		case 3:
+			System.out.println("⛨SHIELD LIST⛨");
+			break;
+		case 4:
+			System.out.println("👟BOOTS LIST👟");
+			break;
+		}
+		for(int i=0; i<list.length; i++){
+			System.out.printf("%d. %s %s\n",i+1,list[i].name,list[i].statsToString());
+		}
+		printBar();
 	}
 
 
