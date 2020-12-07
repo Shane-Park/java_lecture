@@ -1,0 +1,14 @@
+package player_Monster;
+
+public class Item {
+	
+	String name;
+	int itemcode;
+	int attack,hp,armor;
+	int requiredLevel;
+	
+	Item(){
+		
+	}
+
+}

@@ -19,7 +19,10 @@ public class GameMain {
 			case "3": 
 				player1.recover();
 				break;
-			case "4":
+			case "4" :
+				game.shop(player1);
+				break;
+			case "5":
 				AllText.bye(player1.name);
 				System.exit(0);
 			default:

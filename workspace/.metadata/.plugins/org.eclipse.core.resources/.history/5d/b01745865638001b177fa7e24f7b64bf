@@ -1,0 +1,26 @@
+package player_Monster;
+/*         0 : Default (None)
+ *   1 ~ 100 : Helmet
+ *  101~ 200 : Weapon
+ *  201~ 300 : Armor
+ *  301~ 400 : Shield
+ *  401~ 500 : Boots
+ *  501~ 600 : Consumables
+ * 
+ */
+public class Item {
+	
+	String name;
+	int itemcode;
+	int attack,hp,armor;
+	int requiredLevel;
+	int amount;
+	
+	Item(String name, int itemcode, int requiredLevel){
+		this.name = name;
+		this.itemcode = itemcode;
+		this.requiredLevel = requiredLevel;
+		
+	}
+
+}

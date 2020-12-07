@@ -8,7 +8,7 @@ public class GameSystem {
 		AllText.menu();
 	}
 
-	void wait(int i){
+	static void wait(int i){
 		long end = System.currentTimeMillis();
 		long start = System.currentTimeMillis();
 		while((end-start)<i)
@@ -16,14 +16,57 @@ public class GameSystem {
 	}
 
 	void status(Player player){
-		AllText.status(player);
-		AllText.pressAny();
+		status : while(true){
+			AllText.status(player);
+			AllText.statusMenu(player);
+			switch(GameSystem.nextLine()){
+			case "1" :
+				break status;
+			case "2" :
+				player.equiplist();
+				break;
+			case "3" :
+				player.itemList();
+				break;
+			case "4" : 
+				if(player.bonusStats==0){
+					AllText.wrong();
+				}else bonusSystem(player);
+				break;
+			default : 
+				AllText.wrong();
+				break;	
+			}
+		}
+	}
+	void bonusSystem(Player player){
+		bonus : while(player.bonusStats>0){
+			AllText.bonusText(player);
+			switch(GameSystem.nextLine()){
+			case "1":
+				player.hpup();
+				break;
+			case "2": 
+				player.atkup();
+				break;
+			case "3":
+				player.defup();
+				break;
+			case "0":
+				break bonus;
+			default:
+				AllText.wrong();
+				break;
+
+			}
+		}
+
 	}
 
 	void welcomeMessage(Player player){
 		AllText.welcomePlayer(player);
 		for(int i=0; i<45; i++){
-			this.wait(20);
+			GameSystem.wait(20);
 			System.out.print("■");
 		}
 		AllText.loadingComplete();
@@ -33,7 +76,6 @@ public class GameSystem {
 		BattleField field = new BattleField();
 		field : while(true){
 			fieldlist();
-			System.out.print(">");
 			switch(GameSystem.nextLine()){
 			case "1" : 
 				field.field1(player);
@@ -53,6 +95,25 @@ public class GameSystem {
 		}
 
 	}
+	
+	void shop(Player player){
+		shop: while(true){
+			AllText.shopMenu();
+			switch(GameSystem.nextLine()){
+			case "1" : player.buyItem(51,1); // item code 1/ price 1
+				break;
+			case "2" : player.sellItem();
+				break;
+			case "3" :
+				break;
+			case "0" :
+				break shop;
+			default :
+				AllText.wrong();
+
+			}
+		}
+	}
 
 	void fieldlist(){
 		AllText.fieldlist();
@@ -65,6 +126,7 @@ public class GameSystem {
 	public static int nextInt(){
 		return Integer.parseInt(sc.nextLine());
 	}
+	
 
 
 }

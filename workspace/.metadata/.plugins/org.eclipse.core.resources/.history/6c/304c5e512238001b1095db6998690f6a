@@ -1,0 +1,8 @@
+package g_oop2;
+
+public class SampleChild extends SampleParent {
+	void ChildMethod(){
+		
+	}
+
+}

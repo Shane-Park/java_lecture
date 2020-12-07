@@ -1,0 +1,17 @@
+package player_Monster;
+
+public class Item {
+	
+	String name;
+	int itemcode;
+	int attack,hp,armor;
+	int requiredLevel;
+	
+	Item(String name, int itemcode, int requiredLevel){
+		this.name = name;
+		this.itemcode = itemcode;
+		this.requiredLevel = requiredLevel;
+		
+	}
+
+}

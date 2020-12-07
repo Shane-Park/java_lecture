@@ -1,0 +1,110 @@
+package player_Monster;
+import java.util.Scanner;
+
+public class GameSystem {
+	static private Scanner sc = new Scanner(System.in);
+
+	static void menu(){
+		AllText.menu();
+	}
+
+	void wait(int i){
+		long end = System.currentTimeMillis();
+		long start = System.currentTimeMillis();
+		while((end-start)<i)
+			end=System.currentTimeMillis();
+	}
+
+	void status(Player player){
+		AllText.status(player);
+		AllText.statusMenu();
+		status : while(true){
+			switch(GameSystem.nextLine()){
+			case "1" :
+				break status;
+			case "2" : 
+				if(player.bonusStats==0){
+					AllText.noBonusStats();
+					return;
+				}
+				bonusSystem(player);
+				break;
+			default : 
+				AllText.wrong();
+				break;	
+			}
+		}
+	}
+	void bonusSystem(Player player){
+		System.out.printf("남은 보너스 스탯의 수 : %d 입니다. 올리고 싶은 스탯을 고르세요 HP(1) ATK(2) DEF(3) 종료(0)\n<",player.bonusStats);
+		bonus : while(true){
+			switch(GameSystem.nextLine()){
+			case "1":
+				player.hpup();
+				break;
+			case "2": 
+				player.atkup();
+				break;
+			case "3":
+				player.defup();
+				break;
+			case "0":
+				break bonus;
+			default:
+				AllText.wrong();
+				break;
+
+			}
+		}
+
+	}
+
+	void welcomeMessage(Player player){
+		AllText.welcomePlayer(player);
+		for(int i=0; i<45; i++){
+			this.wait(20);
+			System.out.print("■");
+		}
+		AllText.loadingComplete();
+	}
+
+	void battle(Player player){
+		BattleField field = new BattleField();
+		field : while(true){
+			fieldlist();
+			System.out.print(">");
+			switch(GameSystem.nextLine()){
+			case "1" : 
+				field.field1(player);
+				break;
+			case "2" : 
+				field.field2(player);
+				break;
+			case "3" : 
+				field.field3(player); 
+				break;
+			case "4" : 
+				break field;
+			default : 
+				AllText.wrong();
+				break;
+			}
+		}
+
+	}
+
+	void fieldlist(){
+		AllText.fieldlist();
+	}
+
+
+	public static String nextLine(){
+		return sc.nextLine();
+	}
+	public static int nextInt(){
+		return Integer.parseInt(sc.nextLine());
+	}
+
+
+}
+

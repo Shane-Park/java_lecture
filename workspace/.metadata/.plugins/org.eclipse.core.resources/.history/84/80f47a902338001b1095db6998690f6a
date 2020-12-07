@@ -1,0 +1,14 @@
+package g_oop2;
+
+public class SampleChild extends SampleParent {
+	void ChildMethod(){
+		//상속받은 변수와 메서드를 사용할 수 있다.
+		System.out.println(var);
+		System.out.println(method(7,13));
+	}
+	
+	// 오버라이딩 : 상속받은 내용을 변경하는것
+	// super , super()
+	// 다형성
+
+}

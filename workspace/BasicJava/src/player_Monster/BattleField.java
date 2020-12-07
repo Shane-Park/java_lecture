@@ -2,10 +2,11 @@ package player_Monster;
 
 
 public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
-	Monster m0 = new Monster(AllText.monsterNames[0],   1,   40,     5,    2,   5,   1);
-	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   10,    3,   8,   2);
-	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   20,   10,   20,  5);
+	Monster m0 = new Monster(AllText.monsterNames[0],   1,   40,     5,    2,   5,   1);	//rabbit
+	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   10,    3,   8,   2);	//wolf
+	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   20,   10,   20,  5);	//goblin
 	Monster monster;
+	
 	void field1(Player player){	
 		monster = m0;
 		battle(player,monster);
@@ -23,7 +24,7 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 		final int fight_delay = 1000;
 		battle : while(true){
 			player.attack(m0);
-			wait(fight_delay);
+			GameSystem.wait(fight_delay);
 			if(m0.hp <= 0){
 				AllText.killed(m0.name);
 				m0.hp=m0.hp_max;
@@ -33,7 +34,7 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 				break battle;
 			}
 			m0.attack(player);
-			wait(fight_delay);
+			GameSystem.wait(fight_delay);
 			if(player.hp <=0){
 				player.die();
 				break;
@@ -41,11 +42,5 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 		}
 	}
 	
-	void wait(int i){
-		long end = System.currentTimeMillis();
-		long start = System.currentTimeMillis();
-		while((end-start)<i)
-			end=System.currentTimeMillis();
-	}
 
 }
