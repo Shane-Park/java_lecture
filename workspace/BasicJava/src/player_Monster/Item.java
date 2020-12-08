@@ -13,6 +13,7 @@ public class Item {
 	int att,hp,def;
 	int requiredLevel;
 	int amount;
+	int price; // never used yet
 	boolean isEquipped = false;
 	
 	Item(int itemcode,int att, int hp, int def){
@@ -22,9 +23,6 @@ public class Item {
 		this.att= att;
 		this.hp = hp;
 		this.def = def;
-	}
-	void equipReverse(){
-		isEquipped = isEquipped? false : true;
 	}
 	
 	String statsToString(){

@@ -7,6 +7,7 @@ public class GameMain {
 		GameSystem game = new GameSystem();
 		
 		game.welcomeMessage(player1);
+		
 		while(true){
 			GameSystem.menu();
 			switch(GameSystem.nextLine()){

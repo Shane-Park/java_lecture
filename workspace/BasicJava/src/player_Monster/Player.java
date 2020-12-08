@@ -15,7 +15,7 @@ public class Player{
 	Item[] equips = {defaultItem,defaultItem,defaultItem,defaultItem,defaultItem}; // { Helmet, Weapon, Armor, Shield, Boots}
 	Item[] inventory = new Item[10];
 	int inventoryCount=0;
-	int[] exp_table = {0, 10, 30, 80, 220, 300, 500, 800, 2500};
+	int[] exp_table = {0, 10, 30, 50, 100, 220, 500, 800, 2500};
 
 	Player(){
 		this(1,80,10);	// Constructor (START LEVEL, START HP, START GOLD)
@@ -208,12 +208,14 @@ public class Player{
 				equipList[count] = inventory[i];
 				rememberInventory[count] = i;
 				count++;
+				if(count >= showlists)
+					break;
 			}		
 		}
 		for(int i=count; i<showlists; i++)
 			equipList[i] = defaultItem;	
-		AllText.showEquiplist(equipSelect, equipList);
-		System.out.print("착용하고 싶은 장비를 선택해주세요. (0) 돌아가기 (1~5) 아이템 선택 \n>");
+		AllText.showEquiplist(equipSelect, equipList, this);
+		AllText.chooseEquip();
 		
 		String input = GameSystem.nextLine();
 		switch(input){
@@ -259,10 +261,56 @@ public class Player{
 	}
 	
 	void getItem(Item item){ // need to be filled
-		
+		AllText.getItem(item);
+		AllText.pressAny();
+		int i;
+		if(inventoryCount == inventory.length){	// when you picked up an item but inventory is already full
+			AllText.itemList(this);
+			AllText.inventoryFull();
+			fullInventory(item);
+			return;
+		}
+		for(i=0; i<inventory.length; i++){	//if inventory is not full
+			if(inventory[i]==null){
+				break;
+			}
+		}
+		inventory[i] = item;
+		inventoryCount++;	  
 	}
 	
+	void fullInventory(Item item){
+		String input = GameSystem.nextLine();
+		switch(input){
+		case "0":
+			break;
+		case "1":
+		case "2":
+		case "3":
+		case "4":
+		case "5":
+		case "6":
+		case "7":
+		case "8":
+		case "9":
+		case "10":
+			int inputInt = Integer.parseInt(input)-1;	// Arrays are from 0, item numbers are from 1
+			AllText.dumpItem(inventory[inputInt]);
+			inventory[inputInt]=item;
+			break;
+		default : 
+			AllText.wrong();
+			fullInventory(item);
+		}
+	}
 	
+	boolean haveItem(Item item){
+		for(int i=0; i<inventoryCount; i++){
+			if(inventory[i].itemcode == item.itemcode)
+				return true;
+		}
+		return false;
+	}
 	
 	
 	

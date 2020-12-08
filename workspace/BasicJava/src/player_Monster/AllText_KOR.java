@@ -5,19 +5,19 @@ public class AllText_KOR {
 
 	static String[] monsterNames = {"토끼","늑대","고블린"};
 	
-	static String[] itemNames = {"[없음]", 	"",			"",	"", "", "", "", "", "" ,"", "", // 1 ~ 10 : Helmet
-									/*11*/	"기본칼",		"",	"" ,"", "", "", "" ,"", "", "", // 11~ 20 : Weapon
-									/*21*/	"가시갑옷",	"",	"" ,"", "", "", "" ,"", "", "", // 21~ 30 : Armor
-									/*31*/	"",			"",	"" ,"", "", "", "" ,"", "", "", // 31~ 40 : Shield
-									/*41*/	"",			"",	"" ,"", "", "", "" ,"", "", "", // 41~ 50 : Boots
-									/*51*/	"기본물약",	"" ,"", "", "", "" ,"", "", "", ""};// 51~ 60 : Consumables
-	static int[] itemLevels = {	0,	0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-									1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-									1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-									0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-									0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-									1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-															};
+	static String[] itemNames = {"[없음]", 	"",			"",		"", "", "", "", "", "" ,"", "", // 1 ~ 10 : Helmet
+									/*11*/	"기본칼",		"",		"" ,"", "", "", "" ,"", "", "", // 11~ 20 : Weapon
+									/*21*/	"가시갑옷",	"",		"" ,"", "", "", "" ,"", "", "", // 21~ 30 : Armor
+									/*31*/	"",			"",		"" ,"", "", "", "" ,"", "", "", // 31~ 40 : Shield
+									/*41*/	"토끼털장화",	"",		"" ,"", "", "", "" ,"", "", "", // 41~ 50 : Boots
+									/*51*/	"기본물약",	"" ,	"", "", "", "" ,"", "", "", ""};// 51~ 60 : Consumables
+	static int[] itemLevels = {	0,			0, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
+									/*11*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
+									/*21*/	1,			0, 		0, 0, 0, 0, 0, 0, 0, 0,
+									/*31*/	0, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
+									/*41*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
+									/*51*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,};
+											
 
 	static void welcome(){
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
@@ -39,12 +39,12 @@ public class AllText_KOR {
 		int expPercent = (int)((float)player.exp/player.exp_max*10);
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-		System.out.print("■  ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d     ",player.exp,player.exp_max);
+		System.out.print("■  ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
 		for(int i=0; i<10; i++){
 			if(expPercent>i) System.out.print("●");
 			else System.out.print("○");
 		}
-		System.out.print("\n■ =[   ]= ▬ι════ﺤ ■ HP ");System.out.printf("%3d/%3d(+%d) ",player.hp,player.hp_max-player.hp_bonus,player.hp_bonus);
+		System.out.print("\n■ =[   ]= ▬ι════ﺤ ■ HP ");System.out.printf("%3d/%3d(+%2d) ",player.hp,player.hp_max-player.hp_bonus,player.hp_bonus);
 		for(int i=0; i<10; i++){
 			if(hpPercent>i) System.out.print("●");
 			else System.out.print("○");
@@ -59,7 +59,7 @@ public class AllText_KOR {
 
 
 	static void welcomePlayer(Player player){
-		System.out.println("게임월드에 오신것을 환영합니다 ["+player.name+"] 님. 잠시만 기다려주세요 ");
+		System.out.println("DDIT에 오신것을 환영합니다 ["+player.name+"] 님. 잠시만 기다려주세요 ");
 	}
 	static void loadingComplete(){
 		System.out.println("\n■■■■■■■■■■■■■  로딩이 완료되었습니다     ■■■■■■■■■■■■■■");
@@ -107,6 +107,7 @@ public class AllText_KOR {
 	static void playerAttack(Player player, Monster monster,int damage){
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);
+		System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.print("■    ■■     ■■          ■    ■■■   ■■■       \n");
 		System.out.print("■   ■  ■   ■  ■         ■       ■ ■          \n");
@@ -124,11 +125,12 @@ public class AllText_KOR {
 			else System.out.print("○");
 		}
 		System.out.printf("\n[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",player.name,monster.name,damage);
-		System.out.printf("%s의 남은 HP : %d\n",monster.name,monster.hp);
+		System.out.printf("%s의 남은 HP : %d  ",monster.name,monster.hp);
 	}
 	static void monsterAttack(Monster monster,Player player,int damage){
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);
+		System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
 		System.out.print("■    ■■     ■■          ■    ■■■   ■■■       \n");
 		System.out.print("■   ■  ■   ■  ■         ■       ■ ■          \n");
@@ -146,18 +148,18 @@ public class AllText_KOR {
 			else System.out.print("○");
 		}
 		System.out.printf("\n[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",monster.name,player.name,damage);
-		System.out.printf("%s의 남은 HP : %d\n",player.name,player.hp);
+		System.out.printf("%s의 남은 HP : %d  ",player.name,player.hp);
 	}
 
 	static void killed(String str){
-		System.out.println(str + "을 처치하였습니다.");
+		System.out.printf("[%s]을 처치하였습니다. ",str);
 	}
 
 	static void getGold(int gold,int playerGold){
-		System.out.printf("[%d] 의 골드를 획득하였습니다. (%d gold 소지중)\n",gold,playerGold);
+		System.out.printf("[%d] 의 골드를 획득하였습니다. \n",gold,playerGold);
 	}
 	static void expGet(int exp,int expMax,int playerExp){
-		System.out.printf("[%d] 의 경험치를 획득하였습니다.(%3d/%3d)\n",exp,playerExp,expMax);
+		System.out.printf("[%d] 의 경험치를 획득하였습니다.(EXP %d/%d) ",exp,playerExp,expMax);
 	}
 
 
@@ -208,7 +210,7 @@ public class AllText_KOR {
 	}
 
 	static void inventoryFull(){
-		System.out.println("인벤토리가 가득 찼습니다. 더이상 아이템을 보관할 수 없습니다.");
+		System.out.println("인벤토리가 가득 찼습니다. 버릴 아이템 번호를 선택해주세요 (0 : 습득한 아이템 포기).\n>");
 	}
 
 	static void itemList(Player player){
@@ -218,9 +220,14 @@ public class AllText_KOR {
 				System.out.printf("[장착중]");
 			if(player.inventory[i].amount > 1)
 				System.out.printf(" (%d개)",player.inventory[i].amount);
-			System.out.print("\n");
+			System.out.printf("\n");
 		}
+		System.out.printf("보유중인 아이템은 %d개 입니다.\n",player.inventoryCount);
 
+	}
+	
+	static void chooseEquip(){
+		System.out.print("착용하고 싶은 장비를 선택해주세요. (0) 돌아가기 (1~5) 아이템 선택 \n>");
 	}
 	
 	static void equips(int equipcode,Item item){
@@ -258,29 +265,38 @@ public class AllText_KOR {
 	System.out.println("(0)이전 화면으로 (1) ↓  (2) ↑ (3) 선택");
 	}
 
-	static void showEquiplist(int equipSelect, Item[] list){
+	static void showEquiplist(int equipSelect, Item[] list, Player player){
 		printBar();
 		switch(equipSelect){
 		case 0:
-			System.out.println("⛑HELMET LIST⛑");
+			System.out.print("⛑HELMET LIST⛑");
 			break;
 		case 1:
-			System.out.println("⚔SWORD LIST⚔");
+			System.out.print("⚔SWORD LIST⚔");
 			break;
 		case 2:
-			System.out.println("🧥ARMOR LIST🧥");
+			System.out.print("🧥ARMOR LIST🧥");
 			break;
 		case 3:
-			System.out.println("⛨SHIELD LIST⛨");
+			System.out.print("⛨SHIELD LIST⛨");
 			break;
 		case 4:
-			System.out.println("👟BOOTS LIST👟");
+			System.out.print("👟BOOTS LIST👟");
 			break;
 		}
+		System.out.printf("     장착중 : %s %s\n",player.equips[equipSelect].name,player.equips[equipSelect].statsToString());
 		for(int i=0; i<list.length; i++){
 			System.out.printf("%d. %s %s\n",i+1,list[i].name,list[i].statsToString());
 		}
 		printBar();
+	}
+	
+	static void getItem(Item item){
+		System.out.printf("[%s] 을(를) 획득하였습니다! ",item.name);
+	}
+	
+	static void dumpItem(Item item){
+		System.out.printf("%s %s 을 버렸습니다.\n",item.name,item.statsToString());
 	}
 
 
