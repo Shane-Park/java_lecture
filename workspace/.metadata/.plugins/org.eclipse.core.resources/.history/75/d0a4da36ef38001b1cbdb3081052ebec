@@ -1,0 +1,43 @@
+package g_oop2;
+
+public class Time {
+
+	private int hour;
+	private int minute;
+	private int second;
+
+	public int getHour() {
+		if(0<= hour && hour < 25)
+			return hour;
+		else return 0;
+	}
+
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+
+	public int getMinute() {
+		if(0<= minute && minute < 60)
+			return minute;
+		else return 0;
+	}
+
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+
+	public int getSecond() {
+		if(0<= second && second < 60)
+			return second;
+		else return 0;
+	}
+
+	public void setSecond(int second) {
+		this.second = second;
+	}
+
+	String getTime(){
+		return hour + ":" + minute + ":" + second;
+	}
+
+}

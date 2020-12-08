@@ -4,14 +4,15 @@ public class Player{
 	int lv;
 	int exp_max;
 	int exp;
-	int hp_max;
+	int hp_max, hp_bonus=0;
 	int hp;
 	int gold;
-	int atk;
-	int def;
+	int atk, atk_bonus = 0;
+	int def, def_bonus = 0;
 	int bonusStats;
 	String name;
-	int[] equips = new int[5]; // { Helmet, Weapon, Armor, Shield, Boots}
+	Item defaultItem = new Item(0,0,0,0);	// DEFAULT ITEM WHICH IS NONE
+	Item[] equips = {defaultItem,defaultItem,defaultItem,defaultItem,defaultItem}; // { Helmet, Weapon, Armor, Shield, Boots}
 	Item[] inventory = new Item[10];
 	int inventoryCount=0;
 	int[] exp_table = {0, 10, 30, 80, 220, 300, 500, 800, 2500};
@@ -32,9 +33,10 @@ public class Player{
 		this.def = 1;
 		this.bonusStats = 3;
 		
-		final int startItem = 11; 						// Getting free start item
-		inventory[0] = new Item(startItem,5,0,0);		// start item is a basic sword Item(int itemcode,int att, int hp, int def)		
-		inventoryCount++;								// It's not equipped yet
+		final int startItem1 = 11,startItem2=21;		// Getting free start item
+		inventory[0] = new Item(startItem1,5,0,0);		// start item is a basic sword Item(int itemcode,int att, int hp, int def)	
+		inventory[1] = new Item(startItem2,0,0,3);
+		inventoryCount += 2;								// It's not equipped yet
 	}
 
 	void getExp(int exp){
@@ -76,7 +78,7 @@ public class Player{
 	}
 
 	void attack(Monster m){
-		int damage = atk - m.def;
+		int damage = atk + atk_bonus - m.def;
 		damage = damage <= 0 ? 1: damage;
 		m.hp = m.hp < damage ? m.hp - m.hp : m.hp - damage;
 		AllText.playerAttack(this,m,damage);
@@ -162,24 +164,15 @@ public class Player{
 		AllText.pressAny();
 	}
 
-	void sellItem(){
-
-	}
 
 	void equiplist(){
 		int equipSelect = 0;
 		equipSelect : while(true){
 			AllText.printBar();
-			if(equipSelect ==0) System.out.print("■"); else System.out.print("□");
-			AllText.helmet(equips[0]);
-			if(equipSelect ==1) System.out.print("■"); else System.out.print("□");
-			AllText.weapon(equips[1]);
-			if(equipSelect ==2) System.out.print("■"); else System.out.print("□");
-			AllText.armor(equips[2]);
-			if(equipSelect ==3) System.out.print("■"); else System.out.print("□");
-			AllText.sheild(equips[3]);
-			if(equipSelect ==4) System.out.print("■"); else System.out.print("□");
-			AllText.boots(equips[4]);	
+			for(int i=0; i<5; i++){
+				if(equipSelect ==i) System.out.print("■"); else System.out.print("□");	// SELECT EQIUP VISUAL SYSTEM
+				AllText.equips(i,equips[i]);
+			}
 			AllText.printBar();
 			AllText.selectEquip();
 			String input = GameSystem.nextLine();
@@ -211,16 +204,15 @@ public class Player{
 		int count=0;
 		int[] rememberInventory = new int[showlists];
 		for(int i=0; i<inventoryCount; i++){
-			if((inventory[i].itemcode-1)/10==equipSelect){
+			if((inventory[i].itemcode-1)/10==equipSelect && !inventory[i].isEquipped){
 				equipList[count] = inventory[i];
 				rememberInventory[count] = i;
 				count++;
 			}		
 		}
-		Item blank = new Item(0,0,0,0);
 		for(int i=count; i<showlists; i++)
-			equipList[i] = blank;	
-		AllText.equipList(equipSelect, equipList);
+			equipList[i] = defaultItem;	
+		AllText.showEquiplist(equipSelect, equipList);
 		System.out.print("착용하고 싶은 장비를 선택해주세요. (0) 돌아가기 (1~5) 아이템 선택 \n>");
 		
 		String input = GameSystem.nextLine();
@@ -231,15 +223,50 @@ public class Player{
 		case "3":
 		case "4":
 		case "5":
-			int n = Integer.parseInt(input); // use n to find equipment
-			// wear(equipSelect,inventory[rememberInventory[]] // (Type of Equipment,Equipment)
+			int inputInt = Integer.parseInt(input)-1; 	// use input to find equipment
+			if(equipList[inputInt] == defaultItem)		// if you select default item to equip
+				equipItem(equipSelect,defaultItem);		// it does
+			else equipItem(equipSelect, equipList[inputInt]);	//else it equip item you choose
 			break;
 		default :
 			AllText.wrong();
 		}
+		
 	}
+	
+	void equipItem(int part, Item item){ 	/* 0HELMET / 1SWORD / 2ARMOR / 3SHIELD / 4BOOTS */
+		if(equips[part] != defaultItem){		// ONLY WHEN [PART] IS EQUIPPED 
+			equips[part].isEquipped = false;
+			hp_bonus -= item.hp;
+			hp_max -= hp_bonus;
+			atk_bonus -= item.att;
+			def_bonus -= item.def;
+		}
+		if(item != defaultItem){
+			item.isEquipped = true;
+			hp_bonus += item.hp;
+			hp_max += hp_bonus;
+			atk_bonus += item.att;
+			def_bonus += item.def;
+		}
+		equips[part] = item;
+		
+	}
+	
+	
+	void sellItem(){ // need to be filled
 
-
+	}
+	
+	void getItem(Item item){ // need to be filled
+		
+	}
+	
+	
+	
+	
+	
+	
 
 }
 

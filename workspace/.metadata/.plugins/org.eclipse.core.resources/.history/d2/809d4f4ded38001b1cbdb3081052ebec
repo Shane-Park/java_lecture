@@ -1,0 +1,9 @@
+package g_oop2;
+
+public class Time {
+	
+	int hour;
+	int minute;
+	int second;
+
+}

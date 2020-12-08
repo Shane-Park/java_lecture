@@ -1,10 +1,12 @@
 package player_Monster;
-
+/* 0 : Default (None) 1 ~ 10 : Helmet //11~ 20 : Weapon //21~ 30 : Armor //31~ 40 : Shield //41~ 50 : Boots //51~ 60 : Consumables  */
 
 public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
-	Monster m0 = new Monster(AllText.monsterNames[0],   1,   40,     5,    2,   5,   1);	//rabbit
-	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   10,    3,   8,   2);	//wolf
-	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   20,   10,   20,  5);	//goblin
+	Monster m0 = new Monster(AllText.monsterNames[0],   1,   60,     5,    2,   4,   1);	//rabbit
+	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   12,    3,   8,   2);	//wolf
+	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   20,    5,   20,  5);	//goblin
+	//Item thornmail = new Item(31,0,0,5);		// Item(int itemcode,int att, int hp, int def)
+	
 	Monster monster;
 	
 	void field1(Player player){	
