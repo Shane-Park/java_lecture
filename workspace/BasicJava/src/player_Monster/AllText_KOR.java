@@ -7,7 +7,7 @@ public class AllText_KOR {
 	
 	static String[] itemNames = {"[없음]", 	"",			"",		"", "", "", "", "", "" ,"", "", // 1 ~ 10 : Helmet
 									/*11*/	"기본칼",		"",		"" ,"", "", "", "" ,"", "", "", // 11~ 20 : Weapon
-									/*21*/	"가시갑옷",	"",		"" ,"", "", "", "" ,"", "", "", // 21~ 30 : Armor
+									/*21*/	"가죽갑옷",	"",		"" ,"", "", "", "" ,"", "", "", // 21~ 30 : Armor
 									/*31*/	"",			"",		"" ,"", "", "", "" ,"", "", "", // 31~ 40 : Shield
 									/*41*/	"토끼털장화",	"",		"" ,"", "", "", "" ,"", "", "", // 41~ 50 : Boots
 									/*51*/	"기본물약",	"" ,	"", "", "", "" ,"", "", "", ""};// 51~ 60 : Consumables
@@ -18,43 +18,50 @@ public class AllText_KOR {
 									/*41*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
 									/*51*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,};
 											
-
+	static void printBar(){
+		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+	}
+	static void printEnter(){
+		System.out.println();
+	}
 	static void welcome(){
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-		System.out.print("■■□□□■■■□□□■■■□■■□□□■■■■□□□■■■□□□□■■□□□■■■■■■\n");
-		System.out.print("■■□■■□■■□■■□■■□■■■□■■■■■□■■□■■□■■□■□■■■■■■■■■\n");
-		System.out.print("■■□■■□■■□■■□■■□■■■□■■■■■□□□■■■□■■■■□■■□□■■■■■\n");
-		System.out.print("■■□□□■■■□□□■■■□■■■□■■■■■□■■□■■□■■■■■□□■□■■■■■\n");
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("■     ■■■   ■■■   ■  ■■■     ■■■   ■■■■   ■■■     ■\n");
+		System.out.print("■     ■  ■  ■  ■  ■   ■      ■  ■  ■  ■  ■        ■\n");
+		System.out.print("■     ■  ■  ■  ■  ■   ■      ■■■   ■■    ■  ■■    ■\n");
+		System.out.print("■     ■■■   ■■■   ■   ■      ■  ■  ■      ■■ ■    ■\n");
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		
 		System.out.print("이름을 입력하세요 > ");
 	}
 	static void bye(String name){
 		System.out.printf("[%s] 님 이용해 주셔서 감사합니다. 아직 세이브 기능은 제공하지 않습니다.",name);
 	}
 	static void wrong(){
-		System.out.print(" 잘못된 명령어입니다. 다시 입력해주세요\n>");
+		System.out.print(">잘못된 명령어입니다. 다시 입력해주세요\n>");
 	}
 
 	static void status(Player player){
 		int expPercent = (int)((float)player.exp/player.exp_max*10);
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		printBar();
 		System.out.print("■  ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
 		for(int i=0; i<10; i++){
 			if(expPercent>i) System.out.print("●");
 			else System.out.print("○");
 		}
-		System.out.print("\n■ =[   ]= ▬ι════ﺤ ■ HP ");System.out.printf("%3d/%3d(+%2d) ",player.hp,player.hp_max-player.hp_bonus,player.hp_bonus);
+		System.out.print("\n■ =[   ]= ▬ι════ﺤ ■ HP ");System.out.printf("%3d/%3d(+%2d) ",player.hp,player.hp_max,player.hp_bonus);
 		for(int i=0; i<10; i++){
 			if(hpPercent>i) System.out.print("●");
 			else System.out.print("○");
 		}
 
 		System.out.printf("\n■  || ||          ■ ATK %3d(+%d)\tDEF%3d(+%d)    \n",player.atk,player.atk_bonus,player.def,player.def_bonus);
-		System.out.printf("■[Lv %2d %-8s] gold : %3dg",player.lv,player.name,player.gold);
+		System.out.printf("■ [Lv %d %-8s] gold : %3dg",player.lv,player.name,player.gold);
 		if(player.bonusStats>0)
-			System.out.printf("\t[points : %d]",player.bonusStats);
-		System.out.print(  "\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+			System.out.printf("\t[ + points : %d ]",player.bonusStats);
+		System.out.print("\n");
+		printBar();
 	}
 
 
@@ -62,7 +69,7 @@ public class AllText_KOR {
 		System.out.println("DDIT에 오신것을 환영합니다 ["+player.name+"] 님. 잠시만 기다려주세요 ");
 	}
 	static void loadingComplete(){
-		System.out.println("\n■■■■■■■■■■■■■  로딩이 완료되었습니다     ■■■■■■■■■■■■■■");
+		System.out.println("\n■■■■■■■■■■■■■■■■  로딩이 완료되었습니다     ■■■■■■■■■■■■■■■■■");
 	}
 	static void alreadyFull(){
 		System.out.println("[무료] 당신의 체력은 이미 가득 찼습니다.");
@@ -77,24 +84,24 @@ public class AllText_KOR {
 
 	}
 	static void fieldlist(){
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-		System.out.println(  "■■■ 참여하고자 하는 사냥터를 고르세요 . 숫자를 입력해주세요 ■■■■");
-		System.out.println(  "■■■1.초급자 1 [ 레벨 1 몬스터만 출몰합니다.] ");
-		System.out.println(  "■■■2.초급자 2 [ 레벨 1 ~ 2 몬스터가 출몰합니다.]");
-		System.out.println(  "■■■3.초급자 3 [ 레벨 2 ~ 3 몬스터가 출몰합니다.]");
-		System.out.println(  "■■■0.메뉴로 돌아가기  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n>");
+		printBar();
+		System.out.println(  "■■■■■■ 참여하고자 하는 사냥터를 고르세요 . 숫자를 입력해주세요 ■■■■■■■");
+		System.out.println(  "■■■ (1) 초급자 1 [ 레벨 1 몬스터만 출몰합니다.] ");
+		System.out.println(  "■■■ (2) 초급자 2 [ 레벨 1 ~ 2 몬스터가 출몰합니다.]");
+		System.out.println(  "■■■ (3) 초급자 3 [ 레벨 2 ~ 3 몬스터가 출몰합니다.]");
+		System.out.println(  "■■■ (0) 메뉴로 돌아가기 ");
+		printBar();
 	}
 	static void levelup(int level){
 		System.out.printf(" 레벨업!! 축하합니다 레벨 [%d] 이(가) 되었습니다.\n",level);
 	}
 
 	static void menu(){
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-		System.out.println(  "■■■  캐릭터  |  사냥터  |  체력     |  상점   |  게임      ■■■■");
-		System.out.println(  "■■■   정보   |  이동     |  회복     |  이용   |  종료      ■■■■");
-		System.out.println(  "■■■   (1) |  (2)  |  (3)  |  (4) |  (5)  ■■■■");
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		printBar(); printEnter();
+		System.out.println(  "■■■　　　　　　|　　　　　　|　　　　　　|　　　　　　|　　　　　　■■■■");
+		System.out.println(  "■■■  캐릭터　  |　　사냥터　|   병원　   |   상점　   |   종료　   ■■■■");
+		System.out.println(  "■■■　　(1)　   |   (2)  |   (3)  |   (4)  |   (5)  ■■■■");
+		printEnter(); printBar(); 
 		System.out.print(  "> ");
 	}
 
@@ -107,19 +114,19 @@ public class AllText_KOR {
 	static void playerAttack(Player player, Monster monster,int damage){
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);
-		System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-		System.out.print("■    ■■     ■■          ■    ■■■   ■■■       \n");
-		System.out.print("■   ■  ■   ■  ■         ■       ■ ■          \n");
-		System.out.print("■        ■              ■     □□■□■□□        \n");
-		System.out.print("■       ■■■■    (^-^)   ■     □□■□□■□  (💀)  \n");
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		printBar();		  
+		System.out.print(  "■    ■■     ■■           ■         ■■■   ■■■       \n");
+		System.out.print(  "■   ■  ■   ■  ■          ■            ■ ■          \n");
+		System.out.print(  "■        ■               ■          □□■□■□□        \n");
+		System.out.print(  "■       ■■■■    (^-^)    ■          □□■□□■□  (💀)  \n");
+		printBar();
 		System.out.printf("[ %s ] HP%3d",player.name,player.hp);
 		for(int i=0; i<10; i++){
 			if(hpPercent>i) System.out.print("●");
 			else System.out.print("○");
 		}
-		System.out.printf(" %s HP%3d",monster.name,monster.hp);
+		System.out.printf(" [LV%d %s] HP%3d",monster.lv,monster.name,monster.hp);
 		for(int i=0; i<10; i++){
 			if(monsterHpPercent>i) System.out.print("●");
 			else System.out.print("○");
@@ -130,19 +137,19 @@ public class AllText_KOR {
 	static void monsterAttack(Monster monster,Player player,int damage){
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);
-		System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-		System.out.print("■    ■■     ■■          ■    ■■■   ■■■       \n");
-		System.out.print("■   ■  ■   ■  ■         ■       ■ ■          \n");
-		System.out.print("■        ■              ■     □□■□■□□        \n");
-		System.out.print("■       ■■■■    (^-^)   ■     □□■□□■□  (💀)  \n");
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+		printBar();		  
+		System.out.print(  "■    ■■     ■■           ■         ■■■   ■■■       \n");
+		System.out.print(  "■   ■  ■   ■  ■          ■            ■ ■          \n");
+		System.out.print(  "■        ■               ■          □□■□■□□        \n");
+		System.out.print(  "■       ■■■■    (^-^)    ■          □□■□□■□  (💀)  \n");
+		printBar();
 		System.out.printf("[ %s ] HP%3d",player.name,player.hp);
 		for(int i=0; i<10; i++){
 			if(hpPercent>i) System.out.print("●");
 			else System.out.print("○");
 		}
-		System.out.printf(" %s HP%3d",monster.name,monster.hp);
+		System.out.printf(" [LV%d %s] HP%3d",monster.lv,monster.name,monster.hp);
 		for(int i=0; i<10; i++){
 			if(monsterHpPercent>i) System.out.print("●");
 			else System.out.print("○");
@@ -174,8 +181,8 @@ public class AllText_KOR {
 
 	static void statusMenu(Player player){
 		System.out.print("(0)메뉴로 돌아가기 ");
-		System.out.print("(1)장착중인 장비 확인 ");
-		System.out.print("(2)보유 아이템 확인 ");
+		System.out.print("(1)착용중 장비 ");
+		System.out.print("(2)인벤토리 ");
 		if(player.bonusStats>0)
 			System.out.printf(" (3)잔여 보너스 스탯 사용");
 		System.out.print("\n>");
@@ -189,13 +196,22 @@ public class AllText_KOR {
 	static void bonusText(Player player){
 		System.out.printf("남은 보너스 스탯의 수 : [%d] 입니다. 올리고 싶은 스탯을 고르세요 HP(1) ATK(2) DEF(3) 이전화면으로(0)\n>",player.bonusStats);
 	}
+	static void hpUp(Player player){
+		System.out.printf("체력이 올랐습니다!!! [%d] -> [%d]\n",player.hp_max,player.hp_max+player.BONUSHP);
+	}
+	static void atkUp(Player player){
+		System.out.printf("공격력이 올랐습니다!!! [%d] -> [%d]\n",player.atk,player.atk+player.BONUSATK);
+	}
+	static void defUp(Player player){
+		System.out.printf("방어력이 올랐습니다!!! [%d] -> [%d]\n",player.def,player.def+player.BONUSDEF);
+	}
 
 	static void shopMenu(){
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-		System.out.println(  "■■■   ⛽  떠돌이 상인의 상점에 오신 것을 환영합니다 ⛽              ■■■■");
-		System.out.println(  "■■■   구매     |   판매     |  장비 강화   |   뒤로가기    ■■■■");
-		System.out.println(  "■■■   (1)  |   (2)  |   (3)   |    (0)   ■■■■");
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		printBar();	printEnter();//■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+		System.out.println(  "■■■    ⛽  떠돌이 상인의 상점에 오신 것을 환영합니다 ⛽                    ■■■■■■■");
+		System.out.println(  "■■■    구매     |   판매     |  장비 강화   |   뒤로가기        ■■■■■■■");
+		System.out.println(  "■■■    (1)  |   (2)  |   (3)   |    (0)     ■■■■■■■");
+		printEnter(); printBar();
 		System.out.print(  "> ");
 	}
 
@@ -222,7 +238,7 @@ public class AllText_KOR {
 				System.out.printf(" (%d개)",player.inventory[i].amount);
 			System.out.printf("\n");
 		}
-		System.out.printf("보유중인 아이템은 %d개 입니다.\n",player.inventoryCount);
+		System.out.printf("보유중인 아이템은 총 [%d개] 입니다.\n",player.inventoryCount);
 
 	}
 	
@@ -247,20 +263,12 @@ public class AllText_KOR {
 		case 4:
 			System.out.printf(" 부츠 : ");
 			break;
-		default:
-			System.out.println("ERROR CODE 101 equipcode is invalid");
+		default:	// it has to be unreachable but just in case
 			break;
 		}
 		System.out.printf("%s %s\n",itemNames[item.itemcode],item.statsToString());
 	}
 
-
-	
-	static void printBar(){
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-	}
-	
-	
 	static void selectEquip(){
 	System.out.println("(0)이전 화면으로 (1) ↓  (2) ↑ (3) 선택");
 	}

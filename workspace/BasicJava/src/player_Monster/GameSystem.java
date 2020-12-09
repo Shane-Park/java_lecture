@@ -4,6 +4,15 @@ import java.util.Scanner;
 public class GameSystem {
 	static private Scanner sc = new Scanner(System.in);
 
+	void welcomeMessage(Player player){
+		AllText.welcomePlayer(player);
+		for(int i=0; i<51; i++){
+			GameSystem.wait(50);
+			System.out.print("■");
+		}
+		AllText.loadingComplete();
+	}
+	
 	static void menu(){
 		AllText.menu();
 	}
@@ -44,13 +53,13 @@ public class GameSystem {
 			AllText.bonusText(player);
 			switch(GameSystem.nextLine()){
 			case "1":
-				player.hpup();
+				player.hpUp();
 				break;
 			case "2": 
-				player.atkup();
+				player.atkUp();
 				break;
 			case "3":
-				player.defup();
+				player.defUp();
 				break;
 			case "0":
 				break bonus;
@@ -61,15 +70,6 @@ public class GameSystem {
 			}
 		}
 
-	}
-
-	void welcomeMessage(Player player){
-		AllText.welcomePlayer(player);
-		for(int i=0; i<45; i++){
-			GameSystem.wait(20);
-			System.out.print("■");
-		}
-		AllText.loadingComplete();
 	}
 
 	void battle(Player player){
@@ -100,7 +100,7 @@ public class GameSystem {
 		shop: while(true){
 			AllText.shopMenu();
 			switch(GameSystem.nextLine()){
-			case "1" : player.buyItem(51,1); // item code 1/ price 1
+			case "1" : player.buyItem(51,1); // item code 1 (potion) / price 1
 				break;
 			case "2" : player.sellItem();
 				break;

@@ -3,40 +3,39 @@ package player_Monster;
 public class Player{
 	int lv;
 	int exp_max;
-	int exp;
+	int exp = 0;
 	int hp_max, hp_bonus=0;
 	int hp;
 	int gold;
-	int atk, atk_bonus = 0;
-	int def, def_bonus = 0;
-	int bonusStats;
+	int atk = 30, atk_bonus = 0;
+	int def = 0, def_bonus = 0;
+	int bonusStats = 3;
+	final int BONUSHP = 30, LVUPHP = 10;
+	final int BONUSATK = 4, LVUPATK = 3;
+	final int BONUSDEF = 2, LVUPDEF = 1;
 	String name;
-	Item defaultItem = new Item(0,0,0,0);	// DEFAULT ITEM WHICH IS NONE
+	Item defaultItem = new Item(0,0,0,0);	// DEFAULT ITEM WHICH IS [NONE]
 	Item[] equips = {defaultItem,defaultItem,defaultItem,defaultItem,defaultItem}; // { Helmet, Weapon, Armor, Shield, Boots}
 	Item[] inventory = new Item[10];
 	int inventoryCount=0;
 	int[] exp_table = {0, 10, 30, 50, 100, 220, 500, 800, 2500};
 
 	Player(){
-		this(1,80,10);	// Constructor (START LEVEL, START HP, START GOLD)
+		this(1,80,10);	// Player Constructor (START LEVEL, START HP, START GOLD)
 		AllText.welcome();
 		this.name = GameSystem.nextLine();
 	}
 	Player(int lv, int hp, int gold){
 		this.lv = lv;
-		this.exp = 0;
 		this.exp_max = exp_table[lv];
 		this.hp_max = hp;
 		this.hp = hp;
 		this.gold = gold;
-		this.atk = 30;
-		this.def = 1;
-		this.bonusStats = 3;
 		
 		final int startItem1 = 11,startItem2=21;		// Getting free start item
 		inventory[0] = new Item(startItem1,5,0,0);		// start item is a basic sword Item(int itemcode,int att, int hp, int def)	
-		inventory[1] = new Item(startItem2,0,0,3);
-		inventoryCount += 2;								// It's not equipped yet
+		inventory[1] = new Item(startItem2,0,0,3);		// start armor
+		inventoryCount += 2;							// It's not equipped yet but still in inventory
 	}
 
 	void getExp(int exp){
@@ -51,11 +50,11 @@ public class Player{
 	void lvup(){
 		lv++;
 		exp_max = exp_table[lv];
-		hp_max += 10;
-		atk += 3;
-		def += 1;
+		hp_max += LVUPHP;
+		atk += LVUPATK;
+		def += LVUPHP;
 		hp = hp_max;
-		bonusStats += lv/10+1;
+		bonusStats += lv/10+1;	// BONUS STAT WILL START FROM 1, INCREASE EVERY 10 LEVELS
 		AllText.levelup(lv);
 	}
 
@@ -64,7 +63,7 @@ public class Player{
 		AllText.getGold(gold,this.gold);
 	}
 	void recover(){
-		int recoverPrice = 1;
+		int recoverPrice = lv/10+1;	// RECOVER PRICE WILL START FROM 1, INCREASE EVERY 10 LEVELS
 		if(this.hp == this.hp_max){
 			AllText.alreadyFull();
 		}else if(gold >= recoverPrice){
@@ -93,24 +92,26 @@ public class Player{
 		AllText.pressAny();
 	}
 
-	void hpup(){
+	void hpUp(){
 		if(bonusStats>0){
-			int bonusHp = 30;
-			hp_max += bonusHp;
-			hp+= bonusHp;	// recover as much as bonus HP is
+			AllText.hpUp(this);
+			hp_max += BONUSHP;
+			hp+= BONUSHP;	// recover as much as bonus HP is
 			bonusStats --;
 		}
 	}
-	void atkup(){
+	void atkUp(){
 		if(bonusStats>0){
-			atk += 3;
+			AllText.atkUp(this);
+			atk += BONUSATK;
 			bonusStats --;
 		}
 
 	}
-	void defup(){
+	void defUp(){
 		if(bonusStats>0){
-			def += 1;
+			AllText.defUp(this);
+			def += BONUSDEF;
 			bonusStats --;
 		}
 	}
@@ -199,7 +200,7 @@ public class Player{
 	}
 	
 	void changeEquip(int equipSelect){
-		int showlists = 5;
+		int showlists = 5;	// WILL ONLY SHOW [5] ITEMS WHICH ARE ABLE TO EQUIP ON 'EQUIPSELECT' PART
 		Item[] equipList = new Item[showlists];
 		int count=0;
 		int[] rememberInventory = new int[showlists];
@@ -232,6 +233,7 @@ public class Player{
 			break;
 		default :
 			AllText.wrong();
+			AllText.pressAny();
 		}
 		
 	}
@@ -239,15 +241,18 @@ public class Player{
 	void equipItem(int part, Item item){ 	/* 0HELMET / 1SWORD / 2ARMOR / 3SHIELD / 4BOOTS */
 		if(equips[part] != defaultItem){		// ONLY WHEN [PART] IS EQUIPPED 
 			equips[part].isEquipped = false;
-			hp_bonus -= item.hp;
-			hp_max -= hp_bonus;
-			atk_bonus -= item.att;
-			def_bonus -= item.def;
-		}
+			hp_bonus -= item.hp;                 //
+			hp_max -= item.hp;                   //
+			if(hp>item.hp)                       // take equipment off
+				hp-=item.hp;                     //
+			atk_bonus -= item.att;               //
+			def_bonus -= item.def;               //
+		}                                        //
 		if(item != defaultItem){
 			item.isEquipped = true;
 			hp_bonus += item.hp;
-			hp_max += hp_bonus;
+			hp_max += item.hp;
+			hp += item.hp;
 			atk_bonus += item.att;
 			def_bonus += item.def;
 		}
@@ -255,12 +260,7 @@ public class Player{
 		
 	}
 	
-	
-	void sellItem(){ // need to be filled
-
-	}
-	
-	void getItem(Item item){ // need to be filled
+	void getItem(Item item){ 
 		AllText.getItem(item);
 		AllText.pressAny();
 		int i;
@@ -313,7 +313,9 @@ public class Player{
 	}
 	
 	
-	
+	void sellItem(){ // need to be filled
+
+	}
 	
 
 }

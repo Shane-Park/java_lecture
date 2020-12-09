@@ -1,7 +1,7 @@
 
 /*
  * 
- * 2020-12-08 
+ * 2020-12-09 made the code bit more readable and soft 
  * 2020-12-08 Item drop from the field with chance (first field item : rabbit shoes, can get only 1 each character)
  * 2020-12-08 getItem method. now can acquire items from the field
  * 2020-12-08 item bonus status system due to equipment

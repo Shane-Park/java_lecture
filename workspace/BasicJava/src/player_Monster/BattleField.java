@@ -2,9 +2,9 @@ package player_Monster;
 /* 0 : Default (None) 1 ~ 10 : Helmet //11~ 20 : Weapon //21~ 30 : Armor //31~ 40 : Shield //41~ 50 : Boots //51~ 60 : Consumables  */
 
 public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
-	Monster m0 = new Monster(AllText.monsterNames[0],   1,   60,     5,    2,   4,   1);	//rabbit
+	Monster m0 = new Monster(AllText.monsterNames[0],   1,   60,     6,    2,   4,   1);	//rabbit
 	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   12,    3,   8,   2);	//wolf
-	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   20,    5,   20,  5);	//goblin
+	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   22,    5,   25,  5);	//goblin
 	Item rabbitShoes = new Item(41,0,30,1);		// Item(int itemcode,int att, int hp, int def)
 	
 	Monster monster;
@@ -12,8 +12,10 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 	void field1(Player player){	
 		monster = m0;
 		battle(player,monster);
+		
 		if((float)player.hp/player.hp_max>0.1 && !player.haveItem(rabbitShoes) && Math.random()>0.6)	// first item event, rabbitShoes
 			player.getItem(rabbitShoes);
+		
 	}
 	void field2(Player player){	
 		monster = (int)(Math.random()*2)==1? m0 : m1;
