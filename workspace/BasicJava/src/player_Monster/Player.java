@@ -192,7 +192,7 @@ public class Player{
 					equipSelect--;
 				else equipSelect = 4;
 				break;
-			case "3" :
+			case "" :
 				changeEquip(equipSelect);
 				break;
 			default :

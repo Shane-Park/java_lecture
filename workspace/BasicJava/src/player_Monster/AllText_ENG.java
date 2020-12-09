@@ -33,7 +33,7 @@ public class AllText_ENG {
 		int expPercent = (int)((float)player.exp/player.exp_max*10);
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		AllText.printBar(); AllText.printEnter();
-		System.out.print("■  ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
+		System.out.print("■　  ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
 		for(int i=0; i<10; i++){
 			if(expPercent>i) System.out.print("●");
 			else System.out.print("○");
@@ -223,7 +223,7 @@ public class AllText_ENG {
 
 	static void selectEquip(){
 		System.out.println("        (5) ↑");
-		System.out.println("(0)BACK (2) ↓  (3) Choose");
+		System.out.println("(0)BACK (2) ↓  (ENTER) Choose");
 		AllText.printBar();
 		System.out.print(">");
 	}

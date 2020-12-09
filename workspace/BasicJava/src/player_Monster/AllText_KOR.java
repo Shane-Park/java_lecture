@@ -34,7 +34,7 @@ public class AllText_KOR {
 		int expPercent = (int)((float)player.exp/player.exp_max*10);
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		AllText.printBar(); AllText.printEnter();
-		System.out.print("■  ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
+		System.out.print("■   ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
 		for(int i=0; i<10; i++){
 			if(expPercent>i) System.out.print("●");
 			else System.out.print("○");
@@ -224,7 +224,7 @@ public class AllText_KOR {
 
 	static void selectEquip(){
 		System.out.println("            (5) ↑");
-		System.out.println("(0)이전 화면으로 (2) ↓  (3) 선택");
+		System.out.println("(0)이전 화면으로 (2) ↓  (ENTER)선택");
 		AllText.printBar();
 		System.out.print(">");
 	}
