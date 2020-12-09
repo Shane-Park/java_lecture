@@ -207,13 +207,13 @@ public class AllText_ENG {
 			System.out.printf(" Weapon : ");
 			break;
 		case 2:
-			System.out.printf(" Armor : ");
+			System.out.printf(" Armor  : ");
 			break;
 		case 3:
 			System.out.printf(" Shield : ");
 			break;
 		case 4:
-			System.out.printf(" Boots : ");
+			System.out.printf(" Boots  : ");
 			break;
 		default:	// it has to be unreachable but just in case
 			break;
