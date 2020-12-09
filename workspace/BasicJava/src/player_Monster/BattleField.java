@@ -1,11 +1,11 @@
 package player_Monster;
 /* 0 : Default (None) 1 ~ 10 : Helmet //11~ 20 : Weapon //21~ 30 : Armor //31~ 40 : Shield //41~ 50 : Boots //51~ 60 : Consumables  */
 
-public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
-	Monster m0 = new Monster(AllText.monsterNames[0],   1,   60,     6,    2,   4,   1);	//rabbit
-	Monster m1 = new Monster(AllText.monsterNames[1],   2,   100,   12,    3,   8,   2);	//wolf
-	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   22,    5,   25,  5);	//goblin
-	Item rabbitShoes = new Item(41,0,30,1);		// Item(int itemcode,int att, int hp, int def)
+public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)  // EXP TABLE {0, 10, 20, 45, 90, 200, 500, 800, 2500}
+	Monster m0 = new Monster(AllText.monsterNames[0],   1,   70,    12,    1,   5,   1);	//rabbit
+	Monster m1 = new Monster(AllText.monsterNames[1],   2,   130,   18,    3,   9,   2);	//wolf
+	Monster m2 = new Monster(AllText.monsterNames[2],   3,   250,   35,    10,   30,  5);	//goblin
+	Item rabbitShoes = new Item(41,0,35,2);		// Item(int itemcode,int att, int hp, int def)
 	
 	Monster monster;
 	
@@ -26,23 +26,29 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 		battle(player,monster);
 	}
 	
-	void battle(Player player,Monster m0){
+	void battle(Player player,Monster m){
 		final int fight_delay = 1200;
+		AllText.fightScreen(player, m);
+		AllText.fightStart(player,m);
+		GameSystem.wait(fight_delay);
 		battle : while(true){
-			player.attack(m0);
+			player.attack(m);
 			GameSystem.wait(fight_delay);
-			if(m0.hp <= 0){
-				AllText.killed(m0.name);
-				m0.hp=m0.hp_max;
-				player.getGold(m0.money);
-				player.getExp(m0.exp);
+			if(m.hp <= 0){
+				AllText.fightScreen(player, m);
+				AllText.killed(m.name);
+				m.hp=m.hp_max;
+				player.getGold(m.money);
+				player.getExp(m.exp);
 				AllText.pressAny();
 				break battle;
 			}
-			m0.attack(player);
+			m.attack(player);
 			GameSystem.wait(fight_delay);
 			if(player.hp <=0){
+				AllText.fightScreen(player, m);
 				player.die();
+				m.hp=m.hp_max;
 				break;
 			}
 		}

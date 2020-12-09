@@ -1,0 +1,16 @@
+package player_Monster;
+
+public class AllText extends AllText_KOR {
+	// Language setting : modify     ↑↑↑ to ENG or KOR 
+	
+	private AllText(){}
+	static void fightScreen(){
+	System.out.print("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+	printBar();		  
+	System.out.print(  "■    ■■     ■■           ■         ■■■   ■■■       \n");
+	System.out.print(  "■   ■  ■   ■  ■          ■            ■ ■          \n");
+	System.out.print(  "■        ■               ■          □□■□■□□        \n");
+	System.out.print(  "■       ■■■■    (^-^)    ■          □□■□□■□  (💀)  \n");
+	printBar();
+	}
+}

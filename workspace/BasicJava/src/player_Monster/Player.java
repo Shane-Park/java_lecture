@@ -10,15 +10,15 @@ public class Player{
 	int atk = 30, atk_bonus = 0;
 	int def = 0, def_bonus = 0;
 	int bonusStats = 3;
-	final int BONUSHP = 30, LVUPHP = 10;
-	final int BONUSATK = 4, LVUPATK = 3;
-	final int BONUSDEF = 2, LVUPDEF = 1;
+	final int BONUSHP = 20, LVUPHP = 20;
+	final int BONUSATK = 4, LVUPATK = 4;
+	final int BONUSDEF = 2, LVUPDEF = 2;
 	String name;
 	Item defaultItem = new Item(0,0,0,0);	// DEFAULT ITEM WHICH IS [NONE]
 	Item[] equips = {defaultItem,defaultItem,defaultItem,defaultItem,defaultItem}; // { Helmet, Weapon, Armor, Shield, Boots}
 	Item[] inventory = new Item[10];
 	int inventoryCount=0;
-	int[] exp_table = {0, 10, 30, 50, 100, 220, 500, 800, 2500};
+	int[] exp_table = {0, 10, 20, 45, 90, 200, 500, 800, 2500};
 
 	Player(){
 		this(1,80,10);	// Player Constructor (START LEVEL, START HP, START GOLD)
@@ -33,8 +33,8 @@ public class Player{
 		this.gold = gold;
 		
 		final int startItem1 = 11,startItem2=21;		// Getting free start item
-		inventory[0] = new Item(startItem1,5,0,0);		// start item is a basic sword Item(int itemcode,int att, int hp, int def)	
-		inventory[1] = new Item(startItem2,0,0,3);		// start armor
+		inventory[0] = new Item(startItem1,8,0,0);		// start item is a basic sword Item(int itemcode,int att, int hp, int def)	
+		inventory[1] = new Item(startItem2,0,0,4);		// start armor
 		inventoryCount += 2;							// It's not equipped yet but still in inventory
 	}
 
@@ -52,7 +52,7 @@ public class Player{
 		exp_max = exp_table[lv];
 		hp_max += LVUPHP;
 		atk += LVUPATK;
-		def += LVUPHP;
+		def += LVUPDEF;
 		hp = hp_max;
 		bonusStats += lv/10+1;	// BONUS STAT WILL START FROM 1, INCREASE EVERY 10 LEVELS
 		AllText.levelup(lv);
@@ -81,6 +81,7 @@ public class Player{
 		damage = damage <= 0 ? 1: damage;
 		m.hp = m.hp < damage ? m.hp - m.hp : m.hp - damage;
 		AllText.playerAttack(this,m,damage);
+		
 	}
 
 	void die(){
@@ -162,6 +163,8 @@ public class Player{
 
 	void itemList(){
 		AllText.itemList(this);
+		for(int i=0; i<inventory.length-inventoryCount-2;i++)
+			AllText.printEnter();
 		AllText.pressAny();
 	}
 
@@ -174,18 +177,17 @@ public class Player{
 				if(equipSelect ==i) System.out.print("■"); else System.out.print("□");	// SELECT EQIUP VISUAL SYSTEM
 				AllText.equips(i,equips[i]);
 			}
-			AllText.printBar();
 			AllText.selectEquip();
 			String input = GameSystem.nextLine();
 			switch(input){
 			case "0" : 
 				break equipSelect;
-			case "1" :
+			case "2" :
 				if(0<= equipSelect && equipSelect <=3)
 					equipSelect++;
 				else equipSelect = 0;
 				break;
-			case "2" :
+			case "5" :
 				if(1<= equipSelect && equipSelect <=4)
 					equipSelect--;
 				else equipSelect = 4;

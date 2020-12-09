@@ -3,28 +3,29 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="261" key="DIALOG_WIDTH"/>
 		<item value="247" key="DIALOG_Y_ORIGIN"/>
-		<item value="1328" key="DIALOG_X_ORIGIN"/>
 		<item value="402" key="DIALOG_HEIGHT"/>
+		<item value="1328" key="DIALOG_X_ORIGIN"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="hp_bonus" key="selection"/>
+		<item value="착용중" key="selection"/>
 		<list key="findhistory">
-			<item value="hp_bonus"/>
-			<item value="equipSelect"/>
-			<item value="equipItem"/>
-			<item value="보유 아이템"/>
-			<item value="갑옷"/>
-			<item value="print"/>
-			<item value="thorn"/>
-			<item value="thornmail"/>
+			<item value="착용중"/>
+			<item value="itemList("/>
+			<item value="보유중인"/>
+			<item value="selectEquip()"/>
+			<item value="equips("/>
+			<item value="selecte"/>
+			<item value="헬멧"/>
+			<item value="이전 화면"/>
 		</list>
 		<list key="replacehistory">
+			<item value="AllText.printBar()"/>
 			<item value="def"/>
 			<item value="atk"/>
 			<item value="att"/>
@@ -32,7 +33,6 @@
 			<item value="System"/>
 			<item value="double"/>
 			<item value="num_students"/>
-			<item value="num_subjects"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

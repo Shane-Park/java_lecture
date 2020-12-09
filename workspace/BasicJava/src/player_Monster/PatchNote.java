@@ -1,6 +1,9 @@
 
 /*
  * 
+ * 2020-12-09 English version translation completed so far
+ * 2020-12-09 united interface [ 10 lines per screen]
+ * 2020-12-09 bug fixed : monster remembered its' HP when it killed player
  * 2020-12-09 made the code bit more readable and soft 
  * 2020-12-08 Item drop from the field with chance (first field item : rabbit shoes, can get only 1 each character)
  * 2020-12-08 getItem method. now can acquire items from the field
@@ -16,8 +19,6 @@
  * 2020-12-05 HP & EXP display added
  * 2020-12-04 Project start - working title : player_Monster
 */
-
-
 
 package player_Monster;
 

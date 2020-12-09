@@ -27,7 +27,6 @@ public class GameSystem {
 	void status(Player player){
 		status : while(true){
 			AllText.status(player);
-			AllText.statusMenu(player);
 			switch(GameSystem.nextLine()){
 			case "0" :
 				break status;
