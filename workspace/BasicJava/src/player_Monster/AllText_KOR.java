@@ -34,7 +34,7 @@ public class AllText_KOR {
 		int expPercent = (int)((float)player.exp/player.exp_max*10);
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		AllText.printBar(); AllText.printEnter();
-		System.out.print("■   ʕʘ̅͜ʘ̅ʔ           ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
+		System.out.print("■   ʕʘ̅͜ʘ̅ʔ          ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
 		for(int i=0; i<10; i++){
 			if(expPercent>i) System.out.print("●");
 			else System.out.print("○");
@@ -201,21 +201,11 @@ public class AllText_KOR {
 
 	static void equips(int equipcode,Item item){
 		switch(equipcode){
-		case 0:
-			System.out.printf("　⛑ 헬멧 : ");
-			break;
-		case 1:
-			System.out.printf("　⚔ 무기 : ");
-			break;
-		case 2:
-			System.out.printf("　🧥 갑옷 : ");
-			break;
-		case 3:
-			System.out.printf("　⛨ 방패 : ");
-			break;
-		case 4:
-			System.out.printf("　👟 부츠 : ");
-			break;
+		case 0:	System.out.printf("　⛑ 헬멧 : ");	break;
+		case 1:	System.out.printf("　⚔ 무기 : ");	break;
+		case 2:	System.out.printf("　🧥 갑옷 : ");	break;
+		case 3:	System.out.printf("　⛨ 방패 : ");	break;
+		case 4:	System.out.printf("　👟 부츠 : ");	break;
 		default:	// it has to be unreachable but just in case
 			break;
 		}
@@ -232,21 +222,11 @@ public class AllText_KOR {
 	static void showEquiplist(int equipSelect, Item[] list, Player player){
 		AllText.printBar();
 		switch(equipSelect){
-		case 0:
-			System.out.print("⛑HELMET LIST⛑");
-			break;
-		case 1:
-			System.out.print("⚔SWORD LIST⚔");
-			break;
-		case 2:
-			System.out.print("🧥ARMOR LIST🧥");
-			break;
-		case 3:
-			System.out.print("⛨SHIELD LIST⛨");
-			break;
-		case 4:
-			System.out.print("👟BOOTS LIST👟");
-			break;
+		case 0:	System.out.print("⛑HELMET LIST⛑");	break;
+		case 1:	System.out.print("⚔SWORD LIST⚔");	break;
+		case 2:	System.out.print("🧥ARMOR LIST🧥");	break;
+		case 3:	System.out.print("⛨SHIELD LIST⛨");	break;
+		case 4:	System.out.print("👟BOOTS LIST👟");	break;
 		}
 		System.out.printf("     장착중 : %s %s\n",player.equips[equipSelect].name,player.equips[equipSelect].statsToString());
 		for(int i=0; i<list.length; i++){

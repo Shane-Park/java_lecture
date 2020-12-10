@@ -284,18 +284,9 @@ public class Player{
 	void fullInventory(Item item){
 		String input = GameSystem.nextLine();
 		switch(input){
-		case "0":
-			break;
-		case "1":
-		case "2":
-		case "3":
-		case "4":
-		case "5":
-		case "6":
-		case "7":
-		case "8":
-		case "9":
-		case "10":
+		case "0": break;
+		case "1":case "2":case "3":case "4":case "5":
+		case "6":case "7":case "8":case "9":case "10":
 			int inputInt = Integer.parseInt(input)-1;	// Arrays are from 0, item numbers are from 1
 			AllText.dumpItem(inventory[inputInt]);
 			inventory[inputInt]=item;

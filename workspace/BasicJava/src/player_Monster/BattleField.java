@@ -15,7 +15,6 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 		
 		if((float)player.hp/player.hp_max>0.1 && !player.haveItem(rabbitShoes) && Math.random()>0.6)	// first item event, rabbitShoes
 			player.getItem(rabbitShoes);
-		
 	}
 	
 	void field2(Player player){	

@@ -1,0 +1,21 @@
+package programmers;
+
+public class WaterMelon {
+	
+
+	public static void main(String[] args) {
+		
+		Solution sol = new Solution();
+		System.out.println();
+
+	}
+	
+
+
+}
+class Solution {
+    public String solution(int n) {
+        String answer = "";
+        return answer;
+    }
+}

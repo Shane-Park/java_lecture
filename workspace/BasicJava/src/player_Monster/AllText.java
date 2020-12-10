@@ -2,14 +2,13 @@ package player_Monster;
 
 public class AllText extends AllText_KOR{
 	// Language setting : modify     ↑↑↑ to ENG or KOR 
+	
+	public AllText(){}
 
 	static void printEnter(){
-		System.out.println();
-	}
-	
+		System.out.println();}
 	static void printBar(){
-		System.out.println(  "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
-	}
+		System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");}
 	
 	static void mainScreen(){
 		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
@@ -17,10 +16,8 @@ public class AllText extends AllText_KOR{
 		System.out.print("■     ■  ■  ■  ■  ■   ■      ■  ■  ■  ■  ■        ■\n");
 		System.out.print("■     ■  ■  ■  ■  ■   ■      ■■■   ■■    ■  ■■    ■\n");
 		System.out.print("■     ■■■   ■■■   ■   ■      ■  ■  ■      ■■ ■    ■\n");
-		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
-	}
+		System.out.print("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");}
 
-	private AllText(){}
 	static void fightScreen(Player player, Monster monster){
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
 		int monsterHpPercent = (int)((float)monster.hp/monster.hp_max*10);

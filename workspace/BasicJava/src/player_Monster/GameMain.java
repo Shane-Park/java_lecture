@@ -11,18 +11,10 @@ public class GameMain {
 		while(true){
 			GameSystem.menu();
 			switch(GameSystem.nextLine()){
-			case "1": 
-				game.status(player1);
-				break;
-			case "2": 
-				game.battle(player1);
-				break;
-			case "3": 
-				player1.recover();
-				break;
-			case "4" :
-				game.shop(player1);
-				break;
+			case "1": game.status(player1);	break;
+			case "2": game.battle(player1);	break;
+			case "3": player1.recover();	break;
+			case "4" :game.shop(player1);	break;
 			case "5":
 				AllText.bye(player1.name);
 				System.exit(0);

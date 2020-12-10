@@ -1,0 +1,17 @@
+package programmers;
+
+public class changeStringToInt {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+class changeStr {
+    public int solution(String s) {
+        int answer = 0;
+        return answer;
+    }
+}

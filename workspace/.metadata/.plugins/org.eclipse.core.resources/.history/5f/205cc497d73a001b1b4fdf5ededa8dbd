@@ -1,0 +1,22 @@
+package programmers;
+
+public class changeStringToInt {
+
+	public static void main(String[] args) {
+		System.out.println(new changeStr().solution("-1234"));
+
+	}
+
+}
+
+class changeStr {
+    public int solution(String s) {
+    	boolean flag = true;
+    	if(s.charAt(0) == '-')
+    		flag = false;
+    	
+    	
+        int answer = 0;
+        return answer;
+    }
+}
