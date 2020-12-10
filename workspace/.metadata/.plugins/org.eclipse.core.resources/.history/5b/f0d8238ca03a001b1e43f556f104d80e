@@ -17,12 +17,10 @@ public class BattleField {				//Monster(name lv    hp    att   amr   exp  money)
 			player.getItem(rabbitShoes);
 		
 	}
-	
 	void field2(Player player){	
 		monster = (int)(Math.random()*2)==1? m0 : m1;
 		battle(player,monster);
 	}
-	
 	void field3(Player player){	
 		monster = (int)(Math.random()*2+1)==2? m1 : m2;
 		battle(player,monster);

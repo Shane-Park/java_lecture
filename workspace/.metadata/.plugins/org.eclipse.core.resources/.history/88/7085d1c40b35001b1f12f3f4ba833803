@@ -1,9 +1,0 @@
-package e_oop;
-
-public class ClassMaker2 {
-	
-	// 인스턴스 변수 하나를 선언하고 명시적으로 초기화 해주세요.
-	int a=0;
-	
-
-}

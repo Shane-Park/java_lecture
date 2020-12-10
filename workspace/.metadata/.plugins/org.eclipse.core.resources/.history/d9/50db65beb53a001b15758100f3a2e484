@@ -202,19 +202,19 @@ public class AllText_KOR {
 	static void equips(int equipcode,Item item){
 		switch(equipcode){
 		case 0:
-			System.out.printf("　⛑ 헬멧 : ");
+			System.out.printf(" 헬멧 : ");
 			break;
 		case 1:
-			System.out.printf("　⚔ 무기 : ");
+			System.out.printf(" 무기 : ");
 			break;
 		case 2:
-			System.out.printf("　🧥 갑옷 : ");
+			System.out.printf(" 갑옷 : ");
 			break;
 		case 3:
-			System.out.printf("　⛨ 방패 : ");
+			System.out.printf(" 방패 : ");
 			break;
 		case 4:
-			System.out.printf("　👟 부츠 : ");
+			System.out.printf(" 부츠 : ");
 			break;
 		default:	// it has to be unreachable but just in case
 			break;
