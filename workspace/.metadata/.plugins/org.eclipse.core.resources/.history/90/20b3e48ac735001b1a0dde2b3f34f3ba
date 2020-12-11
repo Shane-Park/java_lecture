@@ -1,7 +1,0 @@
-package f_game;
-
-public class Character {
-	String name; //이름
-	
-
-}

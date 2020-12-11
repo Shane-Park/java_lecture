@@ -30,7 +30,7 @@ package programmers;
 import java.util.Arrays;
 public class RemainderZero {
 
-	static int[] solution(int[] arr, int divisor) {
+	static int[] solutionR(int[] arr, int divisor) {
 		int[] temp = new int[arr.length];
 		int j=0;
 		for(int i=0; i<arr.length; i++){
@@ -54,7 +54,7 @@ public class RemainderZero {
 
 	public static void main(String[] args) {
 		int[] ex = {3,2,6};
-		System.out.println(Arrays.toString(solution(ex,10)));
+		System.out.println(Arrays.toString(solutionR(ex,10)));
 
 	}
 

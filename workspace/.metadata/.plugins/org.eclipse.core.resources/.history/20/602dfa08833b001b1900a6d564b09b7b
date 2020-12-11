@@ -1,0 +1,5 @@
+package h_exception;
+
+public class ThrowException {
+
+}

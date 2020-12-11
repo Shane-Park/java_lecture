@@ -15,14 +15,14 @@ str은 부호(+,-)와 숫자로만 구성되어 있고, 잘못된 값이 입력�
 public class changeStringToInt {
 
 	public static void main(String[] args) {
-		System.out.println(new changeStr().solution("-1234"));
+		System.out.println(new changeStr().solutionCh("-1234"));
 
 	}
 
 }
 
 class changeStr {
-    public int solution(String s) {
+    public int solutionCh(String s) {
 //    	boolean flag = true;
 //    	int i = 0;
 //    	if(s.charAt(0) == '-'){

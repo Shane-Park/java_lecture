@@ -11,12 +11,12 @@ public class ClawCrane {
 							{4,2,4,4,2},
 							{3,5,1,3,1}};
 		int[] moves = {1,5,3,5,1,2,1,4};
-		System.out.println(new Claw().solution(board,moves));
+		System.out.println(new Claw().solutionC(board,moves));
 	}
 }
 
 class Claw {
-    public int solution(int[][] board, int[] moves) {
+    public int solutionC(int[][] board, int[] moves) {
     	ArrayList<Integer> list = new ArrayList<Integer>();
     	int answer = 0;
     	for(int i=0; i<moves.length; i++){
