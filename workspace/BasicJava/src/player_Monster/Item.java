@@ -11,9 +11,19 @@ public class Item {
 	boolean isEquipped = false;            // *  51~ 60 : Consumables  
 	
 	Item(int itemcode,int att, int hp, int def){
-		this.name = AllText.itemNames[itemcode];
+		AllText text = null;
+		switch(GameMain.language){
+		case 1:
+			text = new AllText_ENG();
+			break;
+		case 2:
+			text = new AllText_KOR();
+			break;
+		}
+		
+		this.name = text.getItemName(itemcode);
 		this.itemcode = itemcode;
-		this.requiredLevel = AllText.itemLevels[itemcode];
+		this.requiredLevel = text.getItemLevel(itemcode);
 		this.att= att;
 		this.hp = hp;
 		this.def = def;

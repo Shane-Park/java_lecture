@@ -2,20 +2,29 @@ package player_Monster;
 import java.util.Scanner;
 
 public class GameSystem {
+	AllText text = null;
+	GameSystem(){
+		switch(GameMain.language){
+		case 1:
+			text = new AllText_ENG();
+			break;
+		case 2:
+			text = new AllText_KOR();
+			break;
+		}
+	}
+	
 	static private Scanner sc = new Scanner(System.in);
 
 	void welcomeMessage(Player player){
-		AllText.welcomePlayer(player);
+		text.welcomePlayer(player);
 		for(int i=0; i<51; i++){
 			GameSystem.wait(50);
 			System.out.print("■");
 		}
-		AllText.loadingComplete();
+		text.loadingComplete();
 	}
 	
-	static void menu(){
-		AllText.menu();
-	}
 
 	static void wait(int i){
 		long end = System.currentTimeMillis();
@@ -26,7 +35,7 @@ public class GameSystem {
 
 	void status(Player player){
 		status : while(true){
-			AllText.status(player);
+			text.status(player);
 			switch(GameSystem.nextLine()){
 			case "0" :
 				break status;
@@ -38,18 +47,18 @@ public class GameSystem {
 				break;
 			case "3" : 
 				if(player.bonusStats==0){
-					AllText.wrong();
+					text.wrong();
 				}else bonusSystem(player);
 				break;
 			default : 
-				AllText.wrong();
+				text.wrong();
 				break;	
 			}
 		}
 	}
 	void bonusSystem(Player player){
 		bonus : while(player.bonusStats>0){
-			AllText.bonusText(player);
+			text.bonusText(player);
 			switch(GameSystem.nextLine()){
 			case "1":
 				player.hpUp();
@@ -63,7 +72,7 @@ public class GameSystem {
 			case "0":
 				break bonus;
 			default:
-				AllText.wrong();
+				text.wrong();
 				break;
 
 			}
@@ -88,7 +97,7 @@ public class GameSystem {
 			case "0" : 
 				break field;
 			default : 
-				AllText.wrong();
+				text.wrong();
 				break;
 			}
 		}
@@ -97,7 +106,7 @@ public class GameSystem {
 	
 	void shop(Player player){
 		shop: while(true){
-			AllText.shopMenu();
+			text.shopMenu();
 			switch(GameSystem.nextLine()){
 			case "1" : player.buyItem(51,1); // item code 1 (potion) / price 1
 				break;
@@ -108,14 +117,14 @@ public class GameSystem {
 			case "0" :
 				break shop;
 			default :
-				AllText.wrong();
+				text.wrong();
 
 			}
 		}
 	}
 
 	void fieldlist(){
-		AllText.fieldlist();
+		text.fieldlist();
 	}
 
 

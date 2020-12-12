@@ -1,6 +1,7 @@
 
 /*
  * 
+ * 2020-12-12 Finally Added Language selection !! Also changed how to use 'AllText'. Now AllText is abstract
  * 2020-12-09 English version translation completed so far
  * 2020-12-09 united interface [ 10 lines per screen]
  * 2020-12-09 bug fixed : monster remembered its' HP when it killed player

@@ -19,13 +19,22 @@ public class Player{
 	Item[] inventory = new Item[10];
 	int inventoryCount=0;
 	int[] exp_table = {0, 10, 20, 45, 90, 200, 500, 800, 2500};
+	AllText text = null;
 
 	Player(){
 		this(1,80,10);	// Player Constructor (START LEVEL, START HP, START GOLD)
-		AllText.welcome();
+		text.welcome();
 		this.name = GameSystem.nextLine();
 	}
 	Player(int lv, int hp, int gold){
+		switch(GameMain.language){
+		case 1:
+			text = new AllText_ENG();
+			break;
+		case 2:
+			text = new AllText_KOR();
+			break;
+		}
 		this.lv = lv;
 		this.exp_max = exp_table[lv];
 		this.hp_max = hp;
@@ -40,7 +49,7 @@ public class Player{
 
 	void getExp(int exp){
 		this.exp += exp;
-		AllText.expGet(exp,this.exp_max,this.exp);
+		text.expGet(exp,this.exp_max,this.exp);
 		while( exp_max <= this.exp){
 			this.exp -= exp_max;
 			lvup();
@@ -55,32 +64,32 @@ public class Player{
 		def += LVUPDEF;
 		hp = hp_max;
 		bonusStats += lv/10+1;	// BONUS STAT WILL START FROM 1, INCREASE EVERY 10 LEVELS
-		AllText.levelup(lv);
+		text.levelup(lv);
 	}
 
 	void getGold(int gold){
 		this.gold+=gold;
-		AllText.getGold(gold,this.gold);
+		text.getGold(gold,this.gold);
 	}
 	void recover(){
 		int recoverPrice = lv/10+1;	// RECOVER PRICE WILL START FROM 1, INCREASE EVERY 10 LEVELS
 		if(this.hp == this.hp_max){
-			AllText.alreadyFull();
+			text.alreadyFull();
 		}else if(gold >= recoverPrice){
 			this.gold -= recoverPrice;
 			this.hp = this.hp_max;
-			AllText.recover(recoverPrice);
+			text.recover(recoverPrice);
 		}
 		else
-			AllText.notEnoughMoney(recoverPrice,gold);
-		AllText.pressAny();
+			text.notEnoughMoney(recoverPrice,gold);
+		text.pressAny();
 	}
 
 	void attack(Monster m){
 		int damage = atk + atk_bonus - m.def;
 		damage = damage <= 0 ? 1: damage;
 		m.hp = m.hp < damage ? m.hp - m.hp : m.hp - damage;
-		AllText.playerAttack(this,m,damage);
+		text.playerAttack(this,m,damage);
 		
 	}
 
@@ -88,14 +97,14 @@ public class Player{
 		int goldMinus = lv;
 		if(gold> goldMinus) gold -= goldMinus;
 		else gold = 0;
-		AllText.PlayerDie(name,goldMinus,hp_max/10,hp_max,gold);
+		text.PlayerDie(name,goldMinus,hp_max/10,hp_max,gold);
 		hp = hp_max/10;
-		AllText.pressAny();
+		text.pressAny();
 	}
 
 	void hpUp(){
 		if(bonusStats>0){
-			AllText.hpUp(this);
+			text.hpUp(this);
 			hp_max += BONUSHP;
 			hp+= BONUSHP;	// recover as much as bonus HP is
 			bonusStats --;
@@ -103,7 +112,7 @@ public class Player{
 	}
 	void atkUp(){
 		if(bonusStats>0){
-			AllText.atkUp(this);
+			text.atkUp(this);
 			atk += BONUSATK;
 			bonusStats --;
 		}
@@ -111,28 +120,28 @@ public class Player{
 	}
 	void defUp(){
 		if(bonusStats>0){
-			AllText.defUp(this);
+			text.defUp(this);
 			def += BONUSDEF;
 			bonusStats --;
 		}
 	}
 
 	void buyItem(int itemcode, int price){
-		AllText.buyItem();
+		text.buyItem();
 		switch(GameSystem.nextLine()){
 		case "1":
 			if(gold<price){
-				AllText.notEnoughMoney(price, gold);
+				text.notEnoughMoney(price, gold);
 				return;
 			}
 			gold -= price;
 			this.newItem(itemcode);
-			AllText.buySuccess(price);
+			text.buySuccess(price);
 			break;
 		case "2":
 			break;
 		default:
-			AllText.wrong();
+			text.wrong();
 			break;
 		}
 	}
@@ -143,7 +152,7 @@ public class Player{
 				break;
 		}
 		if(inventory[i] != null){
-			AllText.inventoryFull();
+			text.inventoryFull();
 			return;
 		}else{
 			if(i!=0){	// check duplicated items only when player have any item
@@ -162,22 +171,22 @@ public class Player{
 	}
 
 	void itemList(){
-		AllText.itemList(this);
+		text.itemList(this);
 		for(int i=0; i<inventory.length-inventoryCount-2;i++)
-			AllText.printEnter();
-		AllText.pressAny();
+			text.printEnter();
+		text.pressAny();
 	}
 
 
 	void equiplist(){
 		int equipSelect = 0;
 		equipSelect : while(true){
-			AllText.printBar();
+			text.printBar();
 			for(int i=0; i<5; i++){
 				if(equipSelect ==i) System.out.print("■"); else System.out.print("□");	// SELECT EQIUP VISUAL SYSTEM
-				AllText.equips(i,equips[i]);
+				text.equips(i,equips[i]);
 			}
-			AllText.selectEquip();
+			text.selectEquip();
 			String input = GameSystem.nextLine();
 			switch(input){
 			case "0" : 
@@ -196,7 +205,7 @@ public class Player{
 				changeEquip(equipSelect);
 				break;
 			default :
-				AllText.wrong();
+				text.wrong();
 			}
 		}
 	}
@@ -217,8 +226,8 @@ public class Player{
 		}
 		for(int i=count; i<showlists; i++)
 			equipList[i] = defaultItem;	
-		AllText.showEquiplist(equipSelect, equipList, this);
-		AllText.chooseEquip();
+		text.showEquiplist(equipSelect, equipList, this);
+		text.chooseEquip();
 		
 		String input = GameSystem.nextLine();
 		switch(input){
@@ -234,8 +243,8 @@ public class Player{
 			else equipItem(equipSelect, equipList[inputInt]);	//else it equip item you choose
 			break;
 		default :
-			AllText.wrong();
-			AllText.pressAny();
+			text.wrong();
+			text.pressAny();
 		}
 		
 	}
@@ -263,12 +272,12 @@ public class Player{
 	}
 	
 	void getItem(Item item){ 
-		AllText.getItem(item);
-		AllText.pressAny();
+		text.getItem(item);
+		text.pressAny();
 		int i;
 		if(inventoryCount == inventory.length){	// when you picked up an item but inventory is already full
-			AllText.itemList(this);
-			AllText.inventoryFull();
+			text.itemList(this);
+			text.inventoryFull();
 			fullInventory(item);
 			return;
 		}
@@ -288,11 +297,11 @@ public class Player{
 		case "1":case "2":case "3":case "4":case "5":
 		case "6":case "7":case "8":case "9":case "10":
 			int inputInt = Integer.parseInt(input)-1;	// Arrays are from 0, item numbers are from 1
-			AllText.dumpItem(inventory[inputInt]);
+			text.dumpItem(inventory[inputInt]);
 			inventory[inputInt]=item;
 			break;
 		default : 
-			AllText.wrong();
+			text.wrong();
 			fullInventory(item);
 		}
 	}

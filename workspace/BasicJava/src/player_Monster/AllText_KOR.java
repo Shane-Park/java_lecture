@@ -1,39 +1,51 @@
 package player_Monster;
 
 
-public class AllText_KOR {
+public class AllText_KOR extends AllText{
 
-	static String[] monsterNames = {"토끼","늑대","고블린"};
+	private String[] monsterNames = {"토끼","늑대","고블린"};
+	String getMonsterName(int number){
+		return monsterNames[number];
+	}
 
-	static String[] itemNames = {"[없음]", 
+
+	private String[] itemNames = {"[없음]", 
 				"",			"",		"", "", "", "", "" ,"", "", "", // 1 ~ 10 : Helmet
 		/*11*/	"기본칼",		"",		"" ,"", "", "", "" ,"", "", "", // 11~ 20 : Weapon
 		/*21*/	"가죽갑옷",	"",		"" ,"", "", "", "" ,"", "", "", // 21~ 30 : Armor
 		/*31*/	"",			"",		"" ,"", "", "", "" ,"", "", "", // 31~ 40 : Shield
 		/*41*/	"토끼털장화",	"",		"" ,"", "", "", "" ,"", "", "", // 41~ 50 : Boots
 		/*51*/	"기본물약",	"" ,	"", "", "", "" ,"", "", "", ""};// 51~ 60 : Consumables
-	static int[] itemLevels = {	0,			0, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
+	
+	String getItemName(int number){
+		return itemNames[number];
+	}
+	int getItemLevel(int number){
+		return itemLevels[number];
+	}
+	
+	private int[] itemLevels = {	0,			0, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
 		/*11*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
 		/*21*/	1,			0, 		0, 0, 0, 0, 0, 0, 0, 0,
 		/*31*/	0, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
 		/*41*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,
 		/*51*/	1, 			0, 		0, 0, 0, 0, 0, 0, 0, 0,};
 
-	static void welcome(){
-		AllText.mainScreen();
+	void welcome(){
+		super.mainScreen();
 		System.out.print("이름을 입력하세요 > ");
 	}
-	static void bye(String name){
+	void bye(String name){
 		System.out.printf("[%s] 님 이용해 주셔서 감사합니다. 아직 세이브 기능은 제공하지 않습니다.",name);
 	}
-	static void wrong(){
+	void wrong(){
 		System.out.print(">잘못된 명령어입니다. 다시 입력해주세요\n>");
 	}
 
-	static void status(Player player){
+	void status(Player player){
 		int expPercent = (int)((float)player.exp/player.exp_max*10);
 		int hpPercent = (int)((float)player.hp/player.hp_max*10);
-		AllText.printBar(); AllText.printEnter();
+		super.printBar(); super.printEnter();
 		System.out.print("■   ʕʘ̅͜ʘ̅ʔ          ■ XP ");System.out.printf("%3d/%3d      ",player.exp,player.exp_max);
 		for(int i=0; i<10; i++){
 			if(expPercent>i) System.out.print("●");
@@ -49,25 +61,25 @@ public class AllText_KOR {
 		System.out.printf("■ [Lv %d %-8s] gold : %3dg",player.lv,player.name,player.gold);
 		if(player.bonusStats>0)
 			System.out.printf("\t[ + points : %d ]",player.bonusStats);
-		AllText.printEnter();
-		AllText.printEnter();
+		super.printEnter();
+		super.printEnter();
 		System.out.print("(0)메뉴로 돌아가기 (1)장비 교체 (2)인벤토리 ");
 		if(player.bonusStats>0)
 			System.out.printf(" (3)잔여 보너스 스탯 사용");
-		AllText.printEnter(); AllText.printBar();
+		super.printEnter(); super.printBar();
 		System.out.print(">");
 	}
 
-	static void welcomePlayer(Player player){
+	void welcomePlayer(Player player){
 		System.out.println("DDIT에 오신것을 환영합니다 ["+player.name+"] 님. 잠시만 기다려주세요 ");
 	}
-	static void loadingComplete(){
+	void loadingComplete(){
 		System.out.println("\n■■■■■■■■■■■■■■■■  로딩이 완료되었습니다     ■■■■■■■■■■■■■■■■■");
 	}
-	static void alreadyFull(){
+	void alreadyFull(){
 		System.out.println("[무료] 당신의 체력은 이미 가득 찼습니다.");
 	}
-	static void recover(int price){
+	void recover(int price){
 		System.out.printf("[-%d gold] 체력을 회복중입니다 ",price);
 		for(int i=0; i<5; i++){
 			System.out.print(".");
@@ -76,113 +88,113 @@ public class AllText_KOR {
 		System.out.println("체력이 가득 찼습니다!");
 
 	}
-	static void fieldlist(){
-		AllText.printBar(); AllText.printEnter();
+	void fieldlist(){
+		super.printBar(); super.printEnter();
 		System.out.println(  "  💪참여하고자 하는 사냥터를 고르세요 . 숫자를 입력해주세요💪 ");
 		System.out.println(  "■■■ (1) 초급자 1 [ 레벨 1 몬스터만 출몰합니다.] ");
 		System.out.println(  "■■■ (2) 초급자 2 [ 레벨 1 ~ 2 몬스터가 출몰합니다.]");
 		System.out.println(  "■■■ (3) 초급자 3 [ 레벨 2 ~ 3 몬스터가 출몰합니다.]");
 		System.out.println(  "■■■ (0) 메뉴로 돌아가기 ");
-		AllText.printEnter();AllText.printBar();
+		super.printEnter();super.printBar();
 		System.out.printf(">");
 	}
-	static void levelup(int level){
+	void levelup(int level){
 		System.out.printf(" 레벨업!! 축하합니다 레벨 [%d] 이(가) 되었습니다.\n",level);
 	}
 
-	static void menu(){
-		AllText.printBar(); AllText.printEnter(); AllText.printEnter();
+	void menu(){
+		super.printBar(); super.printEnter(); super.printEnter();
 		System.out.println(  "■■■　　　　　　|　　　　　　|　　　　　　|　　　　　　|　　　　　　■■■■");
 		System.out.println(  "■■■  캐릭터　  |　　사냥터　|   병원　   |   상점　   |   종료　   ■■■■");
 		System.out.println(  "■■■　　(1)　   |   (2)  |   (3)  |   (4)  |   (5)  ■■■■");
-		AllText.printEnter();  AllText.printEnter();AllText.printBar(); 
+		super.printEnter();  super.printEnter();super.printBar(); 
 		System.out.print(  "> ");
 	}
 
 
-	static void pressAny(){
+	void pressAny(){
 		System.out.print("계속 하려면 엔터키를 눌러주세요 ..");
 		GameSystem.nextLine();
 	}
 
-	static void playerAttack(Player player, Monster monster,int damage){
-		AllText.fightScreen(player,monster);
+	void playerAttack(Player player, Monster monster,int damage){
+		super.fightScreen(player,monster);
 		System.out.printf("[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",player.name,monster.name,damage);
 		System.out.printf("%s의 남은 HP : %d\n",monster.name,monster.hp);
 	}
-	static void monsterAttack(Monster monster,Player player,int damage){
-		AllText.fightScreen(player,monster);
+	void monsterAttack(Monster monster,Player player,int damage){
+		super.fightScreen(player,monster);
 		System.out.printf("[%s]이(가) 공격으로 [%s]에게 %d 만큼 데미지를 주어었습니다.\n",monster.name,player.name,damage);
 		System.out.printf("%s의 남은 HP : %d\n",player.name,player.hp);
 	}
 
-	static void fightStart(Player player,Monster monster){
+	void fightStart(Player player,Monster monster){
 		System.out.printf("야생의 %d레벨  %s을(를) 만났습니다. \n",monster.lv,monster.name);
 		System.out.printf("%s 가 [%s]을(를) 향해 달려듭니다. \n",monster.name,player.name);
 	}
 
-	static void killed(String str){
+	void killed(String str){
 		System.out.printf("[%s]을 처치하였습니다. ",str);
 	}
 
-	static void getGold(int gold,int playerGold){
+	void getGold(int gold,int playerGold){
 		System.out.printf("[%d] 의 골드를 획득하였습니다. \n",gold,playerGold);
 	}
-	static void expGet(int exp,int expMax,int playerExp){
+	void expGet(int exp,int expMax,int playerExp){
 		System.out.printf("[%d] 의 경험치를 획득하였습니다.(EXP %d/%d) \n",exp,playerExp,expMax);
 	}
 
 
-	static void PlayerDie(String player,int gold, int hp, int hpMax,int goldRemain){
+	void PlayerDie(String player,int gold, int hp, int hpMax,int goldRemain){
 		System.out.printf("[%s]이(가) 사망했습니다.\n",player);
 		System.out.printf("%d 의 골드를 잃고 부활했습니다. 현재체력 %d/%d 잔여골드 %d.\n",gold,hp,hpMax,goldRemain);
 	}
 
-	static void notEnoughMoney(int price,int gold){
+	void notEnoughMoney(int price,int gold){
 		System.out.printf(" [%d gold] 가 필요합니다. 잔액이 충분하지 않습니다. [잔액 %d gold] \n",price,gold);
 	}
 
-	static void noBonusStats(){
+	void noBonusStats(){
 		System.out.print("보너스 스탯이 존재하지 않습니다.\n");
 	}
 
-	static void bonusText(Player player){
+	void bonusText(Player player){
 		System.out.printf("남은 보너스 스탯의 수 : [%d] 입니다. 올리고 싶은 스탯을 고르세요 HP(1) ATK(2) DEF(3) 이전화면으로(0)\n>",player.bonusStats);
 	}
-	static void hpUp(Player player){
+	void hpUp(Player player){
 		System.out.printf("체력이 올랐습니다!!! [%d] -> [%d]\n",player.hp_max,player.hp_max+player.BONUSHP);
 	}
-	static void atkUp(Player player){
+	void atkUp(Player player){
 		System.out.printf("공격력이 올랐습니다!!! [%d] -> [%d]\n",player.atk,player.atk+player.BONUSATK);
 	}
-	static void defUp(Player player){
+	void defUp(Player player){
 		System.out.printf("방어력이 올랐습니다!!! [%d] -> [%d]\n",player.def,player.def+player.BONUSDEF);
 	}
 
-	static void shopMenu(){
-		AllText.printBar();	AllText.printEnter(); AllText.printEnter();
+	void shopMenu(){
+		super.printBar();	super.printEnter(); super.printEnter();
 		System.out.println(  "■■■    ⛽  떠돌이 상인의 상점에 오신 것을 환영합니다 ⛽                    ■■■■■■■");
 		System.out.println(  "■■■    구매     |   판매     |  장비 강화   |   뒤로가기        ■■■■■■■");
 		System.out.println(  "■■■    (1)  |   (2)  |   (3)   |    (0)     ■■■■■■■");
-		AllText.printEnter();  AllText.printEnter();AllText.printBar();
+		super.printEnter();  super.printEnter();super.printBar();
 		System.out.print(  "> ");
 	}
 
-	static void buyItem(){
+	void buyItem(){
 		System.out.printf(  "1골드를 내고 [%s]을 사시겠습니까? (예(1), 아니오(2) )\n",itemNames[51]);
 
 	}
 
-	static void buySuccess(int price){
+	void buySuccess(int price){
 		System.out.printf("[%d] gold 를 지불하고 구매에 성공하였습니다.\n",price);
 
 	}
 
-	static void inventoryFull(){
+	void inventoryFull(){
 		System.out.println("인벤토리가 가득 찼습니다. 버릴 아이템 번호를 선택해주세요 (0 : 습득한 아이템 포기).\n>");
 	}
 
-	static void itemList(Player player){
+	void itemList(Player player){
 		for(int i=0; i<player.inventoryCount ; i++){
 			System.out.printf("[%d번 아이템 ] : %s %s  ",i+1,player.inventory[i].name,player.inventory[i].statsToString());
 			if(player.inventory[i].isEquipped)
@@ -195,11 +207,11 @@ public class AllText_KOR {
 
 	}
 
-	static void chooseEquip(){
+	void chooseEquip(){
 		System.out.print("착용하고 싶은 장비를 선택해주세요. (0) 돌아가기 (1~5) 아이템 선택 \n>");
 	}
 
-	static void equips(int equipcode,Item item){
+	void equips(int equipcode,Item item){
 		switch(equipcode){
 		case 0:	System.out.printf("　⛑ 헬멧 : ");	break;
 		case 1:	System.out.printf("　⚔ 무기 : ");	break;
@@ -212,15 +224,15 @@ public class AllText_KOR {
 		System.out.printf("%s %s\n",itemNames[item.itemcode],item.statsToString());
 	}
 
-	static void selectEquip(){
+	void selectEquip(){
 		System.out.println("            (5) ↑");
 		System.out.println("(0)이전 화면으로 (2) ↓  (ENTER)선택");
-		AllText.printBar();
+		super.printBar();
 		System.out.print(">");
 	}
 
-	static void showEquiplist(int equipSelect, Item[] list, Player player){
-		AllText.printBar();
+	void showEquiplist(int equipSelect, Item[] list, Player player){
+		super.printBar();
 		switch(equipSelect){
 		case 0:	System.out.print("⛑HELMET LIST⛑");	break;
 		case 1:	System.out.print("⚔SWORD LIST⚔");	break;
@@ -232,16 +244,16 @@ public class AllText_KOR {
 		for(int i=0; i<list.length; i++){
 			System.out.printf("%d. %s %s\n",i+1,list[i].name,list[i].statsToString());
 		}
-		AllText.printBar();
+		super.printBar();
 	}
 
-	static void getItem(Item item){
+	void getItem(Item item){
 		System.out.printf("[%s] 을(를) 획득하였습니다! ",item.name);
 	}
 
-	static void dumpItem(Item item){
+	void dumpItem(Item item){
 		System.out.printf("%s %s 을 버렸습니다.\n",item.name,item.statsToString());
 	}
-
+	
 
 }
