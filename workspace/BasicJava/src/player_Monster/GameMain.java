@@ -38,8 +38,5 @@ public class GameMain {
 				break;
 			}
 		}
-
 	}
-
-
 }
