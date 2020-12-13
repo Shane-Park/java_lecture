@@ -1,10 +1,11 @@
 package programmers;
+
 public class WaterMelon {
 	
 
 	public static void main(String[] args) {
 		
-		Watermelon sol = new Watermelon();
+		WatermelonSolution sol = new WatermelonSolution();
 		System.out.println(sol.solutionWater(3));
 
 	}
@@ -12,7 +13,7 @@ public class WaterMelon {
 
 
 }
-class Watermelon {
+class WatermelonSolution {
     public String solutionWater(int n) {
     	StringBuffer answerb = new StringBuffer("");
     	for( int i=0; i<n; i++){
