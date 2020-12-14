@@ -1,4 +1,8 @@
 package programmers;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  * 모의고사
 문제 설명
@@ -19,9 +23,10 @@ public class PeopleGaveupMath {
 
 	public static void main(String[] args) {
 		int[] arr = {1,3,2,4,2};
+		int[] arr2 = {1,2,3,4,5};
 		SolutionGaveup c =new SolutionGaveup();
 		int[] n = c.solution(arr);
-		System.out.println(n);
+		System.out.println(Arrays.toString(n));
 	}
 }
 
@@ -30,23 +35,31 @@ class SolutionGaveup {
     	int answer1=0;
     	int answer2=0;
     	int answer3=0;
+    	int[] array1 = {1,2,3,4,5};
+    	int[] array2 = {2,1,2,3,2,4,2,5};
+    	int[] array3 = {3,3,1,1,2,2,4,4,5,5};
     	
     	for(int i=0; i<answers.length; i++){
-    		if(answers[i] == i%5+1)
+    		if(answers[i] == array1[i%array1.length] )
     			answer1++;
-    		if( (answers[i] == 2 && i%2==0) || ((i%8)/2==0 && answers[i]==1 && i%2!=0 ) || ( (1<= (i%8)/2 && (i%8)/2 <=3 ) && answers[i]==(i%8)/2+2) && i%2!=0 )
+    		if(answers[i] == array2[i%array2.length])  		
     			answer2++;
-    		if( ((i%10 ==0 || i%10==1) && answers[i]==3) || ((i%10 ==2 || i%10==3) && answers[i]==1)) || ((i%10 ==4 || i%10==5) && answers[i]==2)) || ((i%10 ==6 || i%10==7) && answers[i]==4)) || ((i%10 ==8 || i%10==9) && answers[i]==5)) )
+    		if(answers[i] == array3[i%array3.length])  		
     			answer3++;
- 
-    			
     	}
-    	System.out.println(answer1);
-    	System.out.println(answer2);
+ 
+    	ArrayList<Integer> list = new ArrayList<>();
+    	if (answer1 >= answer2 && answer1 >= answer3)
+    		list.add(1);
+    	if (answer2 >= answer1 && answer2 >= answer3)
+    		list.add(2);
+    	if (answer3 >= answer1 && answer3 >= answer2)
+    		list.add(3);
     	
-    	
-    	
-        int[] answer = {};
+    	int[] answer = new int[list.size()];
+    	for(int i=0; i<list.size(); i++)
+    		answer[i] = list.get(i);
+        
         return answer;
     }
 }
