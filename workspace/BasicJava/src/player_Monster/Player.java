@@ -157,8 +157,9 @@ public class Player{
 		}else{
 			if(i!=0){	// check duplicated items only when player have any item
 				for(int j=0; j<inventoryCount; j++){
-					if(inventory[j].itemcode==itemcode){
-						inventory[j].amount++;
+					if(inventory[j].getItemcode()==itemcode){
+						inventory[j]
+								.setAmount(inventory[j].getAmount() + 1);
 						return;
 					}
 				}
@@ -166,7 +167,7 @@ public class Player{
 
 			inventory[i] = new Item(itemcode,0,0,0); //(int itemcode,int att, int hp, int def)
 			inventoryCount++;
-			inventory[i].amount++;
+			inventory[i].setAmount(inventory[i].getAmount() + 1);
 		}
 	}
 
@@ -216,7 +217,7 @@ public class Player{
 		int count=0;
 		int[] rememberInventory = new int[showlists];
 		for(int i=0; i<inventoryCount; i++){
-			if((inventory[i].itemcode-1)/10==equipSelect && !inventory[i].isEquipped){
+			if((inventory[i].getItemcode()-1)/10==equipSelect && !inventory[i].isEquipped()){
 				equipList[count] = inventory[i];
 				rememberInventory[count] = i;
 				count++;
@@ -251,21 +252,21 @@ public class Player{
 	
 	void equipItem(int part, Item item){ 	/* 0HELMET / 1SWORD / 2ARMOR / 3SHIELD / 4BOOTS */
 		if(equips[part] != defaultItem){		// ONLY WHEN [PART] IS EQUIPPED 
-			equips[part].isEquipped = false;
-			hp_bonus -= item.hp;                 //
-			hp_max -= item.hp;                   //
-			if(hp>item.hp)                       // take equipment off
-				hp-=item.hp;                     //
-			atk_bonus -= item.att;               //
-			def_bonus -= item.def;               //
+			equips[part].setEquipped(false);
+			hp_bonus -= item.getHp();                 //
+			hp_max -= item.getHp();                   //
+			if(hp>item.getHp())                       // take equipment off
+				hp-=item.getHp();                     //
+			atk_bonus -= item.getAtt();               //
+			def_bonus -= item.getDef();               //
 		}                                        //
 		if(item != defaultItem){
-			item.isEquipped = true;
-			hp_bonus += item.hp;
-			hp_max += item.hp;
-			hp += item.hp;
-			atk_bonus += item.att;
-			def_bonus += item.def;
+			item.setEquipped(true);
+			hp_bonus += item.getHp();
+			hp_max += item.getHp();
+			hp += item.getHp();
+			atk_bonus += item.getAtt();
+			def_bonus += item.getDef();
 		}
 		equips[part] = item;
 		
@@ -308,7 +309,7 @@ public class Player{
 	
 	boolean haveItem(Item item){
 		for(int i=0; i<inventoryCount; i++){
-			if(inventory[i].itemcode == item.itemcode)
+			if(inventory[i].getItemcode() == item.getItemcode())
 				return true;
 		}
 		return false;

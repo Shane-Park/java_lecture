@@ -13,26 +13,26 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="]" key="selection"/>
+		<item value="subjects.get(i)" key="selection"/>
 		<list key="findhistory">
+			<item value="subjects[i]"/>
+			<item value="names[i]"/>
+			<item value="names.length"/>
+			<item value="subjects.length"/>
+			<item value="getitem"/>
 			<item value="]"/>
 			<item value="["/>
 			<item value="bye"/>
-			<item value="AllText()"/>
-			<item value="equipS"/>
-			<item value="equips"/>
-			<item value="헬멧"/>
-			<item value="착용중"/>
 		</list>
 		<list key="replacehistory">
+			<item value="subjects.get(i)"/>
+			<item value="names.get(i)"/>
+			<item value="names.size()"/>
+			<item value="subjects.size()"/>
 			<item value="}"/>
 			<item value="{"/>
 			<item value="AllText.printBar()"/>
 			<item value="def"/>
-			<item value="atk"/>
-			<item value="att"/>
-			<item value="gold"/>
-			<item value="System"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">

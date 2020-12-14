@@ -192,11 +192,11 @@ public class AllText_ENG extends AllText{
 
 	void itemList(Player player){
 		for(int i=0; i<player.inventoryCount ; i++){
-			System.out.printf("[no %d] : %s %s  ",i+1,player.inventory[i].name,player.inventory[i].statsToString());
-			if(player.inventory[i].isEquipped)
+			System.out.printf("[no %d] : %s %s  ",i+1,player.inventory[i].getName(),player.inventory[i].statsToString());
+			if(player.inventory[i].isEquipped())
 				System.out.printf("[Equipped]");
-			if(player.inventory[i].amount > 1)
-				System.out.printf(" (amount : %d)",player.inventory[i].amount);
+			if(player.inventory[i].getAmount() > 1)
+				System.out.printf(" (amount : %d)",player.inventory[i].getAmount());
 			System.out.printf("\n");
 		}
 		System.out.printf(" Numbers of your items is [%d]\n",player.inventoryCount);
@@ -227,7 +227,7 @@ public class AllText_ENG extends AllText{
 		default:	// it has to be unreachable but just in case
 			break;
 		}
-		System.out.printf("%s %s\n",itemNames[item.itemcode],item.statsToString());
+		System.out.printf("%s %s\n",itemNames[item.getItemcode()],item.statsToString());
 	}
 
 	void selectEquip(){
@@ -256,19 +256,19 @@ public class AllText_ENG extends AllText{
 			System.out.print("👟BOOTS LIST👟");
 			break;
 		}
-		System.out.printf("     Equipped : %s %s\n",player.equips[equipSelect].name,player.equips[equipSelect].statsToString());
+		System.out.printf("     Equipped : %s %s\n",player.equips[equipSelect].getName(),player.equips[equipSelect].statsToString());
 		for(int i=0; i<list.length; i++){
-			System.out.printf("%d. %s %s\n",i+1,list[i].name,list[i].statsToString());
+			System.out.printf("%d. %s %s\n",i+1,list[i].getName(),list[i].statsToString());
 		}
 		super.printBar();
 	}
 
 	void getItem(Item item){
-		System.out.printf("You got [%s] ! ",item.name);
+		System.out.printf("You got [%s] ! ",item.getName());
 	}
 
 	void dumpItem(Item item){
-		System.out.printf("You dumped %s %s \n",item.name,item.statsToString());
+		System.out.printf("You dumped %s %s \n",item.getName(),item.statsToString());
 	}
 
 

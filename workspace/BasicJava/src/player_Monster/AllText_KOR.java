@@ -196,11 +196,11 @@ public class AllText_KOR extends AllText{
 
 	void itemList(Player player){
 		for(int i=0; i<player.inventoryCount ; i++){
-			System.out.printf("[%d번 아이템 ] : %s %s  ",i+1,player.inventory[i].name,player.inventory[i].statsToString());
-			if(player.inventory[i].isEquipped)
+			System.out.printf("[%d번 아이템 ] : %s %s  ",i+1,player.inventory[i].getName(),player.inventory[i].statsToString());
+			if(player.inventory[i].isEquipped())
 				System.out.printf("[장착중]");
-			if(player.inventory[i].amount > 1)
-				System.out.printf(" (%d개)",player.inventory[i].amount);
+			if(player.inventory[i].getAmount() > 1)
+				System.out.printf(" (%d개)",player.inventory[i].getAmount());
 			System.out.printf("\n");
 		}
 		System.out.printf("보유중인 아이템은 총 [%d개] 입니다.\n",player.inventoryCount);
@@ -221,7 +221,7 @@ public class AllText_KOR extends AllText{
 		default:	// it has to be unreachable but just in case
 			break;
 		}
-		System.out.printf("%s %s\n",itemNames[item.itemcode],item.statsToString());
+		System.out.printf("%s %s\n",itemNames[item.getItemcode()],item.statsToString());
 	}
 
 	void selectEquip(){
@@ -240,19 +240,19 @@ public class AllText_KOR extends AllText{
 		case 3:	System.out.print("⛨SHIELD LIST⛨");	break;
 		case 4:	System.out.print("👟BOOTS LIST👟");	break;
 		}
-		System.out.printf("     장착중 : %s %s\n",player.equips[equipSelect].name,player.equips[equipSelect].statsToString());
+		System.out.printf("     장착중 : %s %s\n",player.equips[equipSelect].getName(),player.equips[equipSelect].statsToString());
 		for(int i=0; i<list.length; i++){
-			System.out.printf("%d. %s %s\n",i+1,list[i].name,list[i].statsToString());
+			System.out.printf("%d. %s %s\n",i+1,list[i].getName(),list[i].statsToString());
 		}
 		super.printBar();
 	}
 
 	void getItem(Item item){
-		System.out.printf("[%s] 을(를) 획득하였습니다! ",item.name);
+		System.out.printf("[%s] 을(를) 획득하였습니다! ",item.getName());
 	}
 
 	void dumpItem(Item item){
-		System.out.printf("%s %s 을 버렸습니다.\n",item.name,item.statsToString());
+		System.out.printf("%s %s 을 버렸습니다.\n",item.getName(),item.statsToString());
 	}
 	
 
