@@ -53,7 +53,6 @@ public class I_Board {
 
 				break;
 			case "0":
-				System.out.println("[프로그램 종료 완료]");
 				break main;
 			default :
 				System.out.println("잘못 입력하셨습니다. 다시 입력해주세요\n>");
