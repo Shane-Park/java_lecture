@@ -28,8 +28,8 @@ public class Sportwear {
 	public static void main(String[] args) {
 		SportsSolution ss = new SportsSolution();
 		int n= 5;
-		int[] lost = {2,4};
-		int[] reserve = {1,3,5};
+		int[] lost = {2,3};
+		int[] reserve = {3,4};
 		System.out.println(ss.solution(n, lost, reserve));
 
 	}
@@ -37,31 +37,44 @@ public class Sportwear {
 }
 class SportsSolution {
     public int solution(int n, int[] lost, int[] reserve) {
+    	for(int i=0; i<lost.length; i++){
+    		for(int j=0; j<reserve.length; j++){
+    			if(lost[i]==reserve[j]){
+    				lost[i]=0;
+    				reserve[j]=0;
+    				break;
+    			}
+    		}
+    	}
+    	
     	int[] arr = new int[n];
     	for(int i=0; i<lost.length; i++){
-    		arr[lost[i]-1]--;
+    		if(lost[i]!=0)
+    			arr[lost[i]-1]--;
     	}
     	for(int i=0; i<reserve.length; i++){
-    		if(reserve[i]-1!=0 && arr[reserve[i]-2] == -1){
-    			arr[reserve[i]-1]=0;
-    			break;
+    		if(reserve[i]==0)
+    			continue;
+    		if(reserve[i]!=1 && arr[reserve[i]-2] == -1){
+    			arr[reserve[i]-2]++;
+    			continue;
     		}
     		if(arr[reserve[i]-1] == -1){
-    			arr[reserve[i]-1]=0;
-    			break;
+    			arr[reserve[i]-1]++;
+    			continue;
     		}
     		if(reserve[i]!=n && arr[reserve[i]] == -1){
-    			arr[reserve[i]-1]=0;
-    			break;
+    			arr[reserve[i]]++;
+    			continue;
     		}
+    		arr[reserve[i]-1]++;
     	}
+    	
     	int answer = 0;
       for(int i=0; i<arr.length; i++){
-    	  if(arr[i] == 0)
+    	  if(arr[i] >= 0)
     		  answer++;
       }
-        
-        
         
         
         return answer;
