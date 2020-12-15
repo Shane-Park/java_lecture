@@ -107,7 +107,7 @@ public class ArrayListClass {
 		
 		ArrayList<ArrayList<Integer>> list2 = new ArrayList<>();
 		
-		ArrayList<Integer> _list = new ArrayList();
+		ArrayList<Integer> _list = new ArrayList<>();
 		_list.add(10);
 		_list.add(20);
 		_list.add(30);
