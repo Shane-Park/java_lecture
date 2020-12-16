@@ -3,36 +3,36 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="261" key="DIALOG_WIDTH"/>
 		<item value="247" key="DIALOG_Y_ORIGIN"/>
-		<item value="402" key="DIALOG_HEIGHT"/>
 		<item value="1328" key="DIALOG_X_ORIGIN"/>
+		<item value="402" key="DIALOG_HEIGHT"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="try" key="selection"/>
+		<item value="다음" key="selection"/>
 		<list key="findhistory">
-			<item value="try"/>
-			<item value="해당하는 글"/>
-			<item value="조호"/>
-			<item value="page"/>
-			<item value="글 삭제"/>
-			<item value="new sca"/>
-			<item value="sc.nextLine"/>
-			<item value="sc"/>
+			<item value="다음"/>
+			<item value="this.printBar()"/>
+			<item value="this.printBar;"/>
+			<item value="System.out.println(&quot;=============================================&quot;);"/>
+			<item value="continue"/>
+			<item value="(list.size()-1)/I_Board.PER_PAGE+1"/>
+			<item value="(list.size()-1)/I_Board.PER_PAGE"/>
+			<item value="total"/>
 		</list>
 		<list key="replacehistory">
+			<item value="this.printBar();"/>
+			<item value="this.printBar()"/>
+			<item value="this.printBar;"/>
+			<item value="totalPage"/>
 			<item value="Board.sc.nextLine"/>
 			<item value="Board.sc"/>
 			<item value="subjects.get(i)"/>
 			<item value="names.get(i)"/>
-			<item value="names.size()"/>
-			<item value="subjects.size()"/>
-			<item value="}"/>
-			<item value="{"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
