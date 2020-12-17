@@ -2,12 +2,15 @@ import java.util.Arrays;
 
 
 public class Testing {
+	static int a = 1;
 
 	public static void main(String[] args) {
-		int temp[] = { 0, 5, 3, 1};
-		Arrays.sort(temp);
-		System.out.println(Arrays.toString(temp));
-
+		
+		Test test = new Test();
+		System.out.println(Testing.a);
+		a++;
+		System.out.println(test.test());
+		System.out.println(Testing.a);
 
 	}
 
@@ -15,8 +18,11 @@ public class Testing {
 
 }
 
-class test{
-	test(){}
+class Test{
+	int test(){
+		Testing.a ++;
+		return Testing.a;
+	}
 
 }
 

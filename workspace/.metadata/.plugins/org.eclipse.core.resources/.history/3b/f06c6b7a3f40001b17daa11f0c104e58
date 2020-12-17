@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+
+public class Testing {
+	static int a = 1;
+
+	public static void main(String[] args) {
+		
+		Test test = new Test();
+		System.out.println(test.test());
+		System.out.println(.a);
+
+	}
+
+
+
+}
+
+class Test{
+	int test(){
+		Testing.a ++;
+		return Testing.a;
+	}
+
+}
+
+
+
+
+
+
