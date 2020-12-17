@@ -178,7 +178,6 @@ class Jmethod{
 	
 	public void editPost(int board_no){
 		System.out.print("수정할 제목을 입력해주세요.\n>");
-		
 		System.out.print("수정할 내용을 입력해주세요.\n>");		
 	}
 	public void deletePost(int board_no){

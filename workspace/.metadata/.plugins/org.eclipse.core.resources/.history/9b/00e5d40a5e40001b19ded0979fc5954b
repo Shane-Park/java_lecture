@@ -183,6 +183,7 @@ class Jmethod{
 	}
 	public void deletePost(int board_no){
 		PreparedStatement ps = null;
+		ResultSet rs = null;
 		String sql = "delete from tb_jdbc_board where board_no = ?";
 		try {
 			ps = J_JDBCBoard.con.prepareStatement(sql);

@@ -177,20 +177,13 @@ class Jmethod{
 	}
 	
 	public void editPost(int board_no){
-		System.out.print("수정할 제목을 입력해주세요.\n>");
-		
-		System.out.print("수정할 내용을 입력해주세요.\n>");		
 	}
 	public void deletePost(int board_no){
 		PreparedStatement ps = null;
+		ResultSet rs = null;
 		String sql = "delete from tb_jdbc_board where board_no = ?";
-		try {
-			ps = J_JDBCBoard.con.prepareStatement(sql);
-			ps.setInt(1, board_no);
-			ps.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		ps.setInt(1, board_no);
+		ps.executeUpdate();
 	}
 
 	public void register(){
@@ -203,6 +196,11 @@ class Jmethod{
 		//		System.out.printf("[%s]을(를) 성공적으로 등록했습니다. 계속 하려면 [Enter]키를 눌러주세요..",post.get("title"));	I_Board.sc.nextLine();
 	}
 
+	public void edit(int n,ArrayList<HashMap<String,String>> list){
+		//		HashMap<String,String> table = list.get(n-1);
+		//		System.out.print("수정할 제목을 입력해주세요.\n>");		table.put("title",I_Board.sc.nextLine());
+		//		System.out.print("수정할 내용을 입력해주세요.\n>");		table.put("contents",I_Board.sc.nextLine());
+	}
 
 	public void mainMenu(int page,int totalPage){
 		System.out.print("(1)조회 (2)등록 ");

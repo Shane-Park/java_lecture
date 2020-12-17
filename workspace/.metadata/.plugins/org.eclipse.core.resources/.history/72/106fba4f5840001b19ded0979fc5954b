@@ -36,7 +36,7 @@ public class J_JDBCBoard {
 				int totalSize = methods.getTotalSize();
 				int totalPage = (totalSize-1)/I_Board.PER_PAGE+1;
 
-				methods.printBoard(page,totalPage,totalSize);
+				methods.printBoard(page,totalPage);
 				methods.mainMenu(page,totalPage);
 
 				switch(I_Board.sc.nextLine()){
@@ -97,7 +97,7 @@ class Jmethod{
 
 	}
 
-	public void printBoard(int page, int totalPage,int totalSize){
+	public void printBoard(int page, int totalPage){
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		this.printBar();
@@ -107,10 +107,8 @@ class Jmethod{
 		String sql = "select * from tb_jdbc_board where board_no between ? and ? order by board_no desc";
 		try {
 			ps = J_JDBCBoard.con.prepareStatement(sql);
-			int startPost = totalSize-page*I_Board.PER_PAGE+1;
-			if(page == totalPage){
-				startPost = 1;
-			}
+			int startPost = (page-1)*I_Board.PER_PAGE+1;
+			if(page == totalPage) startPost = 1;
 			ps.setInt(1, startPost);
 			ps.setInt(2, startPost+I_Board.PER_PAGE-1);
 
@@ -159,38 +157,20 @@ class Jmethod{
 			this.printBar();
 			System.out.print("(1)뒤로가기 (2)편집 (3) 글 삭제\n>");
 			
-			switch(J_JDBCBoard.sc.nextLine()){
-			case "1":
-				break;
-			case "2":
-				editPost(rs.getInt("board_no"));
-				break;
-			case "3":
-				deletePost(rs.getInt("board_no"));
-				break;
-			default:
-				break;
-			}
-		} catch (SQLException e) {
-			System.out.print("해당하는 글 번호가 없습니다.\n");
-		}
-	}
-	
-	public void editPost(int board_no){
-		System.out.print("수정할 제목을 입력해주세요.\n>");
-		
-		System.out.print("수정할 내용을 입력해주세요.\n>");		
-	}
-	public void deletePost(int board_no){
-		PreparedStatement ps = null;
-		String sql = "delete from tb_jdbc_board where board_no = ?";
-		try {
-			ps = J_JDBCBoard.con.prepareStatement(sql);
-			ps.setInt(1, board_no);
-			ps.executeUpdate();
+			J_JDBCBoard.sc.nextLine();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		//				System.out.print("해당하는 글 번호가 없습니다.\n");
+		//			}
+		//			switch(I_Board.sc.nextLine()){
+		//			case "1":												break;
+		//			case "2":	this.edit(select,list);						break;
+		//			case "3":	list.remove(select-1);						break;
+		//			default:	System.out.println("올바르지 않은 입력입니다.");		break;
+		//			}
+
+
 	}
 
 	public void register(){
@@ -203,6 +183,11 @@ class Jmethod{
 		//		System.out.printf("[%s]을(를) 성공적으로 등록했습니다. 계속 하려면 [Enter]키를 눌러주세요..",post.get("title"));	I_Board.sc.nextLine();
 	}
 
+	public void edit(int n,ArrayList<HashMap<String,String>> list){
+		//		HashMap<String,String> table = list.get(n-1);
+		//		System.out.print("수정할 제목을 입력해주세요.\n>");		table.put("title",I_Board.sc.nextLine());
+		//		System.out.print("수정할 내용을 입력해주세요.\n>");		table.put("contents",I_Board.sc.nextLine());
+	}
 
 	public void mainMenu(int page,int totalPage){
 		System.out.print("(1)조회 (2)등록 ");
