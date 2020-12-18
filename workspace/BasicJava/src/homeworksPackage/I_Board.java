@@ -39,7 +39,10 @@ public class I_Board {
 			
 			switch(I_Board.sc.nextLine()){
 			case "1":
-				methods.contents(list);	// 버그존재. 삭제되는 페이지에 머물렀다가 페이지 삭제시 무한히 다음 페이지로 넘어갈 수 있음 need to be fixed
+				int temp = totalPage;
+				methods.contents(list);	
+				if( temp !=(list.size()-1)/I_Board.PER_PAGE+1 )	// if total page changed, page--
+					page--;
 				break;
 			case "2":
 				methods.register(list);

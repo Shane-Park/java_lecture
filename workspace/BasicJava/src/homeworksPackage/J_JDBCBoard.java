@@ -143,8 +143,7 @@ class Jmethod{
 		ResultSet rs = null;
 		System.out.print("조회할 글 번호 입력 > ");
 		int select = Integer.parseInt(I_Board.sc.nextLine());
-		this.printBar();
-		System.out.println(" 번호	제목		작성자	작성일");
+
 		printBar();
 
 		String sql = "select * from tb_jdbc_board where board_no = ?";
@@ -222,26 +221,27 @@ class Jmethod{
 		}
 	}
 
-	public void register(){	// need to be filled
+	public void register(){	
 		HashMap<String,String> post = new HashMap<>();
 		System.out.print("작성할 글 제목을 써주세요 : ");			post.put("title",I_Board.sc.nextLine());
 		System.out.print("작성할 글 내용을 써주세요 : ");			post.put("contents",I_Board.sc.nextLine());
 		System.out.print("작성자 이름을 써주세요 : ");			post.put("writer",I_Board.sc.nextLine());
-		System.out.print("작성 일자를 써주세요(MM/DD) : ");		post.put("date",I_Board.sc.nextLine());
 		PreparedStatement ps = null;
 
-		int number = newNum();
-		String sql = "insert into TB_JDBC_BOARD values(?,?,?,?,sysdate);";
+		String sql = "insert into TB_JDBC_BOARD values(?,?,?,?,sysdate)";
 		try {
 			ps = J_JDBCBoard.con.prepareStatement(sql);
-
+			ps.setInt(1, newNum());
+			ps.setString(2,post.get("title"));
+			ps.setString(3,post.get("contents"));
+			ps.setString(4,post.get("writer"));
+			ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		System.out.printf("[%s]을(를) 성공적으로 등록했습니다. 계속 하려면 [Enter]키를 눌러주세요..",post.get("title"));	I_Board.sc.nextLine();
 	}
-	public int newNum(){	// complete
+	public int newNum(){	
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "select nvl(max(board_no),0)+1 from tb_jdbc_board";
