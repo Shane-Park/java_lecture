@@ -1,0 +1,25 @@
+package programmers;
+
+import java.util.Arrays;
+
+public class SortStringDesc {
+
+	public static void main(String[] args) {
+		System.out.println(new SSDSolution().solution("Zbcdefg"));
+
+	}
+
+}
+
+class SSDSolution {
+    public String solution(String s) {
+        char[] array = s.toCharArray();
+        Arrays.sort(array, 0, array.length);
+        System.out.println(array);
+        
+        String str="";
+                
+        return str;
+        
+    }
+}
