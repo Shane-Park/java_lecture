@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+<libraryInfo home="C:\shane\B_Util\2.Java\JDK1.7\jre" version="1.7.0_80">
+<bootpath>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\resources.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\rt.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\sunrsasign.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\jsse.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\jce.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\charsets.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\jfr.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
 <libraryInfo home="D:\B_Util\2.Java\JDK1.7" version="1.7.0_80">
 <bootpath>
 <entry path="D:\B_Util\2.Java\JDK1.7\jre\lib\resources.jar"/>
@@ -17,6 +36,25 @@
 </extensionDirs>
 <endorsedDirs>
 <entry path="D:\B_Util\2.Java\JDK1.7\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\shane\B_Util\2.Java\JDK1.7" version="1.7.0_80">
+<bootpath>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\resources.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\rt.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\sunrsasign.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\jsse.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\jce.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\charsets.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\jfr.jar"/>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\ext"/>
+<entry path="C:\Windows\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\shane\B_Util\2.Java\JDK1.7\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
 </libraryInfos>

@@ -136,7 +136,7 @@ class Method{
 		int startPost = totalSize-page*J_BoardWithUtil.PER_PAGE+1;
 		if(page == totalPage) startPost = 1;
 
-		String sql = "select a.rn, a.* "
+		String sql = "select a.* "
 					 + "from (select rownum rn, tb_jdbc_board.* "
 					 		 + "from tb_jdbc_board "
 					 	  +"order by board_no) a "
