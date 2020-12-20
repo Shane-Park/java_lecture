@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class J_BoardWithUtil {
-	static int PER_PAGE = 4;	// numbers of contents on a page
+	static final int PER_PAGE = 4;	// numbers of contents on a page
 	static Scanner sc = new Scanner(System.in);
 	static JDBCUtil jdbc = JDBCUtil.getInstance();
 
@@ -130,9 +130,9 @@ class Method{
 	}
 	
 	public void printBoard(int page, int totalSize, int totalPage){
-		this.printBar();
+		printBar();
 		System.out.println(" 번호	제목		작성자	작성일");
-		this.printBar();
+		printBar();
 		int startPost = totalSize-page*J_BoardWithUtil.PER_PAGE+1;
 		if(page == totalPage) startPost = 1;
 
