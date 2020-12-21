@@ -1,0 +1,27 @@
+package dao;
+
+import service.UserService;
+import util.JDBCUtil;
+
+public class UserDao {
+	
+	private static UserDao instance;
+	private UserDao(){}
+	public static UserDao getInstance(){
+		if(instance == null){
+			instance = new UserDao();
+		}
+		return instance;
+	}
+	
+	private JDBCUtil jdbc = JDBCUtil.getInstance();
+	
+	public int insertUser(Map<String, Object> Param){
+		String sql = "INSERT INTO TB_JDBC_USER VALUES (?,?,?)";
+		
+		List<Object> p = new ArrayList<>();
+		
+	}
+	
+
+}

@@ -1,0 +1,14 @@
+package service;
+
+public class BoardService {
+	
+	private static UserService instance;
+	private BoardService(){}
+	public static UserService getInstance(){
+		if(instance == null){
+			instance = new UserService();
+		}
+		return instance;
+	}
+
+}

@@ -1,0 +1,32 @@
+package service;
+
+import util.ScanUtil;
+
+public class UserService {
+	
+	private static UserService instance;
+	private UserService(){}
+	public static UserService getInstance(){
+		if(instance == null){
+			instance = new UserService();
+		}
+		return instance;
+	}
+	
+	//회원가입
+	public int join(){
+		System.out.println("=============== 회원가입 ==============");
+		System.out.println("아이디 >");
+		String userId = ScanUtil.nextLine();
+		System.out.println("비밀번호 >");
+		String password = ScanUtil.nextLine();
+		System.out.println("이름 >");
+		String userName = ScanUtil.nextLine();
+		
+		// 아이디 중복 확인 
+		// 비밀번호 다시입력 확인
+		// 정규표현식 (유효성 검사)
+	}
+
+}
+

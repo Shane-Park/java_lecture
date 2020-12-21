@@ -1,0 +1,19 @@
+package service;
+
+public class UserService {
+	
+	private static UserService instance;
+	private UserService(){}
+	public static UserService getInstance(){
+		if(instance == null){
+			instance = new UserService();
+		}
+		return instance;
+	}
+
+}
+
+//회원가입
+public int join(){
+	
+}
