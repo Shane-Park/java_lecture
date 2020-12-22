@@ -1,0 +1,6 @@
+git branch -d [branchName]
+
+in case of error:
+
+git checkout master
+-> and then do upper one

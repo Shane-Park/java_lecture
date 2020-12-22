@@ -1,0 +1,39 @@
+package controller;
+
+//import service.UserService;
+//import util.ScanUtil;
+//import util.View;
+
+public class Controller {
+
+	public static void main(String[] args) {// main method는 자유롭게 테스팅용으로 사용하세요
+		System.out.println("Hello world.");
+	}
+	
+	private UserService userService = UserService.getInstance();
+	
+	private void start(){	//작성 필요
+		int view = View.MAIN;
+		
+		while(true){
+			switch(view){
+			case View.MAIN: view=menu(); break;
+			case View.SIGNIN: view= userService.signIn();break;
+			case View.SIGNUP: view=userService.signUp(); break;
+				
+			}
+		}
+		
+	}
+	
+
+	private int menu(){	//작성 필요
+		
+		int input = ScanUtil.nextInt();
+		
+		switch(input){
+		}
+		return View.MAIN;
+	}
+
+}

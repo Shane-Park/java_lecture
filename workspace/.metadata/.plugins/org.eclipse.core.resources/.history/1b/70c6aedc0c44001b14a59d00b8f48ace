@@ -1,0 +1,13 @@
+package controller;
+
+public class Testing {
+
+	public static void main(String[] args) {
+		System.out.println("-----------------------------------");
+		System.out.println("1.로그인\t2.회원가입\t0.프로그램 종료");
+		System.out.println("-----------------------------------");
+		System.out.println("번호 입력 >");
+
+	}
+
+}

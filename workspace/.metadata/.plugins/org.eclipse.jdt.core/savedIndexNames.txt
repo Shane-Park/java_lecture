@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.126+C:\shane\A_TeachingMaterial\1.BasicJava\workspace\.metadata\.plugins\org.eclipse.jdt.core
 2946717799.index
 2753092206.index
@@ -19,3 +20,9 @@ INDEX VERSION 1.126+C:\shane\A_TeachingMaterial\1.BasicJava\workspace\.metadata\
 2528005483.index
 2929092742.index
 4186032359.index
+=======
+INDEX VERSION 1.126+D:\A_TeachingMaterial\1.BasicJava\workspace\.metadata\.plugins\org.eclipse.jdt.core
+712673515.index
+3922062443.index
+2114095709.index
+>>>>>>> c14b217bb504301c472a9f390e4cda3b9013024d
