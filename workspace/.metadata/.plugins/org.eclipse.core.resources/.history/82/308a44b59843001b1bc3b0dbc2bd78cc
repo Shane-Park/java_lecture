@@ -1,0 +1,26 @@
+package dao;
+
+import java.util.Map;
+
+import util.JDBCUtil;
+
+public class UserDao {
+	
+	private static UserDao instance;
+	private UserDao(){}
+	private JDBCUtil jdbc = JDBCUtil.getInstance();
+	
+	public static UserDao getInstance(){
+		if(instance == null){
+			instance = new UserDao();
+		}
+		return instance;
+	}
+	
+	public int addUser(Map<String, Object> param){
+		
+		
+		return 0;
+	}
+
+}

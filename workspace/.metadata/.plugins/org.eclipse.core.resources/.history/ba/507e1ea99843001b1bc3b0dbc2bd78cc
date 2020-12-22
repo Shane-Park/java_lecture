@@ -1,0 +1,18 @@
+package dao;
+
+import util.JDBCUtil;
+
+public class UserDao {
+	
+	private static UserDao instance;
+	private UserDao(){}
+	private JDBCUtil jdbc = JDBCUtil.getInstance();
+	
+	public static UserDao getInstance(){
+		if(instance == null){
+			instance = new UserDao();
+		}
+		return instance;
+	}
+
+}

@@ -1,0 +1,47 @@
+package controller;
+
+import service.BoardService;
+import service.UserService;
+import util.ScanUtil;
+import util.View;
+
+public class Controller {
+
+	public static void main(String[] args) {
+		System.out.println("Hello world.");
+
+	}
+	
+	private UserService userService = UserService.getInstance();
+	
+	private void start(){
+		int view = View.MAIN;
+		
+		while(true){
+			switch(view){
+				
+			}
+		}
+		
+	}
+	
+	private int home(){
+		System.out.println("-----------------------------------");
+		System.out.println("1.로그인\t2.회원가입\t0.프로그램 종료");
+		System.out.println("-----------------------------------");
+		System.out.println("번호 입력 >");
+		
+		int input = ScanUtil.nextInt();
+		
+		switch(input){
+		case 1: return View.LOGIN;
+		case 2: return View.JOIN;
+		case 0:
+			System.out.println("프로그램이 종료되었습니다.");
+			System.exit(0);
+			break;
+		}
+		return View.HOME;
+	}
+
+}
