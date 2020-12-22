@@ -9,6 +9,7 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\PC-04\Desktop\jeje"/>
 			<item value="D:\shane\java_basic"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
@@ -23,5 +24,12 @@
 		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 		</list>
+	</section>
+	<section name="CleanDialogSettings">
+		<item value="500" key="DIALOG_WIDTH"/>
+		<item value="328" key="DIALOG_Y_ORIGIN"/>
+		<item value="710" key="DIALOG_X_ORIGIN"/>
+		<item value="378" key="DIALOG_HEIGHT"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>
