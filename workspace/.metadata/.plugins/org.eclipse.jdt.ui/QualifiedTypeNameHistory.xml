@@ -14,12 +14,12 @@
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="service.UserService"/>
-<fullyQualifiedTypeName name="util.JDBCUtil"/>
 <fullyQualifiedTypeName name="dao.BoardDao"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="javax.print.attribute.standard.MediaSize.Other"/>
-<fullyQualifiedTypeName name="util.ScanUtil"/>
 <fullyQualifiedTypeName name="controller.Controller"/>
 <fullyQualifiedTypeName name="util.View"/>
 <fullyQualifiedTypeName name="service.BoardService"/>
+<fullyQualifiedTypeName name="util.JDBCUtil"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="util.ScanUtil"/>
 </qualifiedTypeNameHistroy>

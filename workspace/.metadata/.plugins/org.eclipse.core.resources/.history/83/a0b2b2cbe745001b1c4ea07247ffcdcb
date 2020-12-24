@@ -1,0 +1,19 @@
+package controller;
+
+import java.util.List;
+import java.util.Map;
+
+import util.JDBCUtil;
+
+public class Test {
+
+	public static void main(String[] args) {
+		JDBCUtil jdbc = JDBCUtil.getInstance();
+		String sql = "select * from users where nickname=?";
+		List<Integer> p = new List<>();
+		Map<String, Object> result = jdbc.SelectOne(sql,p);
+		System.out.println(result.get("USER_ID"));
+
+	}
+
+}

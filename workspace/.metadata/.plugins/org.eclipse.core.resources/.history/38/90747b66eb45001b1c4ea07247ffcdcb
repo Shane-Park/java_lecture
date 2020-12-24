@@ -1,0 +1,49 @@
+package controller;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import util.JDBCUtil;
+import util.ScanUtil;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		JDBCUtil jdbc = JDBCUtil.getInstance();
+		String sql = "select * from users where nickname=?";
+		System.out.print("검색하고 싶은 닉네임을 쳐주세요");
+		String nick=ScanUtil.nextLine();
+		List<Object> p = new ArrayList<>();
+		p.add(nick);
+		Map<String, Object> result = jdbc.SelectOne(sql,p);
+		System.out.println(nick+"의 닉네임을 가진 아이디는 : "+result.get("USER_ID"));
+
+	}
+
+}

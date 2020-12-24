@@ -1,0 +1,17 @@
+package controller;
+
+import java.util.Map;
+
+import util.JDBCUtil;
+
+public class Test {
+
+	public static void main(String[] args) {
+		JDBCUtil jdbc = JDBCUtil.getInstance();
+		String sql = "select * from users where nickname='관리자'";
+		Map<String, Object> result = jdbc.SelectOne(sql);
+		System.out.println(result.get("USER_ID"));
+
+	}
+
+}
