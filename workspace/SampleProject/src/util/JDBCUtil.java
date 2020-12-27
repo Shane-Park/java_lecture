@@ -48,7 +48,7 @@ public class JDBCUtil {
 	 */
 
 	//////////////////////////////////////////////////////////////////	↓Method 1
-	public Map<String, Object> SelectOne(String sql){	
+	public Map<String, Object> selectOne(String sql){	
 		Map<String, Object> row = new HashMap<>();
 
 		try {
@@ -78,7 +78,7 @@ public class JDBCUtil {
 		return row;
 	}
 	//////////////////////////////////////////////////////////////////	↓Method 2	
-	public Map<String, Object> SelectOne(String sql,List<Object> param){	
+	public Map<String, Object> selectOne(String sql,List<Object> param){	
 		Map<String, Object> row = new HashMap<>();
 
 		try {

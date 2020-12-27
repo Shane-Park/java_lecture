@@ -22,4 +22,7 @@
 <fullyQualifiedTypeName name="util.JDBCUtil"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="util.ScanUtil"/>
+<fullyQualifiedTypeName name="util.Util"/>
+<fullyQualifiedTypeName name="util.PrintUtil"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
 </qualifiedTypeNameHistroy>

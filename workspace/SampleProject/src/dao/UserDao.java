@@ -40,7 +40,7 @@ public class UserDao {
 		param.add(userId);
 		param.add(password);
 		
-		return jdbc.SelectOne(sql, param);
+		return jdbc.selectOne(sql, param);
 	}
 	
 
