@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move package &apos;java_basic&apos; to &apos;BasicJava/src&apos;&#x0D;&#x0A;- Original project: &apos;java_basic&apos;&#x0D;&#x0A;- Destination element: &apos;BasicJava/src&apos;&#x0D;&#x0A;- Original element: &apos;java_basic/src/java_basic&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=BasicJava/src" element1="/src&lt;java_basic" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1606098645020" version="1.0"/>
-</session>
